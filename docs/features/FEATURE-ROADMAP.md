@@ -22,22 +22,55 @@
 
 ---
 
-### 🎯 Phase 2: Commerce Entry & Discovery
+### 🎯 Phase 2: Tech Stack & Site Architecture
 **Status**: 🎯 Next Priority  
 **Estimated Timeline**: Session #002
 
 #### 📋 Planned Features
 
-##### Navigation & Flow
-- [ ] **Commerce Entry Strategy**: Subtle navigation from brand story to shop
-- [ ] **Page Linking**: Interconnected navigation between sections
-- [ ] **Breadcrumb System**: Clear user location and navigation paths
+##### Technology Stack Decisions
+- [ ] **Framework Evaluation**: Continue pure HTML/CSS vs. introduce build tools
+- [ ] **State Management**: Cart persistence strategy (localStorage, sessionStorage, etc.)
+- [ ] **Image Optimization**: WebP implementation, lazy loading, responsive images
+- [ ] **Performance Strategy**: Critical CSS, resource optimization, Core Web Vitals
+
+##### Global Site Architecture
+- [ ] **Header/Footer Strategy**: Global navigation vs. page-specific approach
+- [ ] **Component System**: Reusable elements across pages
+- [ ] **URL Structure**: SEO-friendly routing and page organization
+- [ ] **Cross-Page Consistency**: Shared elements and styling patterns
+
+##### Commerce Infrastructure Planning
+- [ ] **Payment Integration**: Research and select payment processor
+- [ ] **Inventory System**: Product data structure and management
+- [ ] **User Flow Mapping**: Complete customer journey architecture
+- [ ] **Mobile-First Strategy**: Touch interactions and responsive commerce patterns
+
+#### 🎨 Design System Expansion
+- **Global Elements**: Header/footer treatment across all pages
+- **Navigation Patterns**: Consistent internal linking strategy
+- **Component Library**: Reusable UI elements for commerce pages
+- **Performance Optimization**: Technical foundation for smooth user experience
+
+---
+
+### 🎯 Phase 3: Lookbook & Visual Discovery
+**Status**: 🔮 Future  
+**Estimated Timeline**: Session #003
+
+#### 📋 Planned Features
 
 ##### Lookbook Development
-- [ ] **Visual Showcase**: Product photography presentation
+- [ ] **Visual Showcase**: Product photography presentation system
 - [ ] **Product Previews**: Hover states and interaction design
-- [ ] **Mobile Gallery**: Touch-friendly image browsing
+- [ ] **Mobile Gallery**: Touch-friendly image browsing experience
 - [ ] **Product Links**: Direct navigation to individual product pages
+
+##### Visual Experience
+- [ ] **Image Gallery**: High-quality product photography display
+- [ ] **Filtering Options**: Category and style filtering
+- [ ] **Social Sharing**: Instagram-style visual content sharing
+- [ ] **Performance**: Optimized image loading and lazy loading implementation
 
 #### 🎨 Design Considerations
 - **Brand-First Approach**: Discovery through story, not catalog
@@ -46,9 +79,9 @@
 
 ---
 
-### 🎯 Phase 3: Product Catalog & Discovery
+### 🎯 Phase 4: Product Catalog & Discovery
 **Status**: 🔮 Future  
-**Estimated Timeline**: Session #003-004
+**Estimated Timeline**: Session #004-005
 
 #### 📋 Planned Features
 
@@ -71,9 +104,9 @@
 
 ---
 
-### 🎯 Phase 4: Shopping Cart & User Flow
+### 🎯 Phase 5: Shopping Cart & User Flow
 **Status**: 🔮 Future  
-**Estimated Timeline**: Session #005-006
+**Estimated Timeline**: Session #006-007
 
 #### 📋 Planned Features
 
@@ -95,9 +128,9 @@
 
 ---
 
-### 🎯 Phase 5: Checkout & Payment
+### 🎯 Phase 6: Checkout & Payment
 **Status**: 🔮 Future  
-**Estimated Timeline**: Session #007-008
+**Estimated Timeline**: Session #008-009
 
 #### 📋 Planned Features
 
@@ -120,9 +153,9 @@
 
 ---
 
-### 🎯 Phase 6: Polish & Optimization
+### 🎯 Phase 7: Polish & Optimization
 **Status**: 🔮 Future  
-**Estimated Timeline**: Session #009-010
+**Estimated Timeline**: Session #010-011
 
 #### 📋 Planned Features
 
