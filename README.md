@@ -26,6 +26,7 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 📁 **[Documentation Guide](docs/README.md)** - How to use and contribute to documentation  
 📝 **[Development Notes](docs/DEVELOPMENT-NOTES.md)** - Process guidelines and standards  
 🖼️ **[Image Asset Management](images/README.md)** - Favicon, product photography, and asset guidelines  
+🚀 **[Building in Public](docs/building-in-public/)** - Journey documentation for blog posts, social media, and community  
 
 **Quick Start**: New contributors should read the [Development Overview](docs/DEVELOPMENT-OVERVIEW.md) first.
 
