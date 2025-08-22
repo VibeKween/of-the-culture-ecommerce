@@ -13,6 +13,17 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 - Mobile-optimized product and checkout processes
 - Page-by-page modular development approach
 
+## 📚 Complete Documentation
+
+**For detailed project information, development history, and contribution guidelines:**
+
+📖 **[Development Overview](docs/DEVELOPMENT-OVERVIEW.md)** - Complete project context and current status  
+🎯 **[Feature Roadmap](docs/features/FEATURE-ROADMAP.md)** - Development phases and priorities  
+📓 **[Session Archives](docs/sessions/)** - Detailed development session documentation  
+📁 **[Documentation Guide](docs/README.md)** - How to use and contribute to documentation  
+
+**Quick Start**: New contributors should read the [Development Overview](docs/DEVELOPMENT-OVERVIEW.md) first.
+
 ## Architecture
 
 ### Folder Structure
