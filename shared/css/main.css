@@ -1,0 +1,179 @@
+/* Ultra-Minimal Manifesto Style - OF THE CULTURE Ecommerce */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gold: #C19A4B;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1;
+}
+
+body {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 400;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.block {
+  margin-bottom: 80px;
+}
+
+.block:last-child {
+  margin-bottom: 40px;
+}
+
+/* Wordmark - SVG Image */
+.wordmark {
+  margin-bottom: 0;
+  height: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+.wordmark img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  transform: scale(1.7) translateY(-2px);
+  transform-origin: left top;
+}
+
+/* Body text */
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+}
+
+.block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Contact link */
+a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  border-bottom: 1px solid var(--color-black);
+  padding-bottom: 1px;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Footer */
+.footer {
+  margin-top: 120px;
+  opacity: 0.6;
+}
+
+.footer p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+/* Cultural concept headers */
+.cultural-header {
+  color: var(--color-gold);
+}
+
+/* Grosgrain Label Element */
+.grosgrain-text {
+  font-family: 'Lekton', sans-serif;
+  font-size: 0.9rem !important;
+  color: #000000;
+  background: repeating-linear-gradient(
+    90deg,
+    #eae6df 0%,
+    #eae6df 2px,
+    #f5f3ee 2px,
+    #f5f3ee 4px
+  );
+  background-size: 4px 100%;
+  background-blend-mode: multiply;
+  text-align: left;
+  padding: 10px 15px;
+  border-radius: 2px;
+  max-width: 100%;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.grosgrain-text span {
+  display: inline-block;
+  background: repeating-linear-gradient(
+    90deg,
+    #000000 0%,
+    #000000 2px,
+    rgba(0, 0, 0, 0.7) 2px,
+    rgba(0, 0, 0, 0.7) 4px
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .page {
+    padding: 30px 16px;
+  }
+  
+  .block {
+    margin-bottom: 60px;
+  }
+  
+  .wordmark img {
+    max-width: 85%;
+    transform: scale(1.5);
+  }
+  
+  .footer {
+    margin-top: 80px;
+  }
+
+  .grosgrain-text {
+    font-size: 0.8rem !important;
+    padding: 8px 12px;
+    line-height: 1.6;
+  }
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
