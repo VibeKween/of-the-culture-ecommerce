@@ -15,6 +15,13 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 - Mobile-optimized responsive design and performance
 - Page-by-page modular development approach
 
+**Technical Architecture**:
+- Pure HTML/CSS frontend with Shopify Basic backend
+- Web3-ready for wallet authentication and stablecoin payments (ETH/SOL)
+- API-extensible design supporting unlimited third-party integrations
+- Future MFT (Meta Fungible Token) integration for digital+physical bundles
+- AI-ready architecture for content generation and optimization
+
 ## 📚 Complete Documentation
 
 **For detailed project information, development history, and contribution guidelines:**
