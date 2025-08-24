@@ -208,20 +208,7 @@ Component Strategy:
 ==============================================================================
 */
 
-/* Override main.css centering to match homepage left-alignment */
-.navigation {
-    text-align: left; /* Override main.css text-align: center */
-}
-
-.directory-nav {
-    align-items: flex-start; /* Override main.css align-items: center */
-}
-
-/* Ensure directory links are properly aligned */
-.directory-link {
-    display: block;
-    width: fit-content;
-}
+/* Navigation alignment now handled by main.css - no overrides needed */
 
 /* 🧩 CONTENT COMPONENTS - Modular and reusable */
 .content-section {

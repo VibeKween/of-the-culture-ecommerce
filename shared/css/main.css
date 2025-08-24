@@ -119,13 +119,13 @@ a:hover {
 /* Directory Navigation */
 .navigation {
   margin-bottom: 120px;
-  text-align: center;
+  text-align: left;
 }
 
 .directory-nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
