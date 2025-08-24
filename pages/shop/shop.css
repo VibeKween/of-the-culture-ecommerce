@@ -1,0 +1,204 @@
+/* Shop/Catalogue Page Styles */
+
+/* Shop Introduction */
+.shop-intro {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.shop-intro h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-black);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.shop-intro p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.shop-intro p:last-child {
+    margin-bottom: 0;
+}
+
+/* Shop Philosophy */
+.shop-philosophy {
+    text-align: center;
+    margin-bottom: 120px;
+    padding: 0 20px;
+}
+
+.shop-philosophy p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.shop-philosophy p:last-child {
+    margin-bottom: 0;
+}
+
+/* Coming Soon Section */
+.coming-soon {
+    text-align: center;
+    margin: 140px 0;
+    padding: 80px 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+}
+
+.coming-soon-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-gold);
+    margin-bottom: 36px;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+.coming-soon p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.coming-soon p:last-child {
+    margin-bottom: 0;
+    margin-top: 24px;
+}
+
+/* Inline Links */
+.inline-link {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid var(--color-gold);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.inline-link:hover {
+    opacity: 0.7;
+    transform: translateY(-1px);
+}
+
+/* Shop Details */
+.shop-details {
+    margin: 120px 0;
+    padding: 0 20px;
+}
+
+.shop-details p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.shop-details p:first-child {
+    margin-bottom: 24px;
+}
+
+.shop-details p:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .shop-intro {
+        margin-bottom: 80px;
+    }
+    
+    .shop-intro h1 {
+        font-size: 2.2rem;
+        margin-bottom: 28px;
+    }
+    
+    .shop-intro p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .shop-philosophy {
+        margin-bottom: 100px;
+        padding: 0 16px;
+    }
+    
+    .shop-philosophy p {
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+    }
+    
+    .coming-soon {
+        margin: 100px 0;
+        padding: 60px 20px;
+    }
+    
+    .coming-soon-title {
+        font-size: 1.4rem;
+        margin-bottom: 28px;
+    }
+    
+    .coming-soon p {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+    
+    .coming-soon p:last-child {
+        margin-top: 20px;
+    }
+    
+    .shop-details {
+        margin: 80px 0;
+        padding: 0 16px;
+    }
+    
+    .shop-details p {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 1025px) {
+    .shop-intro h1 {
+        font-size: 2.8rem;
+        margin-bottom: 36px;
+    }
+    
+    .shop-intro p {
+        font-size: 1.15rem;
+    }
+    
+    .shop-philosophy p {
+        font-size: 1.05rem;
+        margin-bottom: 18px;
+    }
+    
+    .coming-soon {
+        margin: 160px 0;
+        padding: 100px 60px;
+    }
+    
+    .coming-soon-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+    
+    .coming-soon p {
+        font-size: 1.05rem;
+        margin-bottom: 16px;
+    }
+    
+    .shop-details p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+}

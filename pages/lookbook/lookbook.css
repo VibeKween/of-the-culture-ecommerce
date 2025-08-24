@@ -1,0 +1,434 @@
+/* Lookbook Page - Built on 02-LANDING-PAGE Foundation */
+
+/* 
+==============================================================================
+🔒 PROTECTED GRID CODE - DO NOT MODIFY 🔒
+==============================================================================
+
+This grid architecture has been carefully engineered to:
+1. Break out of the 600px page container without overflow
+2. Create a centered, responsive 2-column gallery
+3. Scale progressively across all device sizes
+4. Maintain proper aspect ratios and spacing
+
+CRITICAL: Modifying this code will break the desktop grid layout.
+Only modify copy blocks, not the .lookbook-gallery or .gallery-container rules.
+
+If you need to add/modify content sections, work OUTSIDE this gallery section.
+The gallery HTML structure must remain: 
+<section class="lookbook-gallery">
+  <div class="gallery-container">
+    <!-- gallery items here -->
+  </div>
+</section>
+
+==============================================================================
+*/
+
+/* Gallery - Clean contained approach */
+.lookbook-gallery {
+    /* Break out of page container cleanly */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    
+    /* Center and constrain the grid content */
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-container:hover {
+    opacity: 0.95;
+}
+
+/* Placeholder Images */
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f8f8 0%, #eeeeee 100%);
+    color: #555;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+}
+
+.placeholder-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.placeholder-subtitle {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    opacity: 0.65;
+    line-height: 1.3;
+}
+
+/* Image Overlay */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(1px);
+}
+
+.image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.product-link {
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 14px 28px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-link:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-color: var(--color-white);
+    transform: scale(1.02);
+}
+
+/* Item Metadata */
+.item-meta {
+    padding: 0 8px;
+    text-align: center;
+}
+
+.item-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-black);
+    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+}
+
+.item-concept {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.item-signal {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    opacity: 0.65;
+    font-style: italic;
+    letter-spacing: 0.01em;
+}
+
+/* Lookbook-specific styling */
+.lookbook-intro {
+    text-align: center;
+}
+
+.lookbook-intro h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-black);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+/* 
+==============================================================================
+🧩 COMPONENT-BASED ARCHITECTURE - FUTURE-PROOF DESIGN 🧩
+==============================================================================
+
+Problem Analysis:
+- Using generic .block selectors creates unwanted dependencies
+- Page-level selectors (.block:first-child) cascade and affect grid
+- Need isolated, plug-and-play components
+
+Component Strategy:
+1. Wordmark Component - Independent spacing control
+2. Navigation Component - Self-contained positioning  
+3. Grid Component - Completely isolated (already protected)
+4. Content Components - Modular text blocks
+
+==============================================================================
+*/
+
+/* Override main.css centering to match homepage left-alignment */
+.navigation {
+    text-align: left; /* Override main.css text-align: center */
+}
+
+.directory-nav {
+    align-items: flex-start; /* Override main.css align-items: center */
+}
+
+/* Ensure directory links are properly aligned */
+.directory-link {
+    display: block;
+    width: fit-content;
+}
+
+/* 🧩 CONTENT COMPONENTS - Modular and reusable */
+.content-section {
+    /* Standard content block spacing */
+    margin-bottom: 80px;
+}
+
+.intro-section {
+    /* Special intro component with centered text */
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* 
+==============================================================================
+🔧 COMPONENT USAGE GUIDE - PLUG & PLAY ARCHITECTURE 🔧
+==============================================================================
+
+HTML Structure:
+<section class="block wordmark-section">     <!-- Wordmark Component -->
+<section class="block navigation-section">  <!-- Navigation Component -->
+<section class="block intro-section">       <!-- Intro Component -->
+<section class="block content-section">     <!-- Content Component -->
+<section class="lookbook-gallery">          <!-- Grid Component (Protected) -->
+
+Benefits:
+✅ No cascade conflicts - each component is isolated
+✅ Easy spacing adjustments - modify only the target component
+✅ Reusable across pages - copy component HTML + CSS
+✅ Future-proof - add new components without affecting existing ones
+✅ Debug-friendly - component issues don't affect other sections
+
+==============================================================================
+*/
+
+/* Legacy navigation rules - now handled by component classes above */
+
+
+/* Footer link styling to match homepage */
+.footer a {
+    color: var(--color-black);
+    text-decoration: none;
+    border-bottom: none;
+    padding-bottom: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer a:hover {
+    opacity: 0.7;
+}
+
+/* Mobile Responsive - Matching homepage exactly */
+@media (max-width: 768px) {
+    /* Mobile navigation spacing - matches main.css homepage */
+    .navigation {
+        margin-bottom: 100px;
+    }
+    
+    .lookbook-intro h1 {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+    
+    /* 🔒 PROTECTED: Mobile grid rules - DO NOT MODIFY */
+    .lookbook-gallery {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    
+    .gallery-container {
+        grid-template-columns: 1fr;
+        gap: 100px;
+        padding: 0 20px;
+        max-width: 100%;
+    }
+    
+    .gallery-item {
+        gap: 20px;
+    }
+    
+    .placeholder-text {
+        font-size: 0.95rem;
+    }
+    
+    .placeholder-subtitle {
+        font-size: 0.7rem;
+    }
+    
+    .product-link {
+        font-size: 0.8rem;
+        padding: 12px 24px;
+    }
+    
+    .item-meta {
+        padding: 0 4px;
+    }
+    
+    .item-title {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+    
+    .item-concept {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+    
+    .item-signal {
+        font-size: 0.75rem;
+    }
+}
+
+/* Tablet Responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* 🔒 PROTECTED: Tablet grid rules - DO NOT MODIFY */
+    .gallery-container {
+        gap: 40px;
+        max-width: 1200px;
+        padding: 0 40px;
+    }
+    
+    .lookbook-gallery {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 1025px) {
+    .lookbook-intro h1 {
+        font-size: 2.8rem;
+        margin-bottom: 28px;
+    }
+    
+    /* 🔒 PROTECTED: Desktop grid rules - DO NOT MODIFY */
+    .lookbook-gallery {
+        margin-top: 140px;
+        margin-bottom: 140px;
+    }
+    
+    .gallery-container {
+        gap: 80px;
+        max-width: 1800px;  /* Desktop: 1800px */
+        padding: 0 80px;
+    }
+    
+    .item-title {
+        font-size: 1.1rem;
+        margin-bottom: 14px;
+    }
+    
+    .item-concept {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+    
+    .item-signal {
+        font-size: 0.85rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+    /* 🔒 PROTECTED: Large desktop grid rules - DO NOT MODIFY */
+    .gallery-container {
+        max-width: 2000px;  /* Large Desktop: 2000px */
+        gap: 100px;
+        padding: 0 120px;
+    }
+    
+    .item-title {
+        font-size: 1.2rem;
+    }
+    
+    .item-concept {
+        font-size: 1rem;
+    }
+    
+    .item-signal {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ultra-Wide Desktop */
+@media (min-width: 1920px) {
+    /* 🔒 PROTECTED: Ultra-wide grid rules - DO NOT MODIFY */
+    .gallery-container {
+        max-width: 2400px;  /* Ultra-Wide: 2400px */
+        gap: 140px;
+        padding: 0 140px;
+    }
+}
+
+/* Loading Animations */
+.gallery-item {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

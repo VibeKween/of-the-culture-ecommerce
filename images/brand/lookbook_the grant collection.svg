@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 207.88 23.1">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 14px;
+      }
+
+      .cls-2 {
+        font-size: 21px;
+      }
+
+      .cls-3 {
+        fill: #231f20;
+        font-family: ITCAvantGardePro-Bk, 'ITC Avant Garde Gothic Pro';
+        letter-spacing: .15em;
+      }
+    </style>
+  </defs>
+  <text class="cls-3" transform="translate(3.41 18.27) scale(.96 1)"><tspan class="cls-1" x="0" y="0">THE GRANT COLLECTION</tspan><tspan class="cls-2" x="206.64" y="0"> </tspan></text>
+</svg>
