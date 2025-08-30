@@ -41,7 +41,7 @@ The specifications below represent the ONLY approved working state. Any modifica
   font-family: 'Lekton', 'JetBrains Mono', monospace;
   font-size: 0.85rem;
   font-weight: 400;
-  color: #0066cc;
+  color: #555;
   text-decoration: none;
   border: none;
   padding: 0;

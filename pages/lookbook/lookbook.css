@@ -65,12 +65,6 @@ The gallery HTML structure must remain:
     aspect-ratio: 4/5;
     background-color: #f9f9f9;
     overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.image-container:hover {
-    opacity: 0.95;
 }
 
 /* Placeholder Images */

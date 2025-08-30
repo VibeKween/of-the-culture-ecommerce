@@ -1,0 +1,87 @@
+# Basic Code Quality & Structure Validation
+# Day-one implementation - minimal impact, maximum insight
+
+name: Code Quality Check
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-structure:
+    runs-on: ubuntu-latest
+    name: Validate Project Structure
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Check required directories exist
+        run: |
+          echo "🔍 Checking project structure..."
+          
+          # Check core directories
+          [ -d "pages" ] && echo "✅ pages/ directory exists" || echo "❌ pages/ directory missing"
+          [ -d "shared" ] && echo "✅ shared/ directory exists" || echo "❌ shared/ directory missing"
+          [ -d "docs" ] && echo "✅ docs/ directory exists" || echo "❌ docs/ directory missing"
+          
+          # Check page directories
+          [ -d "pages/homepage" ] && echo "✅ pages/homepage/ exists" || echo "❌ pages/homepage/ missing"
+          [ -d "pages/lookbook" ] && echo "✅ pages/lookbook/ exists" || echo "❌ pages/lookbook/ missing"
+          [ -d "pages/shop" ] && echo "✅ pages/shop/ exists" || echo "❌ pages/shop/ missing"
+          [ -d "pages/product" ] && echo "✅ pages/product/ exists" || echo "❌ pages/product/ missing"
+          
+          # Check shared resources
+          [ -d "shared/css" ] && echo "✅ shared/css/ exists" || echo "❌ shared/css/ missing"
+          [ -d "shared/js" ] && echo "✅ shared/js/ exists" || echo "❌ shared/js/ missing"
+      
+      - name: Count HTML files per page
+        run: |
+          echo "📊 HTML file analysis..."
+          
+          echo "Homepage files: $(find pages/homepage -name '*.html' 2>/dev/null | wc -l)"
+          echo "Lookbook files: $(find pages/lookbook -name '*.html' 2>/dev/null | wc -l)"  
+          echo "Shop files: $(find pages/shop -name '*.html' 2>/dev/null | wc -l)"
+          echo "Product files: $(find pages/product -name '*.html' 2>/dev/null | wc -l)"
+          echo "Total HTML files: $(find pages -name '*.html' 2>/dev/null | wc -l)"
+          
+      - name: Validate main CSS structure
+        run: |
+          echo "🎨 CSS structure analysis..."
+          
+          if [ -f "shared/css/main.css" ]; then
+            echo "✅ Main CSS file exists"
+            echo "CSS file size: $(wc -c < shared/css/main.css) bytes"
+            echo "CSS lines: $(wc -l < shared/css/main.css)"
+          else
+            echo "❌ Main CSS file missing"
+          fi
+          
+          # Count CSS custom properties
+          if [ -f "shared/css/main.css" ]; then
+            custom_props=$(grep -c "^[[:space:]]*--" shared/css/main.css || echo "0")
+            echo "CSS custom properties defined: $custom_props"
+          fi
+      
+      - name: Check for build tool indicators
+        run: |
+          echo "🔧 Build tool analysis..."
+          
+          # Should NOT find these (maintaining no-build philosophy)
+          [ ! -f "package.json" ] && echo "✅ No package.json (maintaining no-build approach)" || echo "⚠️  package.json detected"
+          [ ! -f "webpack.config.js" ] && echo "✅ No webpack config" || echo "⚠️  webpack config detected"
+          [ ! -f "vite.config.js" ] && echo "✅ No vite config" || echo "⚠️  vite config detected"
+          [ ! -d "node_modules" ] && echo "✅ No node_modules" || echo "⚠️  node_modules detected"
+      
+      - name: Performance baseline check
+        run: |
+          echo "⚡ Performance indicators..."
+          
+          # Check for large files that might impact performance
+          echo "Files larger than 100KB:"
+          find . -type f -size +100k -not -path "./.git/*" -not -path "./node_modules/*" | head -10
+          
+          # Check image optimization opportunities
+          echo "Image files found:"
+          find images -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.svg" -o -name "*.webp" \) 2>/dev/null | wc -l || echo "0"

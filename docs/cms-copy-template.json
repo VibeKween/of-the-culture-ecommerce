@@ -1,0 +1,87 @@
+{
+  "site_global": {
+    "brand_name": "OF THE CULTURE",
+    "tagline": "Small-batch clothing studio",
+    "copyright": "© 2025 Tuku Group, LLC.",
+    "footer_text": "Independent and privately held."
+  },
+  "homepage": {
+    "intro": "A small-batch clothing studio.<br>Limited-run apparel.<br>Created with intention.",
+    "philosophy": [
+      "Inspired by design.",
+      "Rooted in digital culture.",
+      "Committed to craftsmanship."
+    ],
+    "cultural_references": [
+      "Code.",
+      "Remix culture.",
+      "Personal sovereignty."
+    ],
+    "brand_statement": [
+      "Not loud.",
+      "Not trend-driven.",
+      "Each piece a signal.",
+      "A quiet presence in the sea of the everyday."
+    ],
+    "grosgrain_text": "Drawing inspiration from the optimism & ingenuity found within decentralization, our perspective embodies the spirit of innovation & the future, marrying elegant design with a nod to the humor, hope, and forward-thinking ethos of our time."
+  },
+  "shop": {
+    "title": "Catalogue",
+    "season": "SZN2025.",
+    "subtitle": "Limited quantities available.",
+    "philosophy": [
+      "Each piece designed with intention.",
+      "Small batches. Thoughtful creation.",
+      "Not mass production."
+    ]
+  },
+  "lookbook": {
+    "title": "SZN2025",
+    "subtitle": "Visual showcase.",
+    "tagline": "Each piece a signal.",
+    "philosophy": [
+      "Not fashion.",
+      "Cultural artifacts.",
+      "Designed for the digitally native.",
+      "Made for those who understand the signal."
+    ]
+  },
+  "products": {
+    "terminal_aesthetics_cap": {
+      "name": "Terminal Aesthetics Cap",
+      "price": "$85",
+      "main_description": "American-milled wool gives this cap its tailored structure and tonal tactility. A quiet homage to origins - digitally born, culturally embedded.",
+      "cultural_headers": ["Nakamoto origins", "Terminal aesthetics"],
+      "materials": "American-milled wool with structured handfeel",
+      "construction": "Tailored structure with tonal tactility",
+      "fit": "One size fits most, adjustable",
+      "care": "Spot clean or dry clean only",
+      "philosophy": "Digitally born, culturally embedded"
+    },
+    "crypto_nomad_hoodie": {
+      "name": "Crypto Nomad Hoodie",
+      "price": "$125",
+      "main_description": "Heavyweight cotton hoodie designed for digital nomads and crypto builders. Clean lines, thoughtful details, premium construction.",
+      "cultural_headers": ["Decentralization", "Location independence"],
+      "secondary_description": "For those building the future. Made in limited quantities with intention.",
+      "materials": "100% heavyweight cotton fleece, 14oz",
+      "care": "Machine wash cold, hang dry",
+      "made_in": "Los Angeles, USA",
+      "fit": "Relaxed fit, pre-shrunk",
+      "features": "Kangaroo pocket, adjustable hood, reinforced seams"
+    },
+    "dont_tread_on_memes_crewneck": {
+      "name": "Don't Tread on Memes Crewneck",
+      "price": "$115",
+      "main_description": "Ideas move faster than markets. DON'T TREAD ON MEMES - currency, language, ours.",
+      "cultural_headers": ["Meme velocity", "Cultural currency"],
+      "secondary_description": "A refined staple, this structured paneled cotton crewneck offers an updated take on a wardrobe essential. Carrying a message grounded in a deeper truth: memes move faster than markets — and often outlast them too.",
+      "materials": "Heavier-weight organic cotton fleece with a structured handfeel and brushed interior",
+      "construction": "Ribbed side panels and cuffs for movement and subtle shape retention",
+      "fit": "Unisex sizing built on a standard men's fit; structured through the body with room to layer",
+      "sizing_note": "For feminine frames, XS and S best match a U.S. women's small or medium",
+      "care": "Spot clean or dry clean only",
+      "philosophy": "Ideas as currency, memes as language"
+    }
+  }
+}
