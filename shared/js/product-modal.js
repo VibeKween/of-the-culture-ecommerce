@@ -184,12 +184,13 @@ function initScrollCart() {
     
     if (!mobileCart || !mainImage) return;
     
+    let hasTriggered = false;
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && entry.boundingClientRect.bottom <= window.innerHeight) {
+            if (entry.isIntersecting && entry.boundingClientRect.bottom <= window.innerHeight && !hasTriggered) {
                 mobileCart.classList.add('visible');
-            } else {
-                mobileCart.classList.remove('visible');
+                hasTriggered = true;
             }
         });
     }, {

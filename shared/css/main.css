@@ -49,13 +49,27 @@ body {
   overflow: visible;
 }
 
-/* Wordmark section standardization */
+/* Wordmark section standardization - CONSISTENT ACROSS ALL PAGES */
 .wordmark-section {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
-/* Footer section standardization */
+/* Footer section standardization - CONSISTENT ACROSS ALL PAGES */
 .footer-section {
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+/* Ensure all page types have consistent wordmark/footer positioning */
+.page .wordmark-section,
+.shop-page .wordmark-section,
+.product-page .wordmark-section {
+  margin-bottom: 80px;
+}
+
+.page .footer-section,
+.shop-page .footer-section, 
+.product-page .footer-section {
   margin-bottom: 40px;
   margin-top: 80px;
 }
@@ -238,13 +252,26 @@ a:hover {
   font-weight: 600;
 }
 
-/* Mobile adjustments */
+/* Mobile adjustments - CONSISTENT POSITIONING ACROSS ALL PAGES */
 @media (max-width: 768px) {
-  .page {
+  .page,
+  .shop-page,
+  .product-page {
     padding: 30px 16px;
   }
   
   .block {
+    margin-bottom: 60px;
+  }
+  
+  /* Wordmark mobile standardization */
+  .wordmark-section {
+    margin-bottom: 60px;
+  }
+  
+  .page .wordmark-section,
+  .shop-page .wordmark-section,
+  .product-page .wordmark-section {
     margin-bottom: 60px;
   }
   
@@ -261,8 +288,21 @@ a:hover {
     font-size: 0.8rem;
   }
   
+  /* Footer mobile standardization */
+  .footer-section {
+    margin-bottom: 40px;
+    margin-top: 60px;
+  }
+  
+  .page .footer-section,
+  .shop-page .footer-section,
+  .product-page .footer-section {
+    margin-bottom: 40px;
+    margin-top: 60px;
+  }
+  
   .footer {
-    /* Uses standard mobile .block margin-bottom: 60px, no custom margin-top */
+    /* Uses standard mobile footer-section margins */
   }
 
   .footer p {

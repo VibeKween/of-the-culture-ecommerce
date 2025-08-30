@@ -66,6 +66,16 @@
     max-width: 1200px;
 }
 
+/* CRITICAL: Ensure consistent wordmark/footer positioning on shop page */
+.shop-page .wordmark-section {
+    margin-bottom: 80px !important;
+}
+
+.shop-page .footer-section {
+    margin-bottom: 40px !important;
+    margin-top: 80px !important;
+}
+
 /* Product Grid - Base Desktop Layout */
 .product-grid {
     display: grid;
@@ -155,6 +165,7 @@
     justify-content: space-between;
     align-items: baseline;
     text-align: left;
+    margin-top: 16px;
 }
 
 .product-info h3 {
@@ -244,6 +255,16 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+    /* CRITICAL: Ensure mobile wordmark/footer positioning matches homepage */
+    .shop-page .wordmark-section {
+        margin-bottom: 60px !important;
+    }
+    
+    .shop-page .footer-section {
+        margin-bottom: 40px !important;
+        margin-top: 60px !important;
+    }
+    
     .shop-intro {
         margin-bottom: 40px;
     }
