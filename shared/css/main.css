@@ -49,6 +49,17 @@ body {
   overflow: visible;
 }
 
+/* Wordmark section standardization */
+.wordmark-section {
+  margin-bottom: 60px;
+}
+
+/* Footer section standardization */
+.footer-section {
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
 .wordmark img {
   width: auto;
   max-width: 100%;
@@ -152,7 +163,7 @@ a:hover {
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   font-size: 0.85rem;
   font-weight: 400;
-  color: #555;
+  color: #007acc;
   text-decoration: none;
   border: none;
   padding: 4px 0;

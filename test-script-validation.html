@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Comprehensive Validation Test Script</title>
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; margin: 20px; background: #f5f5f5; }
+        .test-container { background: white; padding: 20px; margin-bottom: 20px; border-radius: 4px; }
+        .test-header { color: #333; font-weight: bold; margin-bottom: 10px; font-size: 1.1rem; }
+        .test-result { padding: 8px; margin: 4px 0; border-radius: 3px; font-size: 0.9rem; }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+        .info { background: #cce7ff; color: #0056b3; }
+        button { font-family: inherit; margin: 5px; padding: 8px 16px; cursor: pointer; }
+        .status { font-weight: bold; }
+        iframe { width: 100%; height: 400px; border: 1px solid #ddd; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>🧪 OF THE CULTURE - Comprehensive Validation Suite</h1>
+    
+    <div class="test-container">
+        <div class="test-header">🎯 Test Controls</div>
+        <button onclick="runAllTests()">🚀 Run Full Test Suite</button>
+        <button onclick="testTypography()">📝 Typography Test</button>
+        <button onclick="testCopyConsistency()">📄 Copy Consistency</button>
+        <button onclick="testResponsive()">📱 Responsive Test</button>
+        <button onclick="clearResults()">🗑️ Clear Results</button>
+    </div>
+
+    <div class="test-container">
+        <div class="test-header">📊 Test Results</div>
+        <div id="testOutput">Ready to run tests...</div>
+    </div>
+
+    <div class="test-container">
+        <div class="test-header">🔍 Page Inspector</div>
+        <select id="pageSelector" onchange="loadPage()">
+            <option value="">Select Page to Inspect</option>
+            <option value="pages/shop/index.html">Shop/Catalogue</option>
+            <option value="pages/product/dont-tread-on-memes-crewneck/index.html">DTOM Product</option>
+            <option value="pages/product/terminal-aesthetics-cap/index.html">NAKAMOTO Product</option>
+            <option value="pages/product/crypto-nomad-hoodie/index.html">WE/ME Product</option>
+            <option value="pages/product/git-commit-tee/index.html">OPEN HEART Product</option>
+            <option value="pages/product/nodes-hoodie/index.html">NODES Product</option>
+        </select>
+        <iframe id="pageFrame" style="display: none;"></iframe>
+    </div>
+
+    <script>
+        const productPages = [
+            { name: 'DTOM', path: 'pages/product/dont-tread-on-memes-crewneck/index.html', price: '$135' },
+            { name: 'NAKAMOTO', path: 'pages/product/terminal-aesthetics-cap/index.html', price: '$85' },
+            { name: 'WE / ME', path: 'pages/product/crypto-nomad-hoodie/index.html', price: '$165' },
+            { name: 'OPEN HEART', path: 'pages/product/git-commit-tee/index.html', price: '$65' },
+            { name: 'NODES', path: 'pages/product/nodes-hoodie/index.html', price: '$165' },
+            { name: 'OPEN HEART', path: 'pages/product/open-source-heart-tee/index.html', price: '$75' },
+            { name: 'WE / ME', path: 'pages/product/we-over-me-tee/index.html', price: '$70' },
+            { name: 'REMIX', path: 'pages/product/remix-culture-crewneck/index.html', price: '$95' }
+        ];
+
+        function log(message, type = 'info') {
+            const output = document.getElementById('testOutput');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `<span class="status">${new Date().toLocaleTimeString()}</span>: ${message}`;
+            output.appendChild(div);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function clearResults() {
+            document.getElementById('testOutput').innerHTML = 'Ready to run tests...';
+        }
+
+        function loadPage() {
+            const selector = document.getElementById('pageSelector');
+            const frame = document.getElementById('pageFrame');
+            
+            if (selector.value) {
+                frame.src = selector.value;
+                frame.style.display = 'block';
+                log(`📄 Loading page: ${selector.value}`, 'info');
+            } else {
+                frame.style.display = 'none';
+            }
+        }
+
+        async function testTypography() {
+            log('🔍 Testing Typography Consistency (0.85rem requirement)', 'info');
+            
+            // This would require actual page inspection - simplified for demo
+            log('📝 Expected font-size: 0.85rem for all product page elements', 'info');
+            log('🎯 Elements to check: product-title, product-description, cart labels, ATELIER sections', 'info');
+            log('⚠️ Manual verification required - inspect each product page', 'warning');
+        }
+
+        async function testCopyConsistency() {
+            log('📄 Testing Copy Consistency', 'info');
+            
+            const copyRequirements = [
+                'Desktop select placeholder: "Select" (not "Select Size")',
+                'Mobile select placeholder: "Select" (not "Select Size")',
+                'Desktop button text: "ADD" (not "Add to Cart")',
+                'Mobile button text: "ADD" (already correct)',
+                'Product names: Short versions (DTOM, NAKAMOTO, etc.)'
+            ];
+            
+            copyRequirements.forEach(req => {
+                log(`📋 ${req}`, 'info');
+            });
+            
+            log('⚠️ Manual verification required - check all product pages', 'warning');
+        }
+
+        async function testResponsive() {
+            log('📱 Testing Responsive Behavior', 'info');
+            
+            const breakpoints = [
+                { name: 'Desktop', width: '1200px', expected: '800px max-width, 2x3 grid' },
+                { name: 'Tablet', width: '800px', expected: '700px max-width, 2x3 grid' },
+                { name: 'Mobile', width: '375px', expected: 'Full width, 2x2 grid' }
+            ];
+            
+            breakpoints.forEach(bp => {
+                log(`📐 ${bp.name} (${bp.width}): ${bp.expected}`, 'info');
+            });
+        }
+
+        function runAllTests() {
+            clearResults();
+            log('🚀 Starting Comprehensive Test Suite', 'info');
+            log('================================', 'info');
+            
+            setTimeout(() => testTypography(), 500);
+            setTimeout(() => testCopyConsistency(), 1000);
+            setTimeout(() => testResponsive(), 1500);
+            
+            setTimeout(() => {
+                log('================================', 'info');
+                log('✅ Test suite complete. Review findings above.', 'info');
+                log('🔧 Next: Apply fixes based on test results', 'warning');
+            }, 2000);
+        }
+
+        // Auto-run on load
+        document.addEventListener('DOMContentLoaded', () => {
+            log('🎯 Validation suite ready. Click "Run Full Test Suite" to begin.', 'info');
+        });
+    </script>
+</body>
+</html>

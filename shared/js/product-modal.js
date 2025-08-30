@@ -177,6 +177,36 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// Scroll-triggered mobile cart
+function initScrollCart() {
+    const mobileCart = document.querySelector('.mobile-form');
+    const mainImage = document.querySelector('.image-container.main-view, .product-gallery .image-container:first-child');
+    
+    if (!mobileCart || !mainImage) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.boundingClientRect.bottom <= window.innerHeight) {
+                mobileCart.classList.add('visible');
+            } else {
+                mobileCart.classList.remove('visible');
+            }
+        });
+    }, {
+        threshold: 0.8,
+        rootMargin: '0px 0px -20% 0px'
+    });
+    
+    observer.observe(mainImage);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+        initScrollCart();
+    }
+});
+
 // Export functions for global use
 window.showModal = showModal;
 window.closeModal = closeModal;

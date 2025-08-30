@@ -71,7 +71,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    margin: 60px auto;
+    margin: 60px auto 80px auto;
     padding: 0 40px;
     max-width: 800px;
     width: 100%;
@@ -261,7 +261,7 @@
     .product-grid {
         gap: 16px;
         margin: 30px auto;
-        padding: 0 16px;
+        padding: 0 12px;
         max-width: 100%;
     }
     
