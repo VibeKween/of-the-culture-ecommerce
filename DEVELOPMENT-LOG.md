@@ -1,5 +1,47 @@
 # Development Log - OF THE CULTURE Ecommerce
 
+## Session 6 - Mobile UX Refinements
+**Date**: August 31, 2025  
+**Status**: ✅ Complete - Mobile Select Text Sizing Fixed
+
+### Issues Addressed
+- **Mobile Select Text Overflow**: "Select" text was overflowing dropdown boxes on all product pages except NAKAMOTO
+- **Scroll-Triggered Cart Reliability**: Mobile cart wasn't appearing consistently due to restrictive trigger logic
+
+### Root Cause Analysis
+NAKAMOTO page worked correctly because it only has "One Size" option, while other pages have multiple size options (XS, S, M, L, XL) requiring more width for proper "Select" text display in mobile layout.
+
+### Solutions Implemented
+**Mobile Select Text Sizing:**
+- Reduced font-size: `0.85rem → 0.75rem` for better fit in constrained mobile dropdowns
+- Adjusted padding: `12px 10px → 10px 8px` for tighter, more efficient layout
+- Optimized dropdown arrow size (16px → 14px) and repositioned for smaller padding
+- Added `line-height: 1.2` for improved vertical text alignment
+
+**Mobile Layout Optimization:**
+- Size selection: `flex: 1 → flex: 1.2` (20% more width to accommodate multi-size options)
+- Quantity selection: `flex: 1 → flex: 0.8` (20% less width since it only displays single digits)
+- Layout now scales automatically for future size additions (XXL, XXXL, custom sizes)
+
+**Scroll-Triggered Cart Improvements:**
+- Enhanced IntersectionObserver trigger logic: now triggers when user scrolls past 50% of main image
+- Added 3-second fallback timer to ensure cart appears even if scroll detection fails
+- Improved initialization with 100ms DOM rendering delay and window resize handler
+- Added console logging for debugging cart trigger behavior
+
+### Technical Details
+- **Files Modified**: `/pages/product/product.css`, `/shared/js/product-modal.js`
+- **Scope**: All product pages now have consistent, properly-sized mobile select elements
+- **Future-Proof**: System accommodates any size option additions without further modifications
+- **Backward Compatible**: Desktop layout and functionality unchanged
+
+### Testing Completed
+- ✅ Mobile select text sizing verified across all product pages
+- ✅ Scroll-triggered mobile cart functionality improved with fallback protection
+- ✅ Layout maintains responsive flexibility for future size option expansions
+
+---
+
 ## Session 1 - Foundation Setup & Optimization
 **Date**: August 22, 2025  
 **Status**: ✅ Complete
