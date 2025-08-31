@@ -190,22 +190,15 @@ function initScrollCart() {
     let hasTriggered = false;
     let hasScrolled = false;
     
-    // Track scroll position relative to primary image for optimal timing
+    // Simplified early trigger - much more aggressive timing
     const scrollHandler = () => {
-        const imageRect = mainImage.getBoundingClientRect();
-        const imageTop = imageRect.top + window.scrollY;
-        const imageHeight = imageRect.height;
-        const image30Percent = imageTop + (imageHeight * 0.30);
-        
-        console.log('OF THE CULTURE: Scroll debug - ScrollY:', window.scrollY, 'Image30%:', image30Percent, 'ImageHeight:', imageHeight);
-        
-        // Trigger when user scrolls past 30% of primary image (much earlier)
-        if (window.scrollY >= image30Percent && !hasTriggered) {
+        // Simple trigger at just 150px scroll - very early
+        if (window.scrollY >= 150 && !hasTriggered) {
             // Use requestAnimationFrame for smooth animation
             requestAnimationFrame(() => {
                 mobileCart.classList.add('visible');
                 hasTriggered = true;
-                console.log('OF THE CULTURE: Mobile cart triggered at 30% of primary image');
+                console.log('OF THE CULTURE: Mobile cart triggered at 150px scroll (very early)');
             });
             window.removeEventListener('scroll', scrollHandler);
         }
