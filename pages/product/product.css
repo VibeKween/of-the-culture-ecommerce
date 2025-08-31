@@ -263,7 +263,7 @@ ALD-inspired layout patterns:
 .desktop-product-name {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--color-black);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -272,7 +272,7 @@ ALD-inspired layout patterns:
 .desktop-product-price {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--color-black);
     letter-spacing: 0;
 }
@@ -539,7 +539,7 @@ ALD-inspired layout patterns:
     .mobile-product-name {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.85rem;
-        font-weight: 400;
+        font-weight: 500;
         color: var(--color-black);
         text-transform: uppercase;
         letter-spacing: 0.02em;
@@ -548,7 +548,7 @@ ALD-inspired layout patterns:
     .mobile-product-price {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.85rem;
-        font-weight: 400;
+        font-weight: 500;
         color: var(--color-black);
         letter-spacing: 0;
     }
