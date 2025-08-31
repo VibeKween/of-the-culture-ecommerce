@@ -506,8 +506,8 @@ ALD-inspired layout patterns:
         flex-direction: column;
         position: fixed;
         bottom: 0;
-        left: 20px;
-        right: 20px;
+        left: 0;
+        right: 0;
         background-color: #f7f7f7;
         border: none;
         padding: 20px;

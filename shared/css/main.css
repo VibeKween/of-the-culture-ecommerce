@@ -179,7 +179,9 @@ a:hover {
   font-weight: 400;
   color: #007acc;
   text-decoration: none;
-  border: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   padding: 4px 0;
   line-height: 1.4;
   letter-spacing: 0.01em;
