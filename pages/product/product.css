@@ -680,6 +680,13 @@ ALD-inspired layout patterns:
         background-size: 14px !important;
         box-sizing: border-box !important;
     }
+    
+    /* Mobile focus styling - no gold borders */
+    .product-page .purchase-form.mobile-form select:focus {
+        outline: none !important;
+        border-color: rgba(0, 0, 0, 0.3) !important;
+        box-shadow: none !important;
+    }
 }
 
 /* Focus states for keyboard navigation */
