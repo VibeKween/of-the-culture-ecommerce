@@ -40,25 +40,22 @@
         <select id="pageSelector" onchange="loadPage()">
             <option value="">Select Page to Inspect</option>
             <option value="pages/shop/index.html">Shop/Catalogue</option>
-            <option value="pages/product/dont-tread-on-memes-crewneck/index.html">DTOM Product</option>
-            <option value="pages/product/terminal-aesthetics-cap/index.html">NAKAMOTO Product</option>
-            <option value="pages/product/crypto-nomad-hoodie/index.html">WE/ME Product</option>
-            <option value="pages/product/git-commit-tee/index.html">OPEN HEART Product</option>
-            <option value="pages/product/nodes-hoodie/index.html">NODES Product</option>
+            <option value="pages/product/dtom/index.html">DTOM Product</option>
+            <option value="pages/product/nakamoto/index.html">NAKAMOTO Product</option>
+            <option value="pages/product/weme/index.html">WE/ME Product</option>
+            <option value="pages/product/openheart/index.html">OPEN HEART Product</option>
+            <option value="pages/product/nodes/index.html">NODES Product</option>
         </select>
         <iframe id="pageFrame" style="display: none;"></iframe>
     </div>
 
     <script>
         const productPages = [
-            { name: 'DTOM', path: 'pages/product/dont-tread-on-memes-crewneck/index.html', price: '$135' },
-            { name: 'NAKAMOTO', path: 'pages/product/terminal-aesthetics-cap/index.html', price: '$85' },
-            { name: 'WE / ME', path: 'pages/product/crypto-nomad-hoodie/index.html', price: '$165' },
-            { name: 'OPEN HEART', path: 'pages/product/git-commit-tee/index.html', price: '$65' },
-            { name: 'NODES', path: 'pages/product/nodes-hoodie/index.html', price: '$165' },
-            { name: 'OPEN HEART', path: 'pages/product/open-source-heart-tee/index.html', price: '$75' },
-            { name: 'WE / ME', path: 'pages/product/we-over-me-tee/index.html', price: '$70' },
-            { name: 'REMIX', path: 'pages/product/remix-culture-crewneck/index.html', price: '$95' }
+            { name: 'DTOM', path: 'pages/product/dtom/index.html', price: '$135' },
+            { name: 'NAKAMOTO', path: 'pages/product/nakamoto/index.html', price: '$85' },
+            { name: 'WE / ME', path: 'pages/product/weme/index.html', price: '$125' },
+            { name: 'OPEN HEART', path: 'pages/product/openheart/index.html', price: '$65' },
+            { name: 'NODES', path: 'pages/product/nodes/index.html', price: '$145' }
         ];
 
         function log(message, type = 'info') {
