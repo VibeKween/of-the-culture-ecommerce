@@ -318,7 +318,7 @@ ALD-inspired layout patterns:
 .product-page .size-selection select:focus,
 .product-page .quantity-selection select:focus {
     outline: none;
-    border-color: var(--color-gold);
+    border-color: rgba(0, 0, 0, 0.3);
 }
 
 .add-to-cart-btn {
@@ -344,6 +344,26 @@ ALD-inspired layout patterns:
 
 .add-to-cart-btn:active {
     transform: translateY(0);
+}
+
+/* Universal inline validation styling - all devices */
+.add-to-cart-btn:disabled {
+    background-color: #cccccc;
+    color: #888888;
+    cursor: not-allowed;
+    opacity: 1;
+    transform: none;
+}
+
+.add-to-cart-btn:disabled:hover {
+    opacity: 1;
+    transform: none;
+}
+
+.size-selection select.error {
+    border-color: var(--color-gold) !important;
+    border-width: 2px !important;
+    box-shadow: 0 0 0 1px var(--color-gold) !important;
 }
 
 /* ==============================================================================
@@ -666,8 +686,8 @@ ALD-inspired layout patterns:
 .thumbnail:focus,
 .add-to-cart-btn:focus,
 .product-page select:focus {
-    outline: 2px solid var(--color-gold);
-    outline-offset: 2px;
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+    outline-offset: 1px;
 }
 
 /* High contrast mode support */

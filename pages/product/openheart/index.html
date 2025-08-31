@@ -294,6 +294,34 @@
         // View overlay functionality (replaces thumbnail system)
         console.log('Product gallery with view overlays initialized');
 
+        // Universal inline validation initialization
+        function initInlineValidation() {
+            // Initially disable ADD buttons
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                btn.disabled = true;
+            });
+            
+            // Add change listeners to size dropdowns
+            document.querySelectorAll('select[name="size"]').forEach(select => {
+                select.addEventListener('change', function() {
+                    const form = this.closest('.purchase-form');
+                    const button = form.querySelector('.add-to-cart-btn');
+                    
+                    if (this.value) {
+                        // Enable button and remove any error state
+                        button.disabled = false;
+                        this.classList.remove('error');
+                    } else {
+                        // Disable button
+                        button.disabled = true;
+                    }
+                });
+            });
+        }
+
+        // Initialize validation on load
+        initInlineValidation();
+
         // Add to cart functionality
         document.querySelectorAll('.purchase-form').forEach(form => {
             form.addEventListener('submit', function(e) {
@@ -303,7 +331,8 @@
                 const quantity = this.querySelector('select[name="quantity"]').value;
                 
                 if (!size) {
-                    showModal('size needed', 'error');
+                    // Universal inline validation - show error highlight
+                    this.querySelector('select[name="size"]').classList.add('error');
                     return;
                 }
                 
@@ -315,19 +344,31 @@
                     price: 65
                 });
                 
-                // Show success modal
-                showModal('Added to cart successfully!', 'success');
-                
-                // Brief button feedback
+                // Elegant button confirmation - "Yours" + checkmark with premium reset
                 const button = this.querySelector('.add-to-cart-btn');
-                const originalText = button.textContent;
-                button.textContent = 'Added!';
+                
+                // Flash confirmation
+                button.innerHTML = '✓ Yours';
                 button.style.backgroundColor = 'var(--color-gold)';
+                button.style.color = 'var(--color-black)';
+                button.style.border = '';
+                button.style.outline = 'none';
                 
                 setTimeout(() => {
-                    button.textContent = originalText;
+                    // Reset everything for intentional next purchase
+                    button.textContent = 'ADD';
                     button.style.backgroundColor = '';
-                }, 1500);
+                    button.style.color = '';
+                    button.style.border = '';
+                    button.style.outline = 'none';
+                    button.disabled = true; // Disabled until size selected again
+                    
+                    // Reset size dropdowns to force intentional selection
+                    document.querySelectorAll('select[name="size"]').forEach(select => {
+                        select.value = '';
+                        select.classList.remove('error');
+                    });
+                }, 4000); // 4-second gold flash
             });
         });
 
