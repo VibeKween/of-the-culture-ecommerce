@@ -214,8 +214,8 @@
 
 .product-info h3 {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 400;
+    font-size: 0.8rem;
+    font-weight: 500;
     margin: 0;
     line-height: 1.3;
     color: var(--color-black);
@@ -226,8 +226,8 @@
 
 .product-price {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 400;
+    font-size: 0.8rem;
+    font-weight: 500;
     color: var(--color-black);
     margin: 0;
     letter-spacing: 0;
@@ -293,7 +293,8 @@
     
     .product-info h3,
     .product-price {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        font-weight: 500;
     }
 }
 
@@ -337,7 +338,8 @@
     
     .product-info h3,
     .product-price {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        font-weight: 500;
     }
 }
 
@@ -354,7 +356,8 @@
     
     .product-info h3,
     .product-price {
-        font-size: 0.65rem;
+        font-size: 0.7rem;
+        font-weight: 500;
         line-height: 1.1;
     }
 }
