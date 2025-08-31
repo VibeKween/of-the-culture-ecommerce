@@ -146,20 +146,10 @@
     box-shadow: none !important;
     transform: none !important;
     opacity: 1 !important;
-    background: transparent !important;
     -webkit-tap-highlight-color: transparent !important;
 }
 
-/* Explicit mobile overrides for ALL child elements */
-.product-card:active *,
-.product-card:focus *,
-.product-card:hover * {
-    box-shadow: none !important;
-    transform: none !important;
-    outline: none !important;
-    background: transparent !important;
-    opacity: inherit !important;
-}
+/* Clean mobile tap handling - no redundant overrides needed */
 
 /* Product card interaction styles handled by main.css mobile protection */
 
