@@ -127,10 +127,7 @@
     transition: transform 0.3s ease;
 }
 
-.desktop-hover-enabled .product-card.hover-active .product-image {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transition: box-shadow 0.3s ease;
-}
+/* Box-shadow removed - was causing mobile grey shadow boxes */
 
 .desktop-hover-enabled .product-card.hover-active .product-info h3 {
     color: var(--color-gold);
