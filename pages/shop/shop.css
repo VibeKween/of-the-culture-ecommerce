@@ -61,6 +61,11 @@
     margin-bottom: 0;
 }
 
+/* Override main.css .page width constraint for shop layout */
+.shop-page.page {
+    max-width: 1400px;
+}
+
 /* Create separate content container for shop layout while preserving header/footer positioning */
 .shop-content {
     max-width: 1200px;
@@ -71,11 +76,24 @@
 /* CRITICAL: Ensure consistent wordmark/footer positioning on shop page */
 .shop-page .wordmark-section {
     margin-bottom: 80px !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .shop-page .footer-section {
     margin-bottom: 40px !important;
     margin-top: 80px !important;
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Also constrain navigation to standard width */
+.shop-page .navigation {
+    max-width: 600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Product Grid - Base Desktop Layout */
