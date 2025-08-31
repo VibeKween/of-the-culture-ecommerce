@@ -243,7 +243,7 @@ ALD-inspired layout patterns:
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 24px;
+    padding: 24px 32px;
     background-color: #f7f7f7;
     border: none;
     border-radius: 0;
@@ -303,9 +303,9 @@ ALD-inspired layout patterns:
 
 .product-page .size-selection select,
 .product-page .quantity-selection select {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 400;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
     padding: 12px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: var(--color-white);
@@ -573,7 +573,9 @@ ALD-inspired layout patterns:
     
     .product-page .mobile-form select {
         padding: 12px 10px;
-        font-size: 0.85rem;
+        font-size: 0.85rem !important;
+        font-family: 'JetBrains Mono', monospace !important;
+        font-weight: 400 !important;
         border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 2px;
         background-color: rgba(255, 255, 255, 0.9);
