@@ -208,6 +208,23 @@
         // Performance impact: zero - loads async after page render
         console.log('OF THE CULTURE :: Shop Catalogue loaded');
         
+        // Debug hover system after page load
+        setTimeout(() => {
+            const hasDesktopHover = document.body.classList.contains('desktop-hover-enabled');
+            const productCards = document.querySelectorAll('.product-card');
+            console.log('Hover system debug:', {
+                desktopHoverEnabled: hasDesktopHover,
+                productCardCount: productCards.length,
+                bodyClasses: document.body.className
+            });
+            
+            // Test if CSS is applied
+            const firstCard = productCards[0];
+            if (firstCard) {
+                console.log('First card classes:', firstCard.className);
+            }
+        }, 3000);
+        
         // Future API integration points:
         // - Product inventory API
         // - Shopping cart state management
