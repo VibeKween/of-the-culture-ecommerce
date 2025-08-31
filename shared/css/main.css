@@ -60,6 +60,13 @@ body {
   margin-top: 80px;
 }
 
+/* Global SELECT styling standardization - Override all conflicts */
+select {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+}
+
 /* Ensure all page types have consistent wordmark/footer positioning */
 .page .wordmark-section,
 .shop-page .wordmark-section,
