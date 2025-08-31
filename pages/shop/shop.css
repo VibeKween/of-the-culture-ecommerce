@@ -84,8 +84,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 100px 50px;
     margin: 60px auto 80px auto;
-    padding: 0 40px;
-    max-width: 800px;
+    padding: 0 60px;
+    max-width: 1000px;
     width: 100%;
 }
 
@@ -109,6 +109,12 @@
 .product-card:focus {
     outline: none;
     border: none;
+}
+
+.product-card:active,
+.product-card:active .product-image {
+    box-shadow: none;
+    transform: none;
 }
 
 .product-card:hover .product-image {
