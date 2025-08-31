@@ -188,32 +188,41 @@ function initScrollCart() {
     }
     
     let hasTriggered = false;
+    let hasScrolled = false;
+    
+    // Track if user has actually scrolled (prevent immediate trigger on page load)
+    const scrollHandler = () => {
+        if (window.scrollY > 50) { // User has scrolled at least 50px
+            hasScrolled = true;
+            window.removeEventListener('scroll', scrollHandler);
+        }
+    };
+    window.addEventListener('scroll', scrollHandler, { passive: true });
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Trigger when user is halfway through viewing the primary image
-            // (earlier timing for better UX)
-            if (entry.isIntersecting && entry.intersectionRatio <= 0.6 && !hasTriggered) {
+            // Only trigger if user has scrolled AND is viewing primary image
+            if (hasScrolled && entry.isIntersecting && entry.intersectionRatio <= 0.6 && !hasTriggered) {
                 mobileCart.classList.add('visible');
                 hasTriggered = true;
-                console.log('OF THE CULTURE: Mobile cart triggered at 60% primary image view');
+                console.log('OF THE CULTURE: Mobile cart triggered at 60% primary image view after scroll');
             }
         });
     }, {
         threshold: [0, 0.4, 0.6, 0.8, 1],
-        rootMargin: '0px 0px -20% 0px'  // Trigger earlier with more buffer
+        rootMargin: '0px 0px -20% 0px'
     });
     
     observer.observe(mainImage);
     
-    // Fallback: Show cart after 3 seconds if not triggered by scroll
+    // Fallback: Show cart after 5 seconds if not triggered by scroll
     setTimeout(() => {
         if (!hasTriggered) {
             mobileCart.classList.add('visible');
             hasTriggered = true;
             console.log('OF THE CULTURE: Mobile cart triggered via fallback timer');
         }
-    }, 3000);
+    }, 5000);
 }
 
 // Initialize on page load
