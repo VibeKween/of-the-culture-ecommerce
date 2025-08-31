@@ -114,11 +114,22 @@
     color: inherit;
     display: flex;
     flex-direction: column;
-    transition: all 0.2s ease;
     border: none;
     outline: none;
     width: 100%;
     height: 100%;
+    
+    /* ELIMINATE ALL mobile tap effects */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+    
+    /* NO transitions to prevent any visual changes */
+    transition: none !important;
 }
 
 /* JavaScript-controlled hover effects - NO CSS hover rules to prevent mobile activation */
@@ -134,9 +145,27 @@
     transition: color 0.2s ease;
 }
 
-.product-card:focus {
-    outline: none;
-    border: none;
+.product-card:focus,
+.product-card:active,
+.product-card:hover {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Explicit mobile overrides for ALL child elements */
+.product-card:active *,
+.product-card:focus *,
+.product-card:hover * {
+    box-shadow: none !important;
+    transform: none !important;
+    outline: none !important;
+    background: transparent !important;
+    opacity: inherit !important;
 }
 
 /* Product card interaction styles handled by main.css mobile protection */
