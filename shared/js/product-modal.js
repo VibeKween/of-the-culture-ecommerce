@@ -191,16 +191,17 @@ function initScrollCart() {
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            // Trigger when user scrolls past 50% of the main image
-            if (entry.intersectionRatio <= 0.5 && !entry.isIntersecting && !hasTriggered) {
+            // Trigger when bottom of primary image is approaching viewport bottom
+            // (user is about to finish viewing the primary image)
+            if (entry.isIntersecting && entry.intersectionRatio <= 0.3 && !hasTriggered) {
                 mobileCart.classList.add('visible');
                 hasTriggered = true;
-                console.log('OF THE CULTURE: Mobile cart triggered via scroll');
+                console.log('OF THE CULTURE: Mobile cart triggered as primary image bottom approaches');
             }
         });
     }, {
-        threshold: [0, 0.5, 1],
-        rootMargin: '0px'
+        threshold: [0, 0.3, 0.5, 0.7, 1],
+        rootMargin: '0px 0px -10% 0px'  // Trigger slightly before bottom of image reaches viewport bottom
     });
     
     observer.observe(mainImage);

@@ -40,6 +40,10 @@ NAKAMOTO page worked correctly because it only has "One Size" option, while othe
 - ✅ Scroll-triggered mobile cart functionality improved with fallback protection
 - ✅ Layout maintains responsive flexibility for future size option expansions
 
+### Technical Debt Backlog Added
+- **Global CSS Architecture Refactoring**: Evolve from patchwork overrides to systematic context-aware select styling
+- **CSS Evolution Enhancement**: Replace multiple `!important` declarations with cohesive mobile/desktop responsive system
+
 ---
 
 ## Session 1 - Foundation Setup & Optimization
