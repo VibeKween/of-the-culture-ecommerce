@@ -87,7 +87,7 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 
 **Phase 1 - Homepage Foundation**: ✅ Complete (Session #001)
 - ✅ Homepage with grosgrain label implementation and balanced spacing
-- ✅ Directory-style navigation links (lookbook :: SZN2025, catalogue :: SZN2025)
+- ✅ Directory-style navigation links (lookbook :: SZN2526, catalogue :: SZN2526)
 - ✅ Blue hyperlink styling for navigation with traditional web aesthetics
 - ✅ Enterprise-level SEO implementation with structured data
 - ✅ Footer with Tuku Group, LLC hyperlink integration

@@ -153,7 +153,7 @@ NAKAMOTO page worked correctly because it only has "One Size" option, while othe
 ### Objectives
 - Build comprehensive product page architecture with complete template system
 - Implement ALD-inspired layout patterns with refined typography and spacing
-- Create complete SZN2025 product catalog with philosophical messaging
+- Create complete SZN2526 product catalog with philosophical messaging
 - Establish mobile-first responsive design with premium floating cart experience
 - Build reusable accordion specifications and modal notification systems
 
@@ -215,7 +215,7 @@ NAKAMOTO page worked correctly because it only has "One Size" option, while othe
 
 **Frontend Polish & Refinement Targets**:
 - **Remaining Product Pages**: Update all 8 product pages with new ALD-inspired layout
-- **Shop Catalog Page**: Build comprehensive product grid showing all SZN2025 items
+- **Shop Catalog Page**: Build comprehensive product grid showing all SZN2526 items
 - **Typography Refinement**: Fine-tune font weights, sizes, and spacing across all pages
 - **Image Integration**: Replace placeholder gradients with actual product photography
 - **Micro-Interactions**: Enhance hover states, transitions, and loading animations
@@ -287,7 +287,7 @@ NAKAMOTO page worked correctly because it only has "One Size" option, while othe
 
 **Core Features Completed**:
 - ✅ Homepage with optimized grosgrain label spacing and visual balance
-- ✅ Directory-style navigation (lookbook :: SZN2025, catalogue :: SZN2025) with blue hyperlink styling
+- ✅ Directory-style navigation (lookbook :: SZN2526, catalogue :: SZN2526) with blue hyperlink styling
 - ✅ Footer with functional Tuku Group, LLC hyperlink and consistent typography
 - ✅ Enterprise-level SEO: JSON-LD structured data, Open Graph, Twitter Cards, semantic HTML
 - ✅ Mobile-first responsive design with 768px breakpoint optimization

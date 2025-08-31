@@ -400,6 +400,11 @@
                         select.value = '';
                         select.classList.remove('error');
                     });
+                    
+                    // Reset quantity dropdowns to 1
+                    document.querySelectorAll('select[name="quantity"]').forEach(select => {
+                        select.value = '1';
+                    });
                 }, 4000); // 4-second gold flash
             });
         });

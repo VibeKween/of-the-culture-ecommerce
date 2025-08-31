@@ -20,7 +20,7 @@
 - ✅ **Accordion Specifications**: Collapsible product details with smooth animations
 - ✅ **Mobile Full-Width Cart**: Light grey bottom bar with "ADD" button text
 
-### **Complete SZN2025 Product Catalog**
+### **Complete SZN2526 Product Catalog**
 8 products created with philosophical messaging:
 - **Terminal Aesthetics Cap** ($85): "Nakamoto origins. Terminal aesthetics."
 - **Open Source Heart Tee** ($75): "OPEN SOURCE HEART for the remixers and builders"  
@@ -94,7 +94,7 @@ shared/js/
 
 ### **Immediate Frontend Polish Tasks**
 1. **Apply ALD Layout to Remaining Products**: Update all 7 remaining product pages with new layout
-2. **Shop Catalog Development**: Create product grid displaying all SZN2025 items with navigation
+2. **Shop Catalog Development**: Create product grid displaying all SZN2526 items with navigation
 3. **Typography Consistency**: Fine-tune font weights and spacing across all pages  
 4. **Image System Enhancement**: Replace gradient placeholders with actual photography or enhanced visuals
 5. **Micro-Interaction Polish**: Refine hover states, transitions, and loading animations
@@ -146,7 +146,7 @@ We completed comprehensive product page architecture with ALD-inspired layout in
 
 IMMEDIATE TASKS:
 1. Apply this ALD layout to all 7 remaining product pages
-2. Build shop catalog page showing all SZN2025 products in grid
+2. Build shop catalog page showing all SZN2526 products in grid
 3. Fine-tune typography consistency across all pages
 4. Enhance image system (replace placeholders or improve visuals)
 5. Polish micro-interactions and cross-device experience

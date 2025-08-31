@@ -422,7 +422,8 @@ ALD-inspired layout patterns:
 }
 
 .spec-accordion.open .spec-accordion-content {
-    max-height: 500px; /* Increased for dynamic content */
+    max-height: none; /* Remove fixed height to prevent mobile overflow */
+    height: auto;
 }
 
 .spec-accordion-body {

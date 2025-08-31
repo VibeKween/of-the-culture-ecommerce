@@ -124,8 +124,8 @@ The specifications below represent the ONLY approved working state. Any modifica
 ```html
 <section class="block navigation">
     <nav class="directory-nav">
-        <a href="pages/lookbook/" class="directory-link">lookbook :: SZN2025</a>
-        <a href="pages/shop/" class="directory-link">catalogue :: SZN2025</a>
+        <a href="pages/lookbook/" class="directory-link">lookbook :: SZN2526</a>
+        <a href="pages/shop/" class="directory-link">catalogue :: SZN2526</a>
     </nav>
 </section>
 ```
