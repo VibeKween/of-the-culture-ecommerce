@@ -197,6 +197,8 @@ function initScrollCart() {
         const imageHeight = imageRect.height;
         const image30Percent = imageTop + (imageHeight * 0.30);
         
+        console.log('OF THE CULTURE: Scroll debug - ScrollY:', window.scrollY, 'Image30%:', image30Percent, 'ImageHeight:', imageHeight);
+        
         // Trigger when user scrolls past 30% of primary image (much earlier)
         if (window.scrollY >= image30Percent && !hasTriggered) {
             // Use requestAnimationFrame for smooth animation
@@ -209,8 +211,6 @@ function initScrollCart() {
         }
     };
     window.addEventListener('scroll', scrollHandler, { passive: true });
-    
-    observer.observe(mainImage);
     
     // Fallback: Show cart after 5 seconds if not triggered by scroll
     setTimeout(() => {
