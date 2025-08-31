@@ -73,16 +73,7 @@
     width: 100%;
 }
 
-/* Ensure shop-content doesn't interfere with link interactions */
-.shop-content * {
-    outline: none;
-}
-
-.shop-content a:active,
-.shop-content a:focus {
-    box-shadow: none !important;
-    outline: none !important;
-}
+/* Shop content styling - interaction conflicts resolved in main.css */
 
 /* CRITICAL: Ensure consistent wordmark/footer positioning on shop page */
 .shop-page .wordmark-section {
@@ -152,15 +143,7 @@
     border: none;
 }
 
-.product-card:active,
-.product-card:active .product-image,
-.product-card:focus,
-.product-card:focus .product-image {
-    box-shadow: none !important;
-    transform: none !important;
-    outline: none !important;
-    border: none !important;
-}
+/* Product card interaction styles handled by main.css mobile protection */
 
 .product-image {
     width: 100%;

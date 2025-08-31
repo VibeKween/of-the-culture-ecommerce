@@ -458,15 +458,40 @@ a:hover {
 
 /* No page load animations - static manifesto content */
 
-/* Enhanced Link Interactions */
-a:not(.directory-link):not(.nav-link) {
-  position: relative;
-  transition: all 0.2s ease;
+/* Enhanced Link Interactions - Desktop Only with Product Card Exclusion */
+@media (hover: hover) and (pointer: fine) {
+  a:not(.directory-link):not(.nav-link):not(.product-card) {
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  a:not(.directory-link):not(.nav-link):not(.product-card):hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
 }
 
-a:not(.directory-link):not(.nav-link):not(.product-card):hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
+/* Mobile Touch Protection - Eliminate ALL interaction effects for product cards */
+@media (hover: none) and (pointer: coarse) {
+  .product-card,
+  .product-card:hover,
+  .product-card:active,
+  .product-card:focus {
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transition: none !important;
+  }
+  
+  .product-card .product-image,
+  .product-card:hover .product-image,
+  .product-card:active .product-image,
+  .product-card:focus .product-image {
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* Enhanced Focus States for Accessibility */
