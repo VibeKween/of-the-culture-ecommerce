@@ -464,7 +464,7 @@ a:not(.directory-link):not(.nav-link) {
   transition: all 0.2s ease;
 }
 
-a:not(.directory-link):not(.nav-link):hover {
+a:not(.directory-link):not(.nav-link):not(.product-card):hover {
   opacity: 0.8;
   transform: translateY(-1px);
 }
