@@ -202,15 +202,15 @@ function initScrollCart() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             // Only trigger if user has scrolled AND is viewing primary image
-            if (hasScrolled && entry.isIntersecting && entry.intersectionRatio <= 0.6 && !hasTriggered) {
+            if (hasScrolled && entry.isIntersecting && entry.intersectionRatio <= 0.8 && !hasTriggered) {
                 mobileCart.classList.add('visible');
                 hasTriggered = true;
-                console.log('OF THE CULTURE: Mobile cart triggered at 60% primary image view after scroll');
+                console.log('OF THE CULTURE: Mobile cart triggered at 80% primary image view after scroll');
             }
         });
     }, {
-        threshold: [0, 0.4, 0.6, 0.8, 1],
-        rootMargin: '0px 0px -20% 0px'
+        threshold: [0, 0.2, 0.5, 0.8, 1],
+        rootMargin: '0px 0px -30% 0px'
     });
     
     observer.observe(mainImage);
