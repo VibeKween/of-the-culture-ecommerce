@@ -53,10 +53,11 @@ function createModal() {
                 border: 2px solid var(--color-black);
                 border-radius: 4px;
                 padding: 24px;
-                max-width: 400px;
+                max-width: 320px;
                 width: 100%;
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
                 animation: modalSlideIn 0.3s ease-out;
+                margin: 0 auto;
             }
             
             @keyframes modalSlideIn {
@@ -113,15 +114,24 @@ function createModal() {
             @media (max-width: 768px) {
                 .otc-modal {
                     padding: 16px;
+                    align-items: flex-start;
+                    padding-top: 100px;
                 }
                 
                 .otc-modal-content {
-                    padding: 20px;
+                    padding: 16px 20px;
                     border-radius: 6px;
+                    max-width: 280px;
+                    border-width: 1px;
+                }
+                
+                .otc-modal-header {
+                    margin-bottom: 8px;
                 }
                 
                 .otc-modal-body {
-                    font-size: 0.9rem;
+                    font-size: 0.85rem;
+                    line-height: 1.3;
                 }
             }
         </style>
@@ -145,7 +155,8 @@ function showModal(message, type = 'info') {
     const modalContent = modal.querySelector('.otc-modal-content');
     modalContent.className = 'otc-modal-content';
     if (type === 'error') {
-        modalContent.style.borderColor = '#d32f2f';
+        modalContent.style.borderColor = 'var(--color-gold)';
+        modalContent.style.backgroundColor = '#fffbf5';
     } else if (type === 'success') {
         modalContent.style.borderColor = 'var(--color-gold)';
     } else {
