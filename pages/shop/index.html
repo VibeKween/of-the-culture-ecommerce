@@ -228,14 +228,12 @@
                     card.addEventListener('mouseenter', function() {
                         if (isDesktopDevice) {
                             this.classList.add('hover-active');
-                            console.log('Hover enter - added hover-active class');
                         }
                     }, { passive: true });
                     
                     card.addEventListener('mouseleave', function() {
                         if (isDesktopDevice) {
                             this.classList.remove('hover-active');
-                            console.log('Hover leave - removed hover-active class');
                         }
                     }, { passive: true });
                 });
