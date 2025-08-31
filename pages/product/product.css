@@ -449,14 +449,14 @@ ALD-inspired layout patterns:
     .product-page {
         max-width: 600px; /* Match lookbook mobile width */
         padding: 0 16px; /* Match homepage mobile padding for consistency */
-        padding-bottom: 120px; /* Optimized space for mobile cart + footer access */
+        padding-bottom: 100px; /* Reduced space for mobile cart access */
     }
     
     .product-container {
         grid-template-columns: 1fr;
         gap: 50px;
         margin-top: 50px;
-        margin-bottom: 140px;
+        margin-bottom: 40px; /* Significantly reduced bottom margin */
     }
     
     .product-images {

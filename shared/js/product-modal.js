@@ -195,15 +195,15 @@ function initScrollCart() {
         const imageRect = mainImage.getBoundingClientRect();
         const imageTop = imageRect.top + window.scrollY;
         const imageHeight = imageRect.height;
-        const image75Percent = imageTop + (imageHeight * 0.75);
+        const image30Percent = imageTop + (imageHeight * 0.30);
         
-        // Trigger when user scrolls past bottom 3/4ths (75%) of primary image
-        if (window.scrollY >= image75Percent && !hasTriggered) {
+        // Trigger when user scrolls past 30% of primary image (much earlier)
+        if (window.scrollY >= image30Percent && !hasTriggered) {
             // Use requestAnimationFrame for smooth animation
             requestAnimationFrame(() => {
                 mobileCart.classList.add('visible');
                 hasTriggered = true;
-                console.log('OF THE CULTURE: Mobile cart triggered at 75% of primary image');
+                console.log('OF THE CULTURE: Mobile cart triggered at 30% of primary image');
             });
             window.removeEventListener('scroll', scrollHandler);
         }
