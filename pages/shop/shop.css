@@ -61,9 +61,11 @@
     margin-bottom: 0;
 }
 
-/* Override main.css .page width constraint for catalogue */
-.shop-page.page {
+/* Create separate content container for shop layout while preserving header/footer positioning */
+.shop-content {
     max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* CRITICAL: Ensure consistent wordmark/footer positioning on shop page */
