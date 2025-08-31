@@ -236,6 +236,8 @@
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
                     </div>
@@ -273,6 +275,8 @@
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
 
@@ -321,6 +325,32 @@
 
         // Initialize validation on load
         initInlineValidation();
+        
+        // Dynamic price calculation
+        const basePrice = 65;
+        function updateDynamicPricing() {
+            document.querySelectorAll('select[name="quantity"]').forEach(select => {
+                select.addEventListener('change', function() {
+                    const quantity = parseInt(this.value) || 1;
+                    const totalPrice = basePrice * quantity;
+                    
+                    // Update desktop price display
+                    const desktopPrice = document.querySelector('.desktop-product-price');
+                    if (desktopPrice) {
+                        desktopPrice.textContent = quantity === 1 ? `$${basePrice}` : `$${basePrice} × ${quantity} = $${totalPrice}`;
+                    }
+                    
+                    // Update mobile price display
+                    const mobilePrice = document.querySelector('.mobile-product-price');
+                    if (mobilePrice) {
+                        mobilePrice.textContent = quantity === 1 ? `$${basePrice}` : `$${basePrice} × ${quantity} = $${totalPrice}`;
+                    }
+                });
+            });
+        }
+        
+        // Initialize dynamic pricing
+        updateDynamicPricing();
 
         // Add to cart functionality
         document.querySelectorAll('.purchase-form').forEach(form => {
