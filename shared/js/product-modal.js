@@ -190,14 +190,21 @@ function initScrollCart() {
     let hasTriggered = false;
     let hasScrolled = false;
     
-    // Track if user has actually scrolled (prevent immediate trigger on page load)
+    // Track scroll position relative to primary image for optimal timing
     const scrollHandler = () => {
-        if (window.scrollY > 100) { // User has scrolled at least 100px (early engagement)
-            hasScrolled = true;
-            // Add smooth gliding class and trigger immediately
-            mobileCart.classList.add('visible');
-            hasTriggered = true;
-            console.log('OF THE CULTURE: Mobile cart triggered via early scroll at 100px');
+        const imageRect = mainImage.getBoundingClientRect();
+        const imageTop = imageRect.top + window.scrollY;
+        const imageHeight = imageRect.height;
+        const image50Percent = imageTop + (imageHeight * 0.5);
+        
+        // Trigger when user scrolls past 50% of primary image
+        if (window.scrollY >= image50Percent && !hasTriggered) {
+            // Use requestAnimationFrame for buttery smooth animation
+            requestAnimationFrame(() => {
+                mobileCart.classList.add('visible');
+                hasTriggered = true;
+                console.log('OF THE CULTURE: Mobile cart triggered at 50% of primary image');
+            });
             window.removeEventListener('scroll', scrollHandler);
         }
     };
