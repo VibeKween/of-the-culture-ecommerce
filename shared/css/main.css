@@ -471,28 +471,7 @@ a:hover {
   }
 }
 
-/* Mobile Touch Protection - Eliminate ALL interaction effects for product cards */
-@media (hover: none) and (pointer: coarse) {
-  .product-card,
-  .product-card:hover,
-  .product-card:active,
-  .product-card:focus {
-    opacity: 1 !important;
-    transform: none !important;
-    box-shadow: none !important;
-    outline: none !important;
-    transition: none !important;
-  }
-  
-  .product-card .product-image,
-  .product-card:hover .product-image,
-  .product-card:active .product-image,
-  .product-card:focus .product-image {
-    box-shadow: none !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
+/* Mobile Touch Protection handled by desktop-hover.js */
 
 /* Enhanced Focus States for Accessibility */
 a:focus,

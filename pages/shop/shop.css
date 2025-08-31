@@ -121,21 +121,20 @@
     height: 100%;
 }
 
-/* Desktop-only hover effects - disabled on touch devices */
-@media (hover: hover) and (pointer: fine) {
-    .product-card:hover {
-        transform: translateY(-4px);
-        transition: transform 0.3s ease;
-    }
-    
-    .product-card:hover .product-image {
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    .product-card:hover .product-info h3 {
-        color: var(--color-gold);
-        transition: color 0.2s ease;
-    }
+/* JavaScript-controlled hover effects - NO CSS hover rules to prevent mobile activation */
+.desktop-hover-enabled .product-card.hover-active {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
+}
+
+.desktop-hover-enabled .product-card.hover-active .product-image {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.desktop-hover-enabled .product-card.hover-active .product-info h3 {
+    color: var(--color-gold);
+    transition: color 0.2s ease;
 }
 
 .product-card:focus {
