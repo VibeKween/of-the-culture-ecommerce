@@ -182,28 +182,53 @@ function initScrollCart() {
     const mobileCart = document.querySelector('.mobile-form');
     const mainImage = document.querySelector('.image-container.main-view, .product-gallery .image-container:first-child');
     
-    if (!mobileCart || !mainImage) return;
+    if (!mobileCart || !mainImage) {
+        console.warn('OF THE CULTURE: Mobile cart or main image not found');
+        return;
+    }
     
     let hasTriggered = false;
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting && entry.boundingClientRect.bottom <= window.innerHeight && !hasTriggered) {
+            // Trigger when user scrolls past 50% of the main image
+            if (entry.intersectionRatio <= 0.5 && !entry.isIntersecting && !hasTriggered) {
                 mobileCart.classList.add('visible');
                 hasTriggered = true;
+                console.log('OF THE CULTURE: Mobile cart triggered via scroll');
             }
         });
     }, {
-        threshold: 0.8,
-        rootMargin: '0px 0px -20% 0px'
+        threshold: [0, 0.5, 1],
+        rootMargin: '0px'
     });
     
     observer.observe(mainImage);
+    
+    // Fallback: Show cart after 3 seconds if not triggered by scroll
+    setTimeout(() => {
+        if (!hasTriggered) {
+            mobileCart.classList.add('visible');
+            hasTriggered = true;
+            console.log('OF THE CULTURE: Mobile cart triggered via fallback timer');
+        }
+    }, 3000);
 }
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize mobile cart on mobile devices
     if (window.innerWidth <= 768) {
+        // Delay slightly to ensure DOM is fully rendered
+        setTimeout(() => {
+            initScrollCart();
+        }, 100);
+    }
+});
+
+// Also initialize on resize if switching to mobile view
+window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768 && !document.querySelector('.mobile-form.visible')) {
         initScrollCart();
     }
 });
