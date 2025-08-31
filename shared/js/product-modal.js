@@ -227,12 +227,16 @@ function initScrollCart() {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('OF THE CULTURE: DOM loaded, screen width:', window.innerWidth);
     // Initialize mobile cart on mobile devices
     if (window.innerWidth <= 768) {
+        console.log('OF THE CULTURE: Initializing mobile cart for mobile device');
         // Delay slightly to ensure DOM is fully rendered
         setTimeout(() => {
             initScrollCart();
         }, 100);
+    } else {
+        console.log('OF THE CULTURE: Desktop detected, mobile cart not initialized');
     }
 });
 
