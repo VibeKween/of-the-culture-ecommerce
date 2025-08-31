@@ -448,7 +448,7 @@ ALD-inspired layout patterns:
     
     .product-page {
         max-width: 600px !important; /* Match lookbook mobile width */
-        padding: 30px 16px 80px 16px !important; /* Override main.css - top, sides, reduced bottom */
+        padding: 30px 16px 160px 16px !important; /* Extra bottom padding for footer visibility above cart */
     }
     
     .product-container {

@@ -363,6 +363,13 @@ Benefits:
         margin-bottom: 140px;
     }
     
+    /* Mobile override to prevent phantom black space */
+    @media (max-width: 768px) {
+        .lookbook-gallery {
+            margin-bottom: 60px !important; /* Reduced from 140px to prevent phantom space */
+        }
+    }
+    
     .gallery-container {
         gap: 80px;
         max-width: 1800px;  /* Desktop: 1800px */

@@ -273,13 +273,23 @@ a:hover {
 /* Mobile adjustments - CONSISTENT POSITIONING ACROSS ALL PAGES */
 @media (max-width: 768px) {
   .page,
-  .shop-page,
-  .product-page {
-    padding: 30px 16px;
+  .shop-page {
+    padding: 30px 16px 40px 16px; /* Reduced bottom padding to prevent phantom space */
   }
+  
+  /* Product pages handled by product.css */
   
   .block {
     margin-bottom: 60px;
+  }
+  
+  /* Reduce excessive bottom margins on mobile to prevent phantom black space */
+  .navigation {
+    margin-bottom: 80px;
+  }
+  
+  .grosgrain-block {
+    margin-bottom: 80px;
   }
   
   /* Wordmark mobile standardization */
