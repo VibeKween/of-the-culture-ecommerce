@@ -516,12 +516,13 @@ ALD-inspired layout patterns:
         box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.1);
         border-radius: 0;
         transform: translateY(100%);
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     
-    /* Mobile cart visible state */
+    /* Mobile cart visible state - smooth gliding animation */
     .purchase-form.mobile-form.visible {
         transform: translateY(0);
+        transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
     
     /* Product info row in mobile cart */

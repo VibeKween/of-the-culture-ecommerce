@@ -192,26 +192,16 @@ function initScrollCart() {
     
     // Track if user has actually scrolled (prevent immediate trigger on page load)
     const scrollHandler = () => {
-        if (window.scrollY > 50) { // User has scrolled at least 50px
+        if (window.scrollY > 100) { // User has scrolled at least 100px (early engagement)
             hasScrolled = true;
+            // Add smooth gliding class and trigger immediately
+            mobileCart.classList.add('visible');
+            hasTriggered = true;
+            console.log('OF THE CULTURE: Mobile cart triggered via early scroll at 100px');
             window.removeEventListener('scroll', scrollHandler);
         }
     };
     window.addEventListener('scroll', scrollHandler, { passive: true });
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // Only trigger if user has scrolled AND is viewing primary image
-            if (hasScrolled && entry.isIntersecting && entry.intersectionRatio <= 0.8 && !hasTriggered) {
-                mobileCart.classList.add('visible');
-                hasTriggered = true;
-                console.log('OF THE CULTURE: Mobile cart triggered at 80% primary image view after scroll');
-            }
-        });
-    }, {
-        threshold: [0, 0.2, 0.5, 0.8, 1],
-        rootMargin: '0px 0px -30% 0px'
-    });
     
     observer.observe(mainImage);
     
