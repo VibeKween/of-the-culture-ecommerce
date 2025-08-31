@@ -337,13 +337,13 @@
                     // Update desktop price display
                     const desktopPrice = document.querySelector('.desktop-product-price');
                     if (desktopPrice) {
-                        desktopPrice.textContent = quantity === 1 ? `$${basePrice}` : `$${basePrice} × ${quantity} = $${totalPrice}`;
+                        desktopPrice.textContent = `$${totalPrice}`;
                     }
                     
                     // Update mobile price display
                     const mobilePrice = document.querySelector('.mobile-product-price');
                     if (mobilePrice) {
-                        mobilePrice.textContent = quantity === 1 ? `$${basePrice}` : `$${basePrice} × ${quantity} = $${totalPrice}`;
+                        mobilePrice.textContent = `$${totalPrice}`;
                     }
                 });
             });

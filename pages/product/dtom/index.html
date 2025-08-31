@@ -212,7 +212,7 @@
                     <!-- Product info row -->
                     <div class="desktop-product-info">
                         <span class="desktop-product-name">DTOM</span>
-                        <span class="desktop-product-price">$135</span>
+                        <span class="desktop-product-price">$115</span>
                     </div>
                     
                     <div class="form-row">
@@ -234,6 +234,8 @@
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
                     </div>
@@ -248,7 +250,7 @@
             <!-- Product info row -->
             <div class="mobile-product-info">
                 <span class="mobile-product-name">DTOM</span>
-                <span class="mobile-product-price">$135</span>
+                <span class="mobile-product-price">$115</span>
             </div>
             
             <!-- Form controls row -->
@@ -271,6 +273,8 @@
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
 
@@ -319,6 +323,32 @@
 
         // Initialize validation on load
         initInlineValidation();
+
+        // Dynamic price calculation
+        const basePrice = 115;
+        function updateDynamicPricing() {
+            document.querySelectorAll('select[name="quantity"]').forEach(select => {
+                select.addEventListener('change', function() {
+                    const quantity = parseInt(this.value) || 1;
+                    const totalPrice = basePrice * quantity;
+                    
+                    // Update desktop price display
+                    const desktopPrice = document.querySelector('.desktop-product-price');
+                    if (desktopPrice) {
+                        desktopPrice.textContent = `$${totalPrice}`;
+                    }
+                    
+                    // Update mobile price display
+                    const mobilePrice = document.querySelector('.mobile-product-price');
+                    if (mobilePrice) {
+                        mobilePrice.textContent = `$${totalPrice}`;
+                    }
+                });
+            });
+        }
+
+        // Initialize dynamic pricing
+        updateDynamicPricing();
 
         // Add to cart functionality
         document.querySelectorAll('.purchase-form').forEach(form => {
