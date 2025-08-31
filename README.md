@@ -14,6 +14,9 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 - Enterprise-level SEO foundation with structured data
 - Mobile-optimized responsive design and performance
 - Page-by-page modular development approach
+- **Premium add-to-cart system with "✓ Yours" confirmation**
+- **Dynamic pricing with real-time quantity calculations**
+- **Universal inline validation across all devices**
 
 **Technical Architecture**:
 - Pure HTML/CSS frontend with Shopify Basic backend
