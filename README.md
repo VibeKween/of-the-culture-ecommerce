@@ -95,13 +95,14 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 **Phase 2 - Complete Ecommerce Site**: ✅ Complete (Sessions #002-#007)
 - ✅ Visual lookbook with 2-column responsive gallery (5 products)
 - ✅ Shop/catalogue page with product grid and hover animations
-- ✅ 8 individual product pages with add-to-cart functionality
+- ✅ 5 individual product pages with add-to-cart functionality and simplified URLs
 - ✅ Typography standardization at 0.85rem across all pages
 - ✅ Product name consistency system (NAKAMOTO, WE/ME, DTOM, OPEN HEART, NODES)
 - ✅ Grey placeholder treatment matching lookbook aesthetic
 - ✅ Mobile-optimized responsive design across all pages
 - ✅ Complete SEO implementation with structured data on all pages
 - ✅ API integration placeholders for analytics and commerce backend
+- ✅ Simplified URL structure: /product/nakamoto/, /product/weme/, /product/dtom/, /product/openheart/, /product/nodes/
 
 **Ready for Launch**: Frontend complete with production-ready architecture
 
@@ -117,11 +118,20 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 
 ## Launch Plan
 
-Initial launch with 5 products across:
+Initial launch with 5 core products:
+
+**Product Portfolio**:
+1. **NAKAMOTO** - Terminal Aesthetics Cap (`/product/nakamoto/`)
+2. **WE / ME** - Crypto Nomad Hoodie (`/product/weme/`)
+3. **DTOM** - Don't Tread on Memes Crewneck (`/product/dtom/`)
+4. **OPEN HEART** - Git Commit Tee (`/product/openheart/`)
+5. **NODES** - Infrastructure Hoodie (`/product/nodes/`)
+
+**Site Architecture**:
 1. Landing page (homepage)
 2. Lookbook (visual showcase)
-3. Product pages (individual items)
-4. Checkout process
-5. Legal/policy pages
+3. Shop/catalogue (product grid)
+4. Individual product pages
+5. Checkout process
 
 Each page maintains the "craft over noise" philosophy while introducing commerce functionality.
