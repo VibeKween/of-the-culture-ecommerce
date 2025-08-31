@@ -125,16 +125,20 @@
     touch-action: manipulation;
 }
 
-/* JavaScript-controlled hover effects - Proper specificity without !important */
-body.desktop-hover-enabled .product-grid .product-card.hover-active {
-    transform: translateY(-4px);
-    transition: transform 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+/* Base product card styling with transitions */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(0);
 }
 
-body.desktop-hover-enabled .product-grid .product-card.hover-active .product-info h3 {
+/* Desktop hover effects - lean and elegant */
+.desktop-hover-enabled .product-card.hover-active {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.desktop-hover-enabled .product-card.hover-active .product-info h3 {
     color: var(--color-gold);
-    transition: color 0.2s ease;
 }
 
 .product-card:focus,
