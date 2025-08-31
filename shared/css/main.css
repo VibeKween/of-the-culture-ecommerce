@@ -67,6 +67,15 @@ select {
   font-weight: 400 !important;
 }
 
+/* Mobile-specific override for product page select elements */
+@media (max-width: 768px) {
+  .product-page .mobile-form select {
+    font-size: 0.75rem !important;
+    padding: 10px 8px !important;
+    line-height: 1.2 !important;
+  }
+}
+
 /* Ensure all page types have consistent wordmark/footer positioning */
 .page .wordmark-section,
 .shop-page .wordmark-section,
