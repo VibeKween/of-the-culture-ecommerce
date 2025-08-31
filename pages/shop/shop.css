@@ -73,6 +73,17 @@
     width: 100%;
 }
 
+/* Ensure shop-content doesn't interfere with link interactions */
+.shop-content * {
+    outline: none;
+}
+
+.shop-content a:active,
+.shop-content a:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 /* CRITICAL: Ensure consistent wordmark/footer positioning on shop page */
 .shop-page .wordmark-section {
     margin-bottom: 80px !important;
@@ -130,9 +141,13 @@
 }
 
 .product-card:active,
-.product-card:active .product-image {
-    box-shadow: none;
-    transform: none;
+.product-card:active .product-image,
+.product-card:focus,
+.product-card:focus .product-image {
+    box-shadow: none !important;
+    transform: none !important;
+    outline: none !important;
+    border: none !important;
 }
 
 .product-card:hover .product-image {
