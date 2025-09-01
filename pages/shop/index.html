@@ -221,19 +221,25 @@
             // Enable hover effects only for desktop
             function enableDesktopHoverEffects() {
                 document.body.classList.add('desktop-hover-enabled');
+                console.log('Desktop hover enabled, body class added');
                 
                 const productCards = document.querySelectorAll('.product-card');
+                console.log('Setting up hover for', productCards.length, 'cards');
                 
-                productCards.forEach(card => {
+                productCards.forEach((card, index) => {
                     card.addEventListener('mouseenter', function() {
+                        console.log('Mouse enter card', index);
                         if (isDesktopDevice) {
                             this.classList.add('hover-active');
+                            console.log('Added hover-active to card', index);
                         }
                     }, { passive: true });
                     
                     card.addEventListener('mouseleave', function() {
+                        console.log('Mouse leave card', index);
                         if (isDesktopDevice) {
                             this.classList.remove('hover-active');
+                            console.log('Removed hover-active from card', index);
                         }
                     }, { passive: true });
                 });
@@ -259,6 +265,7 @@
                 detectMouseDevice();
                 preventTouchHover();
                 console.log('OF THE CULTURE: Mobile-safe hover system initialized');
+                console.log('Product cards found:', document.querySelectorAll('.product-card').length);
             }
             
             // Start detection
