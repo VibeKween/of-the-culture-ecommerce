@@ -142,14 +142,21 @@
 }
 
 .product-card:focus,
-.product-card:active,
-.product-card:hover {
+.product-card:active {
     outline: none !important;
     border: none !important;
     box-shadow: none !important;
     transform: none !important;
     opacity: 1 !important;
     -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Mobile-only hover override - prevents mobile activation while preserving desktop */
+@media (max-width: 768px) {
+    .product-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
 }
 
 /* Clean mobile tap handling - no redundant overrides needed */
