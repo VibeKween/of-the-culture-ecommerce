@@ -131,10 +131,11 @@
     transform: translateY(0);
 }
 
-/* Desktop hover effects - lean and elegant */
-.desktop-hover-enabled .product-card.hover-active {
+/* Desktop hover effects - image lift only */
+.desktop-hover-enabled .product-card.hover-active .product-image {
     transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .desktop-hover-enabled .product-card.hover-active .product-info h3 {
