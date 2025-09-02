@@ -122,9 +122,9 @@
             <!-- Product Grid -->
         <section class="product-grid">
             
-            <!-- Terminal Aesthetics Cap -->
+            <!-- NAKAMOTO Cap -->
             <a href="../product/nakamoto/" class="product-card">
-                <div class="product-image premium-placeholder">
+                <div class="product-image premium-placeholder" data-src="" data-lazy="false">
                     <div class="product-placeholder">
                         <div>NAKAMOTO</div>
                     </div>
@@ -135,9 +135,9 @@
                 </div>
             </a>
 
-            <!-- Crypto Nomad Hoodie -->
+            <!-- WE / ME Hoodie -->
             <a href="../product/weme/" class="product-card">
-                <div class="product-image premium-placeholder">
+                <div class="product-image premium-placeholder" data-src="" data-lazy="false">
                     <div class="product-placeholder">
                         <div>WE / ME</div>
                     </div>
@@ -150,7 +150,13 @@
 
             <!-- Don't Tread on Memes Crewneck -->
             <a href="../product/dtom/" class="product-card">
-                <div class="product-image" style="background-image: url('../../images/products/catalogue/dtom-shop.png'); background-size: cover; background-position: center;">
+                <div class="product-image" data-src="../../images/products/catalogue/dtom-shop.png" data-lazy="true">
+                    <div class="product-placeholder loading-placeholder">
+                        <div>DTOM</div>
+                    </div>
+                    <noscript>
+                        <img src="../../images/products/catalogue/dtom-shop.png" alt="DTOM crewneck product image" class="fallback-image">
+                    </noscript>
                 </div>
                 <div class="product-info">
                     <h3>DTOM</h3>
@@ -158,9 +164,9 @@
                 </div>
             </a>
 
-            <!-- Git Commit Tee -->
+            <!-- Open Heart Tee -->
             <a href="../product/openheart/" class="product-card">
-                <div class="product-image premium-placeholder">
+                <div class="product-image premium-placeholder" data-src="" data-lazy="false">
                     <div class="product-placeholder">
                         <div>OPEN HEART</div>
                     </div>
@@ -171,12 +177,15 @@
                 </div>
             </a>
 
-            <!-- Nodes Hoodie -->
+            <!-- NODES Hoodie -->
             <a href="../product/nodes/" class="product-card">
-                <div class="product-image premium-placeholder">
-                    <div class="product-placeholder">
+                <div class="product-image" data-src="../../CREATIVE-WORKFLOWS/01-PHOTOGRAPHY/product/nodes-shop.jpg" data-lazy="true">
+                    <div class="product-placeholder loading-placeholder">
                         <div>NODES</div>
                     </div>
+                    <noscript>
+                        <img src="../../CREATIVE-WORKFLOWS/01-PHOTOGRAPHY/product/nodes-shop.jpg" alt="NODES hoodie product image" class="fallback-image">
+                    </noscript>
                 </div>
                 <div class="product-info">
                     <h3>NODES</h3>
@@ -198,11 +207,76 @@
 
     </main>
 
-    <!-- Desktop-Only Hover System (Mobile-Safe) - Inline to avoid CSP issues -->
+    <!-- Progressive Enhancement Lazy Loading System -->
     <script>
         (function() {
             'use strict';
             
+            // Lazy loading with IntersectionObserver
+            function initLazyLoading() {
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const container = entry.target;
+                                const src = container.dataset.src;
+                                
+                                if (src) {
+                                    // Create and load image
+                                    const img = new Image();
+                                    img.onload = function() {
+                                        container.style.backgroundImage = `url('${src}')`;
+                                        container.style.backgroundSize = 'cover';
+                                        container.style.backgroundPosition = 'center';
+                                        container.classList.add('image-loaded');
+                                        
+                                        // Hide placeholder
+                                        const placeholder = container.querySelector('.loading-placeholder');
+                                        if (placeholder) {
+                                            placeholder.style.opacity = '0';
+                                            setTimeout(() => {
+                                                placeholder.style.display = 'none';
+                                            }, 300);
+                                        }
+                                    };
+                                    img.onerror = function() {
+                                        // Fallback: show placeholder on error
+                                        console.warn('Failed to load image:', src);
+                                        container.classList.add('image-error');
+                                    };
+                                    img.src = src;
+                                    
+                                    observer.unobserve(container);
+                                }
+                            }
+                        });
+                    }, {
+                        rootMargin: '50px 0px',
+                        threshold: 0.1
+                    });
+                    
+                    // Observe all lazy load images
+                    const lazyImages = document.querySelectorAll('[data-lazy="true"]');
+                    lazyImages.forEach(img => imageObserver.observe(img));
+                    
+                    console.log('OF THE CULTURE: Lazy loading initialized for', lazyImages.length, 'images');
+                } else {
+                    // Fallback for browsers without IntersectionObserver
+                    console.warn('IntersectionObserver not supported, loading all images immediately');
+                    const lazyImages = document.querySelectorAll('[data-lazy="true"]');
+                    lazyImages.forEach(container => {
+                        const src = container.dataset.src;
+                        if (src) {
+                            container.style.backgroundImage = `url('${src}')`;
+                            container.style.backgroundSize = 'cover';
+                            container.style.backgroundPosition = 'center';
+                            container.classList.add('image-loaded');
+                        }
+                    });
+                }
+            }
+            
+            // Desktop hover system
             let isDesktopDevice = false;
             let hasMouseMoved = false;
             
@@ -256,6 +330,10 @@
             
             // Initialize when DOM is ready
             function init() {
+                // Initialize lazy loading first
+                initLazyLoading();
+                
+                // Then initialize hover system
                 detectMouseDevice();
                 preventTouchHover();
                 console.log('OF THE CULTURE: Mobile-safe hover system initialized');
