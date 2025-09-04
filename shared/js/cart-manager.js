@@ -205,7 +205,7 @@ class CartManager {
             </div>
         `).join('');
 
-        this.attachCartItemListeners();
+        // Cart item listeners are handled globally, no need to re-attach
     }
 
     // Event Listeners
@@ -314,10 +314,8 @@ class CartManager {
                 this.checkout();
             }
         });
-    }
 
-    attachCartItemListeners() {
-        // Quantity controls
+        // Cart item controls (quantity and remove)
         document.addEventListener('click', (e) => {
             const productId = e.target.dataset.productId;
             const size = e.target.dataset.size;
@@ -335,7 +333,7 @@ class CartManager {
             }
         });
 
-        // Quantity input changes
+        // Cart quantity input changes
         document.addEventListener('change', (e) => {
             if (e.target.classList.contains('qty-input')) {
                 const productId = e.target.dataset.productId;
@@ -350,6 +348,7 @@ class CartManager {
             }
         });
     }
+
 
     // Cart UI Controls
     showCart() {
