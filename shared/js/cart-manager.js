@@ -49,14 +49,15 @@ class CartManager {
     }
 
     // Cart Operations
-    addItem(productId, name, price, size = 'OS') {
+    addItem(productId, name, price, size = 'OS', quantity = 1) {
+        const addQuantity = parseInt(quantity) || 1;
         const existingItemIndex = this.cart.items.findIndex(
             item => item.productId === productId && item.size === size
         );
 
         if (existingItemIndex >= 0) {
-            // Item exists, increase quantity
-            this.cart.items[existingItemIndex].quantity += 1;
+            // Item exists, add to existing quantity
+            this.cart.items[existingItemIndex].quantity += addQuantity;
             this.cart.items[existingItemIndex].total = 
                 this.cart.items[existingItemIndex].quantity * this.cart.items[existingItemIndex].price;
         } else {
@@ -66,17 +67,17 @@ class CartManager {
                 name,
                 price: parseFloat(price),
                 size,
-                quantity: 1,
-                total: parseFloat(price)
+                quantity: addQuantity,
+                total: parseFloat(price) * addQuantity
             });
         }
 
         this.updateCartTotals();
         this.saveCartToStorage();
         this.updateCartDisplay();
-        this.showConfirmation(productId, name);
+        this.showConfirmation(productId, name, addQuantity);
         
-        console.log('Item added to cart:', { productId, name, price, size });
+        console.log('Item added to cart:', { productId, name, price, size, quantity: addQuantity });
         return true;
     }
 
@@ -161,10 +162,11 @@ class CartManager {
         if (subtotalEl) subtotalEl.textContent = this.cart.subtotal.toFixed(2);
     }
 
-    showConfirmation(productId, name) {
+    showConfirmation(productId, name, quantity = 1) {
         const confirmationEl = document.getElementById(`confirmation-${productId}`);
         if (confirmationEl) {
-            confirmationEl.textContent = `✓ ${name} added to cart`;
+            const quantityText = quantity > 1 ? ` (${quantity})` : '';
+            confirmationEl.textContent = `✓ ${name}${quantityText} added to cart`;
             confirmationEl.style.opacity = '1';
             
             setTimeout(() => {
@@ -216,6 +218,7 @@ class CartManager {
                 // Get form data
                 const formData = new FormData(e.target);
                 const size = formData.get('size');
+                const quantity = parseInt(formData.get('quantity')) || 1;
                 
                 // Extract product info from page or form attributes
                 let productId, name, price;
@@ -256,7 +259,7 @@ class CartManager {
                 }
                 
                 if (productId && name && price && size) {
-                    this.addItem(productId, name, price, size);
+                    this.addItem(productId, name, price, size, quantity);
                     
                     // Preserve existing "✓ Yours" confirmation
                     const button = e.target.querySelector('.add-to-cart-btn');
