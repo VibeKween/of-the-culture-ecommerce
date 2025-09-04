@@ -134,12 +134,13 @@
 .product-link {
     color: var(--color-black);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
+    border-bottom: none;
+    padding-bottom: 0;
+    transition: opacity 0.2s ease;
 }
 
 .product-link:hover {
-    border-bottom-color: var(--color-black);
+    opacity: 0.7;
 }
 
 .item-details {
