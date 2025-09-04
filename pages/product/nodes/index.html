@@ -48,6 +48,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/cart.css">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -133,6 +134,9 @@
                 <a href="../../../" class="directory-link">return :: homepage</a>
                 <a href="../../lookbook/" class="directory-link">lookbook :: visual showcase</a>
                 <a href="../../shop/" class="directory-link">back :: catalogue</a>
+                <div class="bag-indicator">
+                    <span class="bag-link">bag::(0)</span>
+                </div>
             </nav>
         </section>
 
@@ -457,5 +461,32 @@
         // Make toggleAccordion globally available
         window.toggleAccordion = toggleAccordion;
     </script>
+
+    <!-- Cart Slide-out -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Selected Pieces</h2>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-summary">
+                    <div class="cart-subtotal">
+                        Subtotal: $<span id="cartSubtotal">0.00</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button class="checkout-btn">Secure Selection</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../shared/js/cart-manager.js"></script>
 </body>
 </html>

@@ -75,7 +75,6 @@ class CartManager {
         this.updateCartTotals();
         this.saveCartToStorage();
         this.updateCartDisplay();
-        this.showConfirmation(productId, name, addQuantity);
         
         console.log('Item added to cart:', { productId, name, price, size, quantity: addQuantity });
         return true;
@@ -104,8 +103,9 @@ class CartManager {
         );
 
         if (itemIndex >= 0) {
-            if (quantity <= 0) {
-                this.removeItem(productId, size);
+            if (quantity < 1) {
+                // Don't allow minus button to go below 1 - user must use Remove button
+                return false;
             } else {
                 this.cart.items[itemIndex].quantity = parseInt(quantity);
                 this.cart.items[itemIndex].total = 
@@ -159,30 +159,36 @@ class CartManager {
     updateCartDisplay() {
         const countEl = document.getElementById('cartCount');
         const totalEl = document.getElementById('cartTotal');
+        const bagLinkEl = document.querySelector('.bag-link');
 
         if (countEl) countEl.textContent = this.cart.itemCount;
         if (totalEl) totalEl.textContent = this.cart.subtotal.toFixed(2);
 
+        // Update bag copy based on cart state
+        if (bagLinkEl) {
+            if (this.cart.itemCount === 0) {
+                bagLinkEl.innerHTML = `bag::(0)`;
+                bagLinkEl.classList.add('empty');
+            } else {
+                bagLinkEl.innerHTML = `<button id="reviewBagBtn">review bag::(${this.cart.itemCount})</button>`;
+                bagLinkEl.classList.remove('empty');
+                
+                // Re-attach event listener for new button
+                const newReviewBtn = document.getElementById('reviewBagBtn');
+                if (newReviewBtn) {
+                    newReviewBtn.addEventListener('click', () => this.showCart());
+                }
+            }
+        }
+
         // Update cart subtotal in sidebar
         const subtotalEl = document.getElementById('cartSubtotal');
         if (subtotalEl) subtotalEl.textContent = this.cart.subtotal.toFixed(2);
+        
+        // Update checkout button based on cart state
+        this.updateCheckoutButton();
     }
 
-    showConfirmation(productId, name, quantity = 1) {
-        const confirmationEl = document.getElementById(`confirmation-${productId}`);
-        if (confirmationEl) {
-            const quantityText = quantity > 1 ? ` (${quantity})` : '';
-            confirmationEl.textContent = `✓ ${name}${quantityText} added to cart`;
-            confirmationEl.style.opacity = '1';
-            
-            setTimeout(() => {
-                confirmationEl.style.opacity = '0';
-                setTimeout(() => {
-                    confirmationEl.textContent = '';
-                }, 300);
-            }, 2000);
-        }
-    }
 
     // Cart UI Rendering
     renderCartItems() {
@@ -321,12 +327,7 @@ class CartManager {
             });
         }
 
-        // Checkout button (placeholder)
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('checkout-btn')) {
-                this.checkout();
-            }
-        });
+        // Checkout button handled dynamically in updateCheckoutButton()
 
         // Cart item controls (quantity and remove)
         document.addEventListener('click', (e) => {
@@ -334,12 +335,18 @@ class CartManager {
             const size = e.target.dataset.size;
 
             if (e.target.classList.contains('qty-decrease')) {
+                e.preventDefault();
+                e.stopPropagation();
                 const currentQty = parseInt(e.target.nextElementSibling.value);
                 this.updateQuantity(productId, size, currentQty - 1);
             } else if (e.target.classList.contains('qty-increase')) {
+                e.preventDefault();
+                e.stopPropagation();
                 const currentQty = parseInt(e.target.previousElementSibling.value);
                 this.updateQuantity(productId, size, currentQty + 1);
             } else if (e.target.classList.contains('remove-item')) {
+                e.preventDefault();
+                e.stopPropagation();
                 this.removeItem(productId, size);
             }
         });
@@ -388,6 +395,38 @@ class CartManager {
 
         alert(`Checkout functionality coming soon!\n\nCart Summary:\n${this.cart.itemCount} items\nTotal: $${this.cart.subtotal.toFixed(2)}`);
     }
+
+    
+    updateCheckoutButton() {
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        if (checkoutBtn) {
+            console.log('Updating checkout button - cart count:', this.cart.itemCount);
+            if (this.cart.itemCount === 0) {
+                checkoutBtn.textContent = 'Browse';
+                console.log('Setting Browse button');
+                checkoutBtn.onclick = (e) => {
+                    e.preventDefault();
+                    console.log('Browse button clicked - navigating to shop');
+                    // Navigate to shop page from product page context
+                    const currentPath = window.location.pathname;
+                    if (currentPath.includes('/pages/product/')) {
+                        window.location.href = '../../shop/';
+                    } else {
+                        window.location.href = 'pages/shop/';
+                    }
+                };
+            } else {
+                checkoutBtn.textContent = 'Secure Selection';
+                console.log('Setting Secure Selection button');
+                checkoutBtn.onclick = (e) => {
+                    e.preventDefault();
+                    console.log('Secure Selection button clicked');
+                    this.checkout();
+                };
+            }
+        }
+    }
+
 
     // Utility Methods
     getCart() {
