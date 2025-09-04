@@ -1,28 +1,31 @@
 /* Shopping Cart System - OF THE CULTURE Brand System */
 
-/* Cart Navigation Indicator */
-.cart-indicator {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 14px;
+/* Bag Navigation Indicator */
+.bag-indicator {
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid #eee;
+    font-size: 14px;
 }
 
-#viewCartBtn {
-    background: var(--color-black);
-    color: var(--color-white);
+.bag-link {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--color-black);
+}
+
+#reviewBagBtn {
+    background: none;
     border: none;
-    padding: 8px 16px;
+    color: var(--color-black);
     font-family: 'JetBrains Mono', monospace;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    padding: 0;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
 }
 
-#viewCartBtn:hover {
-    background: var(--color-gold);
+#reviewBagBtn:hover {
+    opacity: 0.7;
 }
 
 /* Cart Overlay */

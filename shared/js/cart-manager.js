@@ -190,7 +190,7 @@ class CartManager {
         if (!cartItemsContainer) return;
 
         if (this.cart.items.length === 0) {
-            cartItemsContainer.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
+            cartItemsContainer.innerHTML = '<div class="empty-cart">Your bag awaits</div>';
             return;
         }
 
@@ -299,10 +299,10 @@ class CartManager {
             }
         });
 
-        // View cart button
-        const viewCartBtn = document.getElementById('viewCartBtn');
-        if (viewCartBtn) {
-            viewCartBtn.addEventListener('click', () => this.showCart());
+        // Review bag button
+        const reviewBagBtn = document.getElementById('reviewBagBtn');
+        if (reviewBagBtn) {
+            reviewBagBtn.addEventListener('click', () => this.showCart());
         }
 
         // Close cart
