@@ -133,6 +133,12 @@ class CartManager {
         console.log('Cart cleared');
     }
 
+    // Development helper - clear cart via console
+    clearCartForTesting() {
+        localStorage.removeItem(this.storageKey);
+        location.reload();
+    }
+
     // Helper Methods
     updateCartTotals() {
         this.cart.subtotal = this.cart.items.reduce((sum, item) => sum + item.total, 0);
@@ -428,5 +434,10 @@ class CartManager {
 // Initialize cart when page loads
 document.addEventListener('DOMContentLoaded', () => {
     window.cartManager = new CartManager();
+    // Make clearCartForTesting globally accessible for development
+    window.clearCart = () => {
+        localStorage.removeItem('of-the-culture-cart');
+        location.reload();
+    };
     console.log('Cart system ready');
 });
