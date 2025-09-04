@@ -417,16 +417,16 @@ class CartManager {
     }
 
     getProductImageUrl(productId) {
-        // Generate relative URL to product main images from cart context
+        // Generate relative URL to centralized product images
         const currentPath = window.location.pathname;
         const isInProductPage = currentPath.includes('/pages/product/');
         
         if (isInProductPage) {
-            // From product page to product image (../productId/images/main.jpg)
-            return `../${productId}/images/main.jpg`;
+            // From product page to centralized images (../../../images/products/detail/productId-main.jpg)
+            return `../../../images/products/detail/${productId}-main.jpg`;
         } else {
-            // From other pages to product image
-            return `pages/product/${productId}/images/main.jpg`;
+            // From other pages to centralized images
+            return `images/products/detail/${productId}-main.jpg`;
         }
     }
 }
