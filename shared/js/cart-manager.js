@@ -188,10 +188,16 @@ class CartManager {
             return;
         }
 
-        cartItemsContainer.innerHTML = this.cart.items.map(item => `
+        cartItemsContainer.innerHTML = this.cart.items.map(item => {
+            const productUrl = this.getProductUrl(item.productId);
+            const imageUrl = this.getProductImageUrl(item.productId);
+            return `
             <div class="cart-item" data-product-id="${item.productId}" data-size="${item.size}">
+                <div class="item-image">
+                    <img src="${imageUrl}" alt="${item.name}" class="cart-item-img">
+                </div>
                 <div class="item-info">
-                    <h4>${item.name}</h4>
+                    <h4><a href="${productUrl}" class="product-link">${item.name}</a></h4>
                     <div class="item-details">Size: ${item.size} | $${item.price.toFixed(2)} each</div>
                     <div class="quantity-controls">
                         <button class="qty-btn qty-decrease" data-product-id="${item.productId}" data-size="${item.size}">-</button>
@@ -203,7 +209,8 @@ class CartManager {
                 </div>
                 <div class="item-price">$${item.total.toFixed(2)}</div>
             </div>
-        `).join('');
+        `;
+        }).join('');
 
         // Cart item listeners are handled globally, no need to re-attach
     }
@@ -327,9 +334,7 @@ class CartManager {
                 const currentQty = parseInt(e.target.previousElementSibling.value);
                 this.updateQuantity(productId, size, currentQty + 1);
             } else if (e.target.classList.contains('remove-item')) {
-                if (confirm('Remove this item from your cart?')) {
-                    this.removeItem(productId, size);
-                }
+                this.removeItem(productId, size);
             }
         });
 
@@ -389,6 +394,34 @@ class CartManager {
 
     getSubtotal() {
         return this.cart.subtotal;
+    }
+
+    getProductUrl(productId) {
+        // Generate relative URL to product pages from cart context
+        const currentPath = window.location.pathname;
+        const isInProductPage = currentPath.includes('/pages/product/');
+        
+        if (isInProductPage) {
+            // From product page to product page (../productId/)
+            return `../${productId}/`;
+        } else {
+            // From other pages to product page  
+            return `pages/product/${productId}/`;
+        }
+    }
+
+    getProductImageUrl(productId) {
+        // Generate relative URL to product main images from cart context
+        const currentPath = window.location.pathname;
+        const isInProductPage = currentPath.includes('/pages/product/');
+        
+        if (isInProductPage) {
+            // From product page to product image (../productId/images/main.jpg)
+            return `../${productId}/images/main.jpg`;
+        } else {
+            // From other pages to product image
+            return `pages/product/${productId}/images/main.jpg`;
+        }
     }
 }
 
