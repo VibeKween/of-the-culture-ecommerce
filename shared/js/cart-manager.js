@@ -181,12 +181,34 @@ class CartManager {
             }
         }
 
+        // Update conditional bag visibility for non-product pages
+        this.updateConditionalBagVisibility();
+
         // Update cart subtotal in sidebar
         const subtotalEl = document.getElementById('cartSubtotal');
         if (subtotalEl) subtotalEl.textContent = this.cart.subtotal.toFixed(2);
         
         // Update checkout button based on cart state
         this.updateCheckoutButton();
+    }
+
+    // Conditional bag visibility for homepage, lookbook, and shop pages
+    updateConditionalBagVisibility() {
+        const bagIndicator = document.querySelector('.bag-indicator');
+        if (!bagIndicator) return; // Only applies to pages with conditional bag indicators
+
+        // Check if this is a non-product page (homepage, lookbook, shop)
+        const isNonProductPage = !window.location.pathname.includes('/pages/product/');
+        
+        if (isNonProductPage) {
+            if (this.cart.itemCount > 0) {
+                // Show bag indicator when cart has items
+                bagIndicator.style.display = 'block';
+            } else {
+                // Hide bag indicator when cart is empty
+                bagIndicator.style.display = 'none';
+            }
+        }
     }
 
 
@@ -407,11 +429,16 @@ class CartManager {
                 checkoutBtn.onclick = (e) => {
                     e.preventDefault();
                     console.log('Browse button clicked - navigating to shop');
-                    // Navigate to shop page from product page context
+                    // Navigate to shop page based on current context
                     const currentPath = window.location.pathname;
                     if (currentPath.includes('/pages/product/')) {
+                        // From product page
                         window.location.href = '../../shop/';
+                    } else if (currentPath.includes('/pages/')) {
+                        // From other page folders (lookbook, shop)
+                        window.location.href = '../shop/';
                     } else {
+                        // From homepage
                         window.location.href = 'pages/shop/';
                     }
                 };
