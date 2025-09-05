@@ -1,0 +1,245 @@
+/* Checkout Page - Floating Aesthetic */
+/* Matches mobile sticky bag design language */
+
+.checkout-page {
+    background: #fafafa;
+    min-height: 100vh;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--color-white);
+    border-bottom: 1px solid #eee;
+}
+
+.wordmark {
+    height: 24px;
+}
+
+.checkout-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 0.8rem;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    letter-spacing: 0.02em;
+}
+
+/* Floating Cards - Matches Mobile Sticky Aesthetic */
+.floating-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-black);
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.floating-card:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header h3 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+/* Form Elements */
+.form-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+}
+
+.form-input,
+.form-select {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--color-black);
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    background: var(--color-white);
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.form-input::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+/* Summary Card */
+.summary-card {
+    position: sticky;
+    top: 20px;
+}
+
+.checkout-items {
+    margin-bottom: 20px;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.checkout-item:last-child {
+    border-bottom: none;
+}
+
+.checkout-item h4 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 0 0 4px 0;
+    letter-spacing: 0.02em;
+}
+
+.checkout-item .item-details {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.checkout-item .item-price {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.order-totals {
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+    margin-bottom: 20px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 0.8rem;
+}
+
+.total-final {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.complete-order-btn {
+    width: 100%;
+    background: var(--color-black);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    padding: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.complete-order-btn:hover {
+    background: var(--color-gold);
+    color: var(--color-black);
+}
+
+.empty-message {
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+    padding: 20px 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px 10px;
+    }
+    
+    .checkout-header {
+        padding: 16px;
+    }
+    
+    .floating-card {
+        margin: 0 0 16px 0;
+        border-radius: 4px;
+    }
+    
+    .card-header,
+    .card-content {
+        padding: 12px 16px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .form-row:has(.form-input:nth-child(3)) {
+        flex-direction: row;
+    }
+    
+    .summary-card {
+        position: static;
+        order: -1;
+        margin-bottom: 20px;
+    }
+}

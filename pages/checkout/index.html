@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Selection - OF THE CULTURE | Digital Culture Apparel</title>
+    <meta name="description" content="Complete your selection with our seamless checkout experience.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../shared/css/main.css">
+    <link rel="stylesheet" href="../../shared/css/cart.css">
+    <link rel="stylesheet" href="checkout.css">
+    
+    <!-- Cart System -->
+    <script src="../../shared/js/cart-manager.js"></script>
+</head>
+<body>
+    <main class="page checkout-page">
+        <header class="checkout-header">
+            <div class="logo-section">
+                <a href="../../" class="wordmark-link">
+                    <img src="../../images/branding/of-the-culture-wordmark.svg" 
+                         alt="OF THE CULTURE" 
+                         class="wordmark">
+                </a>
+            </div>
+            <nav class="checkout-nav">
+                <a href="../shop/" class="nav-link">Continue Shopping</a>
+                <a href="../cart/" class="nav-link">
+                    <span class="bag-link">bag::(<span id="cartCount">0</span>)</span>
+                </a>
+            </nav>
+        </header>
+
+        <div class="checkout-container">
+            <div class="checkout-main">
+                <section class="checkout-section">
+                    <h2 class="section-title">Secure Selection</h2>
+                    
+                    <div class="floating-card">
+                        <div class="card-header">
+                            <h3>Contact Information</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-row">
+                                <input type="email" placeholder="Email address" class="form-input" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card">
+                        <div class="card-header">
+                            <h3>Shipping Address</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-row">
+                                <input type="text" placeholder="First name" class="form-input" required>
+                                <input type="text" placeholder="Last name" class="form-input" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="Address" class="form-input" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="Apartment, suite, etc. (optional)" class="form-input">
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="City" class="form-input" required>
+                                <select class="form-select" required>
+                                    <option value="">State</option>
+                                    <option value="CA">California</option>
+                                    <option value="NY">New York</option>
+                                    <option value="TX">Texas</option>
+                                    <!-- Add more states as needed -->
+                                </select>
+                                <input type="text" placeholder="ZIP code" class="form-input" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card">
+                        <div class="card-header">
+                            <h3>Payment</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-row">
+                                <input type="text" placeholder="Card number" class="form-input" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="MM / YY" class="form-input" required>
+                                <input type="text" placeholder="CVC" class="form-input" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="Name on card" class="form-input" required>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="checkout-summary">
+                <div class="floating-card summary-card">
+                    <div class="card-header">
+                        <h3>Order Summary</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="checkoutItems" class="checkout-items">
+                            <!-- Cart items will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal</span>
+                                <span id="checkoutSubtotal">$0.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Shipping</span>
+                                <span>FREE</span>
+                            </div>
+                            <div class="total-row total-final">
+                                <span>Total</span>
+                                <span id="checkoutTotal">$0.00</span>
+                            </div>
+                        </div>
+
+                        <button class="complete-order-btn" type="button">
+                            Complete Order
+                        </button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Cart Overlay (shared) -->
+    <div id="cartOverlay" class="cart-overlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Selection</h2>
+                <button id="cartClose" class="cart-close">×</button>
+            </div>
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items populated by JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-summary">
+                    <div class="cart-subtotal">$<span id="cartSubtotal">0.00</span></div>
+                </div>
+                <button class="checkout-btn">Browse</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize checkout functionality when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            populateCheckoutSummary();
+        });
+
+        function populateCheckoutSummary() {
+            const cart = window.cartManager?.getCart();
+            if (!cart || cart.items.length === 0) {
+                document.getElementById('checkoutItems').innerHTML = '<p class="empty-message">No items in cart</p>';
+                return;
+            }
+
+            const itemsHTML = cart.items.map(item => `
+                <div class="checkout-item">
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <div class="item-details">Size: ${item.size} × ${item.quantity}</div>
+                    </div>
+                    <div class="item-price">$${item.total.toFixed(2)}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('checkoutItems').innerHTML = itemsHTML;
+            document.getElementById('checkoutSubtotal').textContent = `$${cart.subtotal.toFixed(2)}`;
+            document.getElementById('checkoutTotal').textContent = `$${cart.subtotal.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
