@@ -33,11 +33,11 @@ ALD-inspired layout patterns:
     margin-top: 80px !important;
 }
 
-/* Product Content Grid - ALD Layout */
+/* Product Content Grid - Optimized Visual Balance */
 .product-container {
     display: grid;
-    grid-template-columns: 1.2fr 2fr 1.2fr;
-    gap: 80px;
+    grid-template-columns: 1.4fr 1.8fr 1.3fr;
+    gap: 60px;
     margin-bottom: 120px;
     margin-top: 80px;
     align-items: start;
@@ -253,11 +253,11 @@ ALD-inspired layout patterns:
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px 36px;
-    background-color: #f7f7f7;
+    padding: 24px 30px;
+    background-color: #f9f9f9;
     border: none;
     border-radius: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 /* Desktop product info row - matches mobile */
@@ -649,11 +649,12 @@ ALD-inspired layout patterns:
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .product-page {
-        max-width: 800px;
+        max-width: 900px;
     }
     
     .product-container {
-        gap: 50px;
+        grid-template-columns: 1.3fr 1.9fr 1.2fr;
+        gap: 45px;
     }
     
     .product-title {

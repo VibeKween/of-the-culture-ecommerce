@@ -33,6 +33,7 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 
 📖 **[Development Overview](docs/DEVELOPMENT-OVERVIEW.md)** - Complete project context and current status  
 🔒 **[Baseline Protection](docs/BASELINE-PROTECTION.md)** - **CRITICAL:** Approved working state specifications  
+🎨 **[CSS Design System](docs/CSS-DESIGN-SYSTEM.md)** - **LIVING DOC:** Complete 488-line design system reference  
 🎯 **[Feature Roadmap](docs/features/FEATURE-ROADMAP.md)** - Development phases and priorities  
 🔍 **[SEO & Technical Backlog](docs/features/SEO-TECHNICAL-BACKLOG.md)** - SEO optimization strategy and implementation timeline  
 📓 **[Session Archives](docs/sessions/)** - Detailed development session documentation  

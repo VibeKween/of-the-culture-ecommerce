@@ -12,10 +12,14 @@
 This document automatically reflects the current state of your CSS design system. As you make changes to `shared/css/main.css`, this documentation should be updated to maintain accuracy.
 
 **Current System Stats**:
-- **File Size**: 488 lines
-- **Comment Sections**: 29 documented areas  
-- **Responsive Breakpoints**: 5 media queries
+- **Active CSS**: ~2,842 lines across multiple files
+- **Main System**: 488 lines (shared/css/main.css)
+- **Cart/Mobile Sticky**: 493 lines (shared/css/cart.css)
+- **Product Pages**: 766 lines (pages/product/product.css) 
 - **Pages Supported**: Homepage, Lookbook, Shop, Product (12+ HTML pages)
+
+**Archived CSS**:
+- **Custom Checkout**: 244 lines (ARCHIVE/checkout-custom-implementation/checkout.css) - Production-ready but not launching with MVP
 
 ---
 
@@ -264,6 +268,26 @@ Your validation workflow automatically checks:
 
 ---
 
+## 🗄️ ARCHIVED COMPONENTS
+
+### **Custom Checkout Implementation**
+**Location**: `ARCHIVE/checkout-custom-implementation/`  
+**Status**: Production-ready, archived for future use  
+**CSS File**: 244 lines of complete checkout styling
+
+**Why Archived**: Launching MVP with Shopify hosted checkout instead of custom implementation.
+
+**Future Reactivation Notes**:
+- Complete custom checkout page with floating card aesthetic
+- Seamlessly extends Session 11 cart modal design language
+- JetBrains Mono typography and refined interaction patterns
+- Ready for payment processing integration (Stripe recommended)
+- Full responsive design and accessibility compliance
+
+**Reactivation Process**: Copy from ARCHIVE back to `pages/checkout/`, integrate payment processing, add backend API.
+
+---
+
 ## 📝 CHANGE LOG TEMPLATE
 
 *Use this section to track major updates:*
@@ -273,6 +297,7 @@ Your validation workflow automatically checks:
 - Mobile phantom space elimination  
 - Enhanced desktop-only hover interactions
 - Cross-page consistency enforcement
+- Documented archived checkout CSS implementation (244 lines)
 
 **[Next Update Date]**:
 - [Description of changes made]
