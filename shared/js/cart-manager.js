@@ -20,17 +20,7 @@ class CartManager {
         this.loadCartFromStorage();
         this.updateCartDisplay();
         this.attachEventListeners();
-        console.log('Cart Manager initialized', {
-            itemCount: this.cart.itemCount,
-            currentPage: window.location.pathname,
-            bagIndicatorFound: !!document.querySelector('.bag-indicator')
-        });
-        
-        // Force conditional visibility update after initialization
-        setTimeout(() => {
-            console.log('Force updating conditional visibility after 100ms...');
-            this.updateConditionalBagVisibility();
-        }, 100);
+        console.log('Cart Manager initialized');
     }
 
     // LocalStorage Operations
@@ -207,40 +197,20 @@ class CartManager {
         const bagIndicator = document.querySelector('.bag-indicator');
         const currentPath = window.location.pathname;
         
-        console.log('=== CONDITIONAL VISIBILITY DEBUG ===');
-        console.log('Current path:', currentPath);
-        console.log('Bag indicator element:', bagIndicator);
-        console.log('Cart item count:', this.cart.itemCount);
-        console.log('Cart items:', this.cart.items);
-        
-        if (!bagIndicator) {
-            console.log('❌ No bag indicator found on this page - exiting');
-            return; // Only applies to pages with conditional bag indicators
-        }
+        if (!bagIndicator) return; // Only applies to pages with conditional bag indicators
 
         // Check if this is a non-product page (homepage, lookbook, shop)
         const isNonProductPage = !currentPath.includes('/pages/product/');
         
-        console.log('Is non-product page?', isNonProductPage);
-        console.log('Contains /pages/product/?', currentPath.includes('/pages/product/'));
-        
         if (isNonProductPage) {
-            console.log('✅ Processing non-product page...');
             if (this.cart.itemCount > 0) {
                 // Show bag indicator when cart has items
-                console.log('🟢 SHOWING bag indicator - cart has', this.cart.itemCount, 'items');
                 bagIndicator.style.display = 'block';
-                console.log('Bag indicator display style set to:', bagIndicator.style.display);
-                console.log('Bag indicator computed style:', window.getComputedStyle(bagIndicator).display);
             } else {
                 // Hide bag indicator when cart is empty
-                console.log('🔴 HIDING bag indicator - cart is empty');
                 bagIndicator.style.display = 'none';
             }
-        } else {
-            console.log('❌ This is a product page - skipping conditional visibility');
         }
-        console.log('=== END CONDITIONAL VISIBILITY DEBUG ===');
     }
 
 
@@ -515,15 +485,17 @@ class CartManager {
     }
 
     getProductImageUrl(productId) {
-        // Generate relative URL to centralized product images
+        // Generate relative URL to centralized product images based on page context
         const currentPath = window.location.pathname;
-        const isInProductPage = currentPath.includes('/pages/product/');
         
-        if (isInProductPage) {
-            // From product page to centralized images (../../../images/products/detail/productId-main.jpg)
+        if (currentPath.includes('/pages/product/')) {
+            // From product page to centralized images
             return `../../../images/products/detail/${productId}-main.jpg`;
+        } else if (currentPath.includes('/pages/')) {
+            // From other page folders (lookbook, shop) to centralized images
+            return `../../images/products/detail/${productId}-main.jpg`;
         } else {
-            // From other pages to centralized images
+            // From homepage to centralized images
             return `images/products/detail/${productId}-main.jpg`;
         }
     }
