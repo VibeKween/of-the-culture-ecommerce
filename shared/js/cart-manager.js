@@ -20,7 +20,10 @@ class CartManager {
         this.loadCartFromStorage();
         this.updateCartDisplay();
         this.attachEventListeners();
-        console.log('Cart Manager initialized');
+        console.log('Cart Manager initialized', {
+            itemCount: this.cart.itemCount,
+            currentPage: window.location.pathname
+        });
     }
 
     // LocalStorage Operations
@@ -195,17 +198,32 @@ class CartManager {
     // Conditional bag visibility for homepage, lookbook, and shop pages
     updateConditionalBagVisibility() {
         const bagIndicator = document.querySelector('.bag-indicator');
-        if (!bagIndicator) return; // Only applies to pages with conditional bag indicators
+        const currentPath = window.location.pathname;
+        
+        console.log('Conditional visibility debug:', {
+            currentPath,
+            bagIndicator: !!bagIndicator,
+            cartItemCount: this.cart.itemCount
+        });
+        
+        if (!bagIndicator) {
+            console.log('No bag indicator found on this page');
+            return; // Only applies to pages with conditional bag indicators
+        }
 
         // Check if this is a non-product page (homepage, lookbook, shop)
-        const isNonProductPage = !window.location.pathname.includes('/pages/product/');
+        const isNonProductPage = !currentPath.includes('/pages/product/');
+        
+        console.log('Is non-product page:', isNonProductPage);
         
         if (isNonProductPage) {
             if (this.cart.itemCount > 0) {
                 // Show bag indicator when cart has items
+                console.log('Showing bag indicator - cart has items');
                 bagIndicator.style.display = 'block';
             } else {
                 // Hide bag indicator when cart is empty
+                console.log('Hiding bag indicator - cart is empty');
                 bagIndicator.style.display = 'none';
             }
         }
