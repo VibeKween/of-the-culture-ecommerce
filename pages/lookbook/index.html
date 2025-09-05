@@ -43,6 +43,7 @@
     
     <link rel="stylesheet" href="../../shared/css/main.css">
     <link rel="stylesheet" href="lookbook.css">
+    <link rel="stylesheet" href="../../shared/css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -122,6 +123,10 @@
                 <a href="../../" class="directory-link">return :: homepage</a>
                 <a href="../shop/" class="directory-link">catalogue :: browse all pieces</a>
             </nav>
+            
+            <div class="bag-indicator" style="display: none;">
+                <span class="bag-link">bag::(0)</span>
+            </div>
         </section>
         
         <section class="block lookbook-intro">
@@ -231,6 +236,31 @@
         </section>
 
     </main>
+
+    <!-- Cart Overlay (Hidden by Default) -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Selected Pieces</h2>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+                
+                <div class="cart-footer">
+                    <div class="cart-subtotal">
+                        Subtotal: $<span id="cartSubtotal">0.00</span>
+                    </div>
+                    <button class="checkout-btn">Browse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Management System -->
+    <script src="../../shared/js/cart-manager.js"></script>
 
     <!-- Analytics Placeholder (Web3/API Ready) -->
     <script>

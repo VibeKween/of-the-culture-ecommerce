@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://vibekween.github.io/of-the-culture-ecommerce/pages/product/nakamoto/">
     <meta property="og:title" content="NAKAMOTO Cap - OF THE CULTURE">
     <meta property="og:description" content="American-milled wool cap with tailored structure and tonal tactility. A quiet homage to origins - digitally born, culturally embedded.">
-    <meta property="og:image" content="https://vibekween.github.io/of-the-culture-ecommerce/pages/product/nakamoto/images/main.jpg">
+    <meta property="og:image" content="https://vibekween.github.io/of-the-culture-ecommerce/images/products/product-pages/nakamoto-main.jpg">
     <meta property="og:site_name" content="OF THE CULTURE">
     
     <!-- Twitter -->
@@ -24,7 +24,7 @@
     <meta property="twitter:url" content="https://vibekween.github.io/of-the-culture-ecommerce/pages/product/nakamoto/">
     <meta property="twitter:title" content="NAKAMOTO Cap - OF THE CULTURE">
     <meta property="twitter:description" content="American-milled wool cap with tailored structure and tonal tactility. A quiet homage to origins - digitally born, culturally embedded.">
-    <meta property="twitter:image" content="https://vibekween.github.io/of-the-culture-ecommerce/pages/product/nakamoto/images/main.jpg">
+    <meta property="twitter:image" content="https://vibekween.github.io/of-the-culture-ecommerce/images/products/product-pages/nakamoto-main.jpg">
     
     <!-- Theme & Performance -->
     <meta name="theme-color" content="#000000">
@@ -80,7 +80,7 @@
               "@id": "https://vibekween.github.io/of-the-culture-ecommerce/#organization"
             }
           },
-          "image": "https://vibekween.github.io/of-the-culture-ecommerce/pages/product/nakamoto/images/main.jpg"
+          "image": "https://vibekween.github.io/of-the-culture-ecommerce/images/products/product-pages/nakamoto-main.jpg"
         },
         {
           "@type": "WebPage",
@@ -133,6 +133,9 @@
                 <a href="../../../" class="directory-link">return :: homepage</a>
                 <a href="../../lookbook/" class="directory-link">lookbook :: visual showcase</a>
                 <a href="../../shop/" class="directory-link">back :: catalogue</a>
+                <div class="bag-indicator">
+                    <span class="bag-link">bag::(0)</span>
+                </div>
             </nav>
         </section>
 
@@ -173,10 +176,7 @@
                 <div class="product-gallery">
                     <!-- Main Product Image -->
                     <div class="image-container main-view">
-                        <div class="placeholder-image">
-                            <span class="placeholder-text">NAKAMOTO</span>
-                            <span class="placeholder-subtitle"></span>
-                        </div>
+                        <img src="../../../images/products/product-pages/nakamoto-main.jpg" alt="NAKAMOTO Cap - Front View" class="product-main-image">
                         <div class="image-overlay">
                             <span class="view-label">FRONT VIEW</span>
                         </div>
@@ -447,5 +447,35 @@
         // Make toggleAccordion globally available
         window.toggleAccordion = toggleAccordion;
     </script>
+
+    <!-- Shopping Cart System -->
+    <link rel="stylesheet" href="../../../shared/css/cart.css">
+    
+    <!-- Cart Slide-out -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Selected Pieces</h2>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-summary">
+                    <div class="cart-subtotal">
+                        Subtotal: $<span id="cartSubtotal">0.00</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button class="checkout-btn">Secure Selection</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../shared/js/cart-manager.js"></script>
 </body>
 </html>

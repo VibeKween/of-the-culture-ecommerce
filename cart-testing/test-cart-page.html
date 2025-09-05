@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Testing - OF THE CULTURE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cart Testing Environment</h1>
+        <div class="cart-indicator" id="cartIndicator">
+            Cart: <span id="cartCount">0</span> items | $<span id="cartTotal">0.00</span>
+            <button id="viewCartBtn">View Cart</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="test-products">
+            <h2>Test Products</h2>
+            
+            <div class="product-test">
+                <h3>NAKAMOTO - $85</h3>
+                <button class="add-to-cart" 
+                        data-product-id="nakamoto"
+                        data-name="NAKAMOTO" 
+                        data-price="85"
+                        data-size="OS">
+                    Add to Cart
+                </button>
+                <div class="confirmation" id="confirmation-nakamoto"></div>
+            </div>
+
+            <div class="product-test">
+                <h3>WEME - $65</h3>
+                <button class="add-to-cart"
+                        data-product-id="weme"
+                        data-name="WEME"
+                        data-price="65"
+                        data-size="OS">
+                    Add to Cart
+                </button>
+                <div class="confirmation" id="confirmation-weme"></div>
+            </div>
+
+            <div class="product-test">
+                <h3>DTOM - $75</h3>
+                <button class="add-to-cart"
+                        data-product-id="dtom"
+                        data-name="DTOM"
+                        data-price="75"
+                        data-size="OS">
+                    Add to Cart
+                </button>
+                <div class="confirmation" id="confirmation-dtom"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Slide-out -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="cart-close" id="cartClose">&times;</button>
+            </div>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-summary">
+                    <div class="cart-subtotal">
+                        Subtotal: $<span id="cartSubtotal">0.00</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart-manager.js"></script>
+</body>
+</html>

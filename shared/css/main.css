@@ -473,11 +473,10 @@ a:hover {
 
 /* Mobile Touch Protection handled by desktop-hover.js */
 
-/* Enhanced Focus States for Accessibility */
+/* Enhanced Focus States for Accessibility - Minimal approach */
 a:focus,
 button:focus {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 3px;
+  outline: none;
 }
 
 /* Reduced Motion Support */
