@@ -67,6 +67,16 @@ ALD-inspired layout patterns:
     border-radius: 2px;
 }
 
+/* Product Image Element - Consistent Sizing Across All Products */
+.product-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    /* Ensures consistent 4:5 aspect ratio container sizing */
+}
+
 /* Additional Views Grid */
 .additional-views {
     display: grid;

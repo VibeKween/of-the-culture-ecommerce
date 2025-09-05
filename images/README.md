@@ -8,9 +8,15 @@ images/
 ├── favicons/               # Site icons and favicons
 ├── brand/                  # Brand assets (logos, wordmarks)
 ├── products/               # Product photography with lazy loading optimization
-│   └── catalogue/          # Shop page product images
-│       ├── Production/     # Live optimized images (grain-5-50 compression)
-│       └── Archive/        # Previous versions and alternatives
+│   ├── catalogue/          # Shop page product images
+│   │   ├── Production/     # Live optimized images (grain-5-50 compression)
+│   │   └── Archive/        # Previous versions and alternatives
+│   └── product-pages/      # Product detail page main images
+│       ├── nakamoto-main.jpg    # Individual product hero images
+│       ├── weme-main.jpg        # Used on product pages & cart thumbnails
+│       ├── dtom-main.jpeg       # Consistent with productId naming
+│       ├── openheart-main.jpeg  # Support for JPEG/JPG formats
+│       └── nodes-main.jpeg      # Optimized for web performance
 ├── og-images/             # Open Graph / social media images
 └── wordmark_2.svg         # Current brand wordmark
 ```
@@ -21,16 +27,27 @@ images/
 **Purpose**: Clean organization and version control for product photography
 
 **Production Folder** (`/products/catalogue/Production/`):
-- Live images used on the website
+- Live images used on the website (shop grid AND cart thumbnails)
 - Optimized with grain-5-50 compression for web performance
 - Lazy loading compatible with progressive enhancement
 - Filename pattern: `shop-[product]-grain-5-50.jpg`
+- **Single source of truth** for all product imagery across site
 
 **Archive Folder** (`/products/catalogue/Archive/`):
 - Previous versions and alternative shots
 - Uncompressed or differently processed images
 - Backup versions for easy rollback
 - Development and testing images
+
+**Product-Pages Folder** (`/products/product-pages/`):
+- Main product hero images for individual product detail pages
+- Used as cart thumbnail images (replacing shop grid images)
+- Naming convention: `[productId]-main.[jpg|jpeg]`, `[productId]-back.[jpg|jpeg]`, `[productId]-detail.[jpg|jpeg]`
+- **Image Specifications**: 1200×1500px minimum (4:5 aspect ratio)
+- **File Format**: JPEG/JPG optimized for web (85-90% quality)
+- **Responsive sizing**: CSS `object-fit: cover` ensures consistent display in 4:5 containers
+- **Visual Consistency**: All product images should have similar lighting, background, and composition
+- Supports both JPEG and JPG file extensions
 
 ### Lazy Loading Integration
 All production images are optimized for the progressive enhancement lazy loading system:
@@ -122,6 +139,37 @@ Add to `<head>` section:
 - **Resolution**: Vector or 300 DPI minimum
 - **Color Profile**: sRGB for web
 - **Background**: Transparent
+
+## Product Photography Guidelines
+
+### Product Page Image Standards
+**For all product detail pages (main, back, detail views):**
+
+**Technical Specifications:**
+- **Dimensions**: 1200×1500px minimum (4:5 aspect ratio)
+- **Resolution**: 72-96 DPI (web optimized)
+- **Format**: JPEG/JPG optimized at 85-90% quality
+- **File Size**: Target 500KB-2MB per image
+- **Color Profile**: sRGB for web compatibility
+
+**Visual Consistency Requirements:**
+- **Lighting**: Even, diffused lighting with minimal shadows
+- **Background**: Consistent neutral background (white/light gray recommended)
+- **Composition**: Product centered, similar framing across all items
+- **Color Accuracy**: True-to-life color representation
+- **Focus**: Sharp focus on product details and textures
+
+**Naming Convention:**
+```
+[productId]-main.jpg     # Primary hero image
+[productId]-back.jpg     # Back view or alternate angle  
+[productId]-detail.jpg   # Close-up texture/detail shot
+```
+
+**Content Guidelines:**
+- Main image: Full product view, front-facing
+- Back image: Rear view or significant alternate angle
+- Detail image: Close-up of texture, branding, or unique features
 
 ## Product Photography
 

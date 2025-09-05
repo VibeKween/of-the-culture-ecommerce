@@ -103,8 +103,13 @@ class CartManager {
         );
 
         if (itemIndex >= 0) {
+            const currentQuantity = this.cart.items[itemIndex].quantity;
+            
             if (quantity < 1) {
                 // Don't allow minus button to go below 1 - user must use Remove button
+                return false;
+            } else if (quantity > 5 && quantity > currentQuantity) {
+                // Only block increases above 5, allow decreases from any amount
                 return false;
             } else {
                 this.cart.items[itemIndex].quantity = parseInt(quantity);
@@ -237,7 +242,7 @@ class CartManager {
                     <div class="item-details">Size: ${item.size} | $${item.price.toFixed(2)} each</div>
                     <div class="quantity-controls">
                         <button class="qty-btn qty-decrease" data-product-id="${item.productId}" data-size="${item.size}">-</button>
-                        <input type="number" class="qty-input" value="${item.quantity}" min="1" 
+                        <input type="number" class="qty-input" value="${item.quantity}" min="1" max="${Math.max(5, item.quantity)}"
                                data-product-id="${item.productId}" data-size="${item.size}">
                         <button class="qty-btn qty-increase" data-product-id="${item.productId}" data-size="${item.size}">+</button>
                     </div>
@@ -485,19 +490,35 @@ class CartManager {
     }
 
     getProductImageUrl(productId) {
-        // Generate relative URL to centralized product images based on page context
+        // Generate relative URL to product-pages main images
         const currentPath = window.location.pathname;
         
+        // Map productId to the product-pages main image filename
+        const imageFileName = this.getProductMainImageFileName(productId);
+        
         if (currentPath.includes('/pages/product/')) {
-            // From product page to centralized images
-            return `../../../images/products/detail/${productId}-main.jpg`;
+            // From product page to product-pages images
+            return `../../../images/products/product-pages/${imageFileName}`;
         } else if (currentPath.includes('/pages/')) {
-            // From other page folders (lookbook, shop) to centralized images
-            return `../../images/products/detail/${productId}-main.jpg`;
+            // From other page folders (lookbook, shop) to product-pages images
+            return `../../images/products/product-pages/${imageFileName}`;
         } else {
-            // From homepage to centralized images
-            return `images/products/detail/${productId}-main.jpg`;
+            // From homepage to product-pages images
+            return `images/products/product-pages/${imageFileName}`;
         }
+    }
+
+    getProductMainImageFileName(productId) {
+        // Map cart productId to product-pages main image naming convention
+        const imageMap = {
+            'nakamoto': 'nakamoto-main.jpg',
+            'weme': 'weme-main.jpg', 
+            'dtom': 'dtom-main.jpeg',
+            'openheart': 'openheart-main.jpeg',
+            'nodes': 'nodes-main.jpeg'
+        };
+        
+        return imageMap[productId] || `${productId}-main.jpg`;
     }
 }
 
