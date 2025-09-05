@@ -290,19 +290,19 @@ class CartManager {
                     } else if (urlPath.includes('weme')) {
                         productId = 'weme';
                         name = 'WEME'; 
-                        price = '65';
+                        price = '125';
                     } else if (urlPath.includes('dtom')) {
                         productId = 'dtom';
                         name = 'DTOM';
-                        price = '75';
+                        price = '115';
                     } else if (urlPath.includes('openheart')) {
                         productId = 'openheart';
                         name = 'OPENHEART';
-                        price = '120';
+                        price = '65';
                     } else if (urlPath.includes('nodes')) {
                         productId = 'nodes';
                         name = 'NODES';
-                        price = '95';
+                        price = '145';
                     }
                 }
                 
@@ -415,14 +415,25 @@ class CartManager {
         }
     }
 
-    // Checkout (placeholder)
+    // Navigate to checkout page
     checkout() {
         if (this.cart.items.length === 0) {
             alert('Your cart is empty!');
             return;
         }
 
-        alert(`Checkout functionality coming soon!\n\nCart Summary:\n${this.cart.itemCount} items\nTotal: $${this.cart.subtotal.toFixed(2)}`);
+        // Navigate to checkout page based on current context
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/pages/product/')) {
+            // From product page
+            window.location.href = '../../checkout/';
+        } else if (currentPath.includes('/pages/')) {
+            // From other page folders (lookbook, shop)
+            window.location.href = '../checkout/';
+        } else {
+            // From homepage
+            window.location.href = 'pages/checkout/';
+        }
     }
 
     
@@ -450,11 +461,11 @@ class CartManager {
                     }
                 };
             } else {
-                checkoutBtn.textContent = 'Secure Selection';
-                console.log('Setting Secure Selection button');
+                checkoutBtn.textContent = 'Purchase';
+                console.log('Setting Purchase button');
                 checkoutBtn.onclick = (e) => {
                     e.preventDefault();
-                    console.log('Secure Selection button clicked');
+                    console.log('Purchase button clicked');
                     this.checkout();
                 };
             }
