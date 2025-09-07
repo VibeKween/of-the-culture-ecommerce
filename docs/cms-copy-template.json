@@ -1,9 +1,29 @@
 {
+  "meta_note": "Updated with Grant Collection story continuity and comprehensive copy implementations - Session completed",
   "site_global": {
     "brand_name": "OF THE CULTURE",
     "tagline": "Small-batch clothing studio",
     "copyright": "© 2025 Tuku Group, LLC.",
-    "footer_text": "Independent and privately held."
+    "footer_text": "Independent and privately held.",
+    "collection_name": "The Grant Collection",
+    "story_arc": "Ideas → Exploration → Craft"
+  },
+  "seo_structure": {
+    "homepage": {
+      "title": "OF THE CULTURE - The Grant Collection | Ideas Taking Shape Through Craft",
+      "description": "Ideas taking shape, waiting to be explored. The Grant Collection by OF THE CULTURE - where digital culture meets intentional craft in limited-run apparel.",
+      "keywords": "Grant Collection, OF THE CULTURE, small-batch clothing, limited-run apparel, digital culture fashion, intentional design, craftsmanship"
+    },
+    "lookbook": {
+      "title": "Grant Collection Lookbook - OF THE CULTURE | SZN2026 Apparel",
+      "description": "The Grant Collection lookbook: where vision meets craft. Silkscreen, embroidery, and textures across wool, French terry, and organic cotton.",
+      "keywords": "OF THE CULTURE lookbook, SZN2026, Grant Collection, digital culture fashion, limited-run apparel showcase, small-batch clothing"
+    },
+    "shop": {
+      "title": "The Grant Collection - OF THE CULTURE | Limited-Run Digital Culture Apparel",
+      "description": "Where vision meets craft. The Grant Collection features silkscreen, embroidery, and textures across wool, French terry, and organic cotton in limited quantities.",
+      "keywords": "Grant Collection, OF THE CULTURE shop, limited-run apparel, small-batch clothing, digital culture fashion, handcrafted garments"
+    }
   },
   "homepage": {
     "intro": "A small-batch clothing studio.<br>Limited-run apparel.<br>Created with intention.",
@@ -21,67 +41,145 @@
       "Not loud.",
       "Not trend-driven.",
       "Each piece a signal.",
-      "A quiet presence in the sea of the everyday."
+      "Ideas taking shape, waiting to be explored."
     ],
     "grosgrain_text": "Drawing inspiration from the optimism & ingenuity found within decentralization, our perspective embodies the spirit of innovation & the future, marrying elegant design with a nod to the humor, hope, and forward-thinking ethos of our time."
   },
-  "shop": {
-    "title": "Catalogue",
-    "season": "SZN2526.",
-    "subtitle": "Limited quantities available.",
-    "philosophy": [
-      "Each piece designed with intention.",
-      "Small batches. Thoughtful creation.",
-      "Not mass production."
+  "lookbook": {
+    "title": "The Grant Collection Lookbook",
+    "subtitle": "Philosophy of Exploration",
+    "opening_philosophy": "The Grant Collection is a study in exploration - an experiment in using the tools at hand to give form to ideas. Thought gathers shape, intent takes color, and something imagined begins to live before it is tangible. What follows is less a season than a reflection of how vision fuels what becomes real.",
+    "closing_statement": [
+      "What begins as exploration becomes form,",
+      "less a season, more a natural unfolding."
+    ],
+    "products_showcase": [
+      {
+        "title": "WE / ME",
+        "concept": "Individual sovereignty, collective proof",
+        "signal": "The many exist because the one insists."
+      },
+      {
+        "title": "OPEN HEART",
+        "concept": "Transparency as architecture",
+        "signal": "A heart unguarded sets ideas free to multiply."
+      },
+      {
+        "title": "DTOM",
+        "concept": "Cultural velocity",
+        "signal": "The message outruns the market."
+      },
+      {
+        "title": "NODES",
+        "concept": "Points of presence",
+        "signal": "Alone a signal, together the network."
+      },
+      {
+        "title": "NAKAMOTO",
+        "concept": "A myth, encrypted",
+        "signal": "The code endures where the name disappears."
+      }
     ]
   },
-  "lookbook": {
-    "title": "SZN2526",
-    "subtitle": "Visual showcase.",
-    "tagline": "Each piece a signal.",
-    "philosophy": [
-      "Not fashion.",
-      "Cultural artifacts.",
-      "Designed for the digitally native.",
-      "Made for those who understand the signal."
+  "shop": {
+    "title": "The Grant Collection",
+    "subtitle": "Where Vision Meets Craft",
+    "opening_philosophy": "Silkscreen, embroidery, and textures move across wool, French terry, and organic cotton. Each technique serves purpose - elevating meaning above ornament, function above form. What you find here represents months of exploration, refined into pieces designed to endure both in construction and in concept.",
+    "availability_note": "Limited quantities available.",
+    "process_philosophy": [
+      "Small batches. Intentional creation.",
+      "Techniques refined through exploration.",
+      "Built to endure in construction and concept."
     ]
   },
   "products": {
-    "terminal_aesthetics_cap": {
-      "name": "Terminal Aesthetics Cap",
-      "price": "$85",
+    "global_notes": {
+      "release": "The Grant Collection",
+      "production_notes": "Produced in small batches once orders are confirmed, each release is made in measured runs so only the needed amount is created. Returns are available only for items that arrive damaged or mis-shipped.",
+      "contact": "orders@oftheculture.co",
+      "sizing_standards": {
+        "mens_items": "Standard US men's sizing",
+        "womens_items": "Standard US women's sizing"
+      }
+    },
+    "weme_hoodie": {
+      "name": "WE / ME",
+      "price": "$185",
+      "main_description": "An oversized hoodie in organic cotton terry with a defined silhouette and layered embroidered artwork. The front and back graphics move between scales - individual and collective - each side a different statement on the tension between personal identity and group belonging.",
+      "atelier_notes": {
+        "release": "The Grant Collection",
+        "materials": "Certified organic cotton with a smooth exterior and soft loop-back interior",
+        "finish": "Dyed for a lived-in character",
+        "fit": "Standard US men's sizing with a slightly tailored drape, ideal for layering",
+        "sizing_note": "For feminine frames, sizes XS and S align with a U.S. women's small or medium",
+        "care": "Dry clean only"
+      }
+    },
+    "open_heart_tee": {
+      "name": "OPEN HEART",
+      "price": "$65",
+      "main_description": "A midweight cotton t-shirt with soft form and lived-in ease. The front artwork is silkscreened with raised, suede-like detailing, a finish that lends both tactility and quiet emphasis - a nod to remix culture.",
+      "sizing_note": "Designed specifically for women's sizing",
+      "atelier_notes": {
+        "release": "The Grant Collection",
+        "materials": "100% combed cotton, chosen for breathable comfort",
+        "construction": "Mid-weight fabric with a premium handfeel",
+        "fit": "Designed for women's silhouette with subtle shaping through the shoulders",
+        "sizing": "Standard US women's sizing with shorter, boxier drape for a modern proportion",
+        "care": "Dry clean only"
+      }
+    },
+    "dtom_crewneck": {
+      "name": "DON'T TREAD ON MEMES",
+      "price": "$135",
+      "main_description": "A structured paneled cotton sweatshirt designed with intent. The phrase across its chest is rendered in a velvety print, pressed into the fabric with subtle elevation - a shorthand for meaning that outpaces the market.",
+      "atelier_notes": {
+        "release": "The Grant Collection",
+        "materials": "Cotton fleece with natural weight and a soft-brushed interior",
+        "construction": "Ribbed side panels and cuffs for shape retention",
+        "fit": "Standard US men's sizing through the body with room to layer",
+        "sizing_note": "For feminine frames, XS and S align with a U.S. women's small or medium",
+        "care": "Dry clean only"
+      }
+    },
+    "nodes_hoodie": {
+      "name": "NODES",
+      "price": "$145",
+      "main_description": "A heavyweight organic cotton terry hoodie with a defined silhouette, formed yet breathable. Its graphic carries layered color saturation, silkscreened to achieve depth and presence - a signal that gains strength in connection.",
+      "atelier_notes": {
+        "release": "The Grant Collection",
+        "materials": "Textured exterior with loop-back interior",
+        "construction": "Overlapping front hood detail for a clean neckline and simple finish",
+        "fit": "Slightly oversized fit on a standard US men's sizing frame; subtle shoulder drop for movement",
+        "sizing_note": "For feminine frames, size S typically aligns with a U.S. women's medium",
+        "care": "Dry clean only"
+      }
+    },
+    "nakamoto_cap": {
+      "name": "NAKAMOTO",
+      "price": "$95",
       "main_description": "American-milled wool gives this cap its tailored structure and tonal tactility. A quiet homage to origins - digitally born, culturally embedded.",
-      "cultural_headers": ["Nakamoto origins", "Terminal aesthetics"],
-      "materials": "American-milled wool with structured handfeel",
-      "construction": "Tailored structure with tonal tactility",
-      "fit": "One size fits most, adjustable",
-      "care": "Spot clean or dry clean only",
-      "philosophy": "Digitally born, culturally embedded"
-    },
-    "crypto_nomad_hoodie": {
-      "name": "Crypto Nomad Hoodie",
-      "price": "$125",
-      "main_description": "Heavyweight cotton hoodie designed for digital nomads and crypto builders. Clean lines, thoughtful details, premium construction.",
-      "cultural_headers": ["Decentralization", "Location independence"],
-      "secondary_description": "For those building the future. Made in limited quantities with intention.",
-      "materials": "100% heavyweight cotton fleece, 14oz",
-      "care": "Machine wash cold, hang dry",
-      "made_in": "Los Angeles, USA",
-      "fit": "Relaxed fit, pre-shrunk",
-      "features": "Kangaroo pocket, adjustable hood, reinforced seams"
-    },
-    "dont_tread_on_memes_crewneck": {
-      "name": "Don't Tread on Memes Crewneck",
-      "price": "$115",
-      "main_description": "Ideas move faster than markets. DON'T TREAD ON MEMES - currency, language, ours.",
-      "cultural_headers": ["Meme velocity", "Cultural currency"],
-      "secondary_description": "A refined staple, this structured paneled cotton crewneck offers an updated take on a wardrobe essential. Carrying a message grounded in a deeper truth: memes move faster than markets — and often outlast them too.",
-      "materials": "Heavier-weight organic cotton fleece with a structured handfeel and brushed interior",
-      "construction": "Ribbed side panels and cuffs for movement and subtle shape retention",
-      "fit": "Unisex sizing built on a standard men's fit; structured through the body with room to layer",
-      "sizing_note": "For feminine frames, XS and S best match a U.S. women's small or medium",
-      "care": "Spot clean or dry clean only",
-      "philosophy": "Ideas as currency, memes as language"
+      "atelier_notes": {
+        "release": "The Grant Collection",
+        "materials": "American-milled wool with structured handfeel",
+        "construction": "Tailored structure with tonal tactility",
+        "fit": "Adjustable sizing with structured crown",
+        "origin": "Digitally born, culturally embedded",
+        "care": "Spot clean or dry clean only"
+      }
+    }
+  },
+  "copywriting_guidelines": {
+    "brand_voice": "Authentic, intentional, never trend-driven",
+    "avoid": [
+      "Em dashes (use regular dashes instead to avoid AI writing tells)",
+      "Overly corporate language",
+      "Trend-focused messaging"
+    ],
+    "story_continuity": {
+      "homepage_to_lookbook": "Ideas taking shape → exploration becomes form",
+      "lookbook_to_shop": "natural unfolding → where vision meets craft",
+      "overall_narrative": "Ideas → Exploration → Craft"
     }
   }
 }
