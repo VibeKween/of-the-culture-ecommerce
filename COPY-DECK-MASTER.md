@@ -296,8 +296,8 @@ organic terry for form and ease. A signal in stillness—quiet code in motion.
   - "Purchase" *(with items in cart)*
 
 ### Cart/Bag System States
-- **Empty State**: "bag::(0)" *(JavaScript controlled)*
-- **With Items Dynamic**: "review :: bag (X)" *(where X = item count)*
+- **Empty State**: "bag::(0)" *(Visible on all pages per Creative Director/UX standardization)*
+- **With Items Dynamic**: "review :: bag (X)" *(where X = item count, JavaScript controlled)*
 
 ### Form Elements
 - **Size Options**: XS, S, M, L, XL *(apparel)* | OS *(one-size items)*
@@ -392,7 +392,8 @@ find . -name "*.js" -exec sed -i '' 's/SZN2526/SZN2026/g' {} +
 - ✅ **Cart functionality preserved** - no breaking changes to existing systems
 
 ### Completed Implementation
-- ✅ **Bag display standardization**: Static HTML updated to "bag::(0)" across all 8 pages for consistency with JavaScript behavior
+- ✅ **Bag display standardization**: "bag::(0)" now shows consistently across all pages (homepage, lookbook, shop, product pages) per Creative Director/UX recommendation
+- ✅ **JavaScript behavior updated**: Always shows bag indicator on non-product pages, updates to "review :: bag(X)" when items added
 - **Mobile typography**: "THE GRANT COLLECTION" header needs scaling optimization (pending creative/UI-UX review)
 
 ### Production Notes System
