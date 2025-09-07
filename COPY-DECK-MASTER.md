@@ -186,7 +186,6 @@ Each release finds form here. The Grant Collection presented in its current run.
 A black wool six-panel baseball cap elevated in feel and detail. At its front, an embroidered wool patch underscores its heritage roots, bringing craft and anonymity into the same frame — a piece that speaks without a name.
 ```
 
-**Cultural Headers**: "Origins and craft. Elegance in first principles."
 
 **ATELIER NOTES:**
 - **Materials**: "Milled in the U.S. from heritage Herringbone Wool"
@@ -203,7 +202,6 @@ A black wool six-panel baseball cap elevated in feel and detail. At its front, a
 Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. Its custom embroidery allows the words to stand off the base in dimensional relief, embodying the rhythm between presence as an individual and strength as part of a whole.
 ```
 
-**Cultural Headers**: "Collective and individual motion. Building connections across distance."
 
 **ATELIER NOTES:**
 - **Materials**: "Certified organic cotton with a smooth exterior and soft loop-back interior"
@@ -223,7 +221,6 @@ Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. It
 A structured paneled cotton sweatshirt designed with intent. The phrase across its chest is rendered in a velvety print, pressed into the fabric with subtle elevation — a shorthand for meaning that outpaces the market.
 ```
 
-**Cultural Headers**: "Ideas as living currency. Understanding moves faster than markets."
 
 **ATELIER NOTES:**
 - **Materials**: "Cotton fleece with natural weight and a soft-brushed interior"
@@ -241,7 +238,6 @@ A structured paneled cotton sweatshirt designed with intent. The phrase across i
 A midweight cotton t-shirt with soft form and lived-in ease. The front artwork is silkscreened with raised, suede-like detailing, a finish that lends both tactility and quiet emphasis — a nod to remix culture.
 ```
 
-**Cultural Headers**: "Transparency in process. A quiet nod to shared creation."
 
 **ATELIER NOTES:**
 - **Materials**: "100% combed cotton, chosen for breathable comfort"
@@ -259,7 +255,6 @@ A midweight cotton t-shirt with soft form and lived-in ease. The front artwork i
 A heavyweight organic cotton terry hoodie with a defined silhouette, formed yet breathable. Its graphic carries layered color saturation, silkscreened to achieve depth and presence — a signal that gains strength in connection.
 ```
 
-**Cultural Headers**: "Essential infrastructure. Quiet presence, vital function."
 
 **ATELIER NOTES:**
 - **Materials**: "Textured exterior with loop-back interior"

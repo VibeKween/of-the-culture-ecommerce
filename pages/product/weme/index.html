@@ -43,6 +43,47 @@
     
     <link rel="stylesheet" href="../../../shared/css/main.css">
     <link rel="stylesheet" href="../product.css">
+    
+    <!-- LOCAL TESTING: Desktop spacing optimization (WE/ME page only) -->
+    <style>
+        /* MINIMAL CHANGE 1: Container breathing room */
+        .product-page {
+            max-width: 1500px; /* +300px from 1200px - utilize more horizontal space */
+            padding: 0 60px;   /* +20px from 40px - generous side padding */
+        }
+
+        /* MINIMAL CHANGE 2: Grid spacing enhancement + balanced proportions */
+        .product-container {
+            grid-template-columns: 1.4fr 2fr 1.4fr; /* Balanced left/right columns */
+            gap: 80px;         /* +20px from 60px - more generous spacing */
+        }
+
+        /* MINIMAL CHANGE 3: Typography breathing (preserves cart styling) */
+        .product-description p {
+            line-height: 1.55; /* +0.05 from 1.5 - minimal improvement */
+        }
+
+        /* MINIMAL CHANGE 4: Cart form expansion */
+        .purchase-form.desktop-form {
+            gap: 24px;         /* +4px from 20px - more breathing room */
+            padding: 28px 32px; /* +4px vertical, +8px horizontal - expand form */
+            max-width: none;   /* Remove any width constraints */
+        }
+        
+        /* MINIMAL CHANGE 5: Accordion breathing */
+        .spec-accordion-header {
+            padding: 22px 0;   /* +2px from 20px - subtle spacing */
+        }
+        
+        .spec-accordion-body {
+            padding: 26px 0;   /* +6px from 20px - content breathing */
+        }
+        
+        .spec-accordion-body p {
+            margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
+        }
+    </style>
+    
     <script src="../../../shared/js/product-modal.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,9 +190,7 @@
                 <div class="product-info">
                     <h1 class="product-title">WE / ME</h1>
                     <div class="product-description">
-                        <p>Heavyweight cotton hoodie designed for digital nomads and crypto builders. Clean lines, thoughtful details, premium construction.</p>
-                        <p><span class="cultural-header">Decentralization.</span> <span class="cultural-header">Location independence.</span></p>
-                        <p>For those building the future. Made in limited quantities with intention.</p>
+                        <p>Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. Its custom embroidery allows the words to stand off the base in dimensional relief, embodying the rhythm between presence as an individual and strength as part of a whole.</p>
                     </div>
                 </div>
 
@@ -164,11 +203,11 @@
                         </div>
                         <div class="spec-accordion-content">
                             <div class="spec-accordion-body">
-                                <p><span class="cultural-header">Materials:</span> 100% heavyweight cotton fleece, 14oz</p>
-                                <p><span class="cultural-header">Care:</span> Machine wash cold, hang dry</p>
-                                <p><span class="cultural-header">Made in:</span> Los Angeles, USA</p>
-                                <p><span class="cultural-header">Fit:</span> Relaxed fit, pre-shrunk</p>
-                                <p><span class="cultural-header">Features:</span> Kangaroo pocket, adjustable hood, reinforced seams</p>
+                                <p><span class="cultural-header">Materials:</span> Certified organic cotton with a smooth exterior and soft loop-back interior</p>
+                                <p><span class="cultural-header">Finish:</span> Dyed for a lived-in character</p>
+                                <p><span class="cultural-header">Fit:</span> Standard men's sizing with a slightly tailored drape, ideal for layering</p>
+                                <p><span class="cultural-header">Sizing Note:</span> For feminine frames, sizes XS and S align with a U.S. women's small or medium</p>
+                                <p><span class="cultural-header">Care:</span> Dry clean only</p>
                             </div>
                         </div>
                     </div>

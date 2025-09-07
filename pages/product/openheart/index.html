@@ -43,6 +43,47 @@
     
     <link rel="stylesheet" href="../../../shared/css/main.css">
     <link rel="stylesheet" href="../product.css">
+    
+    <!-- LOCAL TESTING: Desktop spacing optimization (OPEN HEART page only) -->
+    <style>
+        /* MINIMAL CHANGE 1: Container breathing room */
+        .product-page {
+            max-width: 1500px; /* +300px from 1200px - utilize more horizontal space */
+            padding: 0 60px;   /* +20px from 40px - generous side padding */
+        }
+
+        /* MINIMAL CHANGE 2: Grid spacing enhancement + balanced proportions */
+        .product-container {
+            grid-template-columns: 1.4fr 2fr 1.4fr; /* Balanced left/right columns */
+            gap: 80px;         /* +20px from 60px - more generous spacing */
+        }
+
+        /* MINIMAL CHANGE 3: Typography breathing (preserves cart styling) */
+        .product-description p {
+            line-height: 1.55; /* +0.05 from 1.5 - minimal improvement */
+        }
+
+        /* MINIMAL CHANGE 4: Cart form expansion */
+        .purchase-form.desktop-form {
+            gap: 24px;         /* +4px from 20px - more breathing room */
+            padding: 28px 32px; /* +4px vertical, +8px horizontal - expand form */
+            max-width: none;   /* Remove any width constraints */
+        }
+        
+        /* MINIMAL CHANGE 5: Accordion breathing */
+        .spec-accordion-header {
+            padding: 22px 0;   /* +2px from 20px - subtle spacing */
+        }
+        
+        .spec-accordion-body {
+            padding: 26px 0;   /* +6px from 20px - content breathing */
+        }
+        
+        .spec-accordion-body p {
+            margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
+        }
+    </style>
+    
     <script src="../../../shared/js/product-modal.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,9 +188,7 @@
                 <div class="product-info">
                     <h1 class="product-title">OPEN HEART</h1>
                     <div class="product-description">
-                        <p>Minimalist tee for developers and builders. Subtle design understood by those in the know.</p>
-                        <p><span class="cultural-header">Version control.</span> <span class="cultural-header">Clean commits.</span></p>
-                        <p>Built for those who understand the craft of code. Subtle. Intentional.</p>
+                        <p>A midweight cotton t-shirt with soft form and lived-in ease. The front artwork is silkscreened with raised, suede-like detailing, a finish that lends both tactility and quiet emphasis — a nod to remix culture.</p>
                     </div>
                 </div>
 
@@ -162,11 +201,11 @@
                         </div>
                         <div class="spec-accordion-content">
                             <div class="spec-accordion-body">
-                                <p><span class="cultural-header">Materials:</span> 100% organic cotton, 5.3oz</p>
-                                <p><span class="cultural-header">Care:</span> Machine wash cold, tumble dry low</p>
-                                <p><span class="cultural-header">Made in:</span> Los Angeles, USA</p>
-                                <p><span class="cultural-header">Fit:</span> Modern regular fit, preshrunk</p>
-                                <p><span class="cultural-header">Design:</span> Subtle git reference, minimal aesthetic</p>
+                                <p><span class="cultural-header">Materials:</span> 100% combed cotton, chosen for breathable comfort</p>
+                                <p><span class="cultural-header">Construction:</span> Mid-weight fabric with a premium handfeel</p>
+                                <p><span class="cultural-header">Fit:</span> Silhouette with subtle shaping through the shoulders</p>
+                                <p><span class="cultural-header">Sizing Note:</span> Shorter, boxier drape for a modern proportion</p>
+                                <p><span class="cultural-header">Care:</span> Dry clean only</p>
                             </div>
                         </div>
                     </div>

@@ -43,6 +43,47 @@
     
     <link rel="stylesheet" href="../../../shared/css/main.css">
     <link rel="stylesheet" href="../product.css">
+    
+    <!-- LOCAL TESTING: Desktop spacing optimization (NODES page only) -->
+    <style>
+        /* MINIMAL CHANGE 1: Container breathing room */
+        .product-page {
+            max-width: 1500px; /* +300px from 1200px - utilize more horizontal space */
+            padding: 0 60px;   /* +20px from 40px - generous side padding */
+        }
+
+        /* MINIMAL CHANGE 2: Grid spacing enhancement + balanced proportions */
+        .product-container {
+            grid-template-columns: 1.4fr 2fr 1.4fr; /* Balanced left/right columns */
+            gap: 80px;         /* +20px from 60px - more generous spacing */
+        }
+
+        /* MINIMAL CHANGE 3: Typography breathing (preserves cart styling) */
+        .product-description p {
+            line-height: 1.55; /* +0.05 from 1.5 - minimal improvement */
+        }
+
+        /* MINIMAL CHANGE 4: Cart form expansion */
+        .purchase-form.desktop-form {
+            gap: 24px;         /* +4px from 20px - more breathing room */
+            padding: 28px 32px; /* +4px vertical, +8px horizontal - expand form */
+            max-width: none;   /* Remove any width constraints */
+        }
+        
+        /* MINIMAL CHANGE 5: Accordion breathing */
+        .spec-accordion-header {
+            padding: 22px 0;   /* +2px from 20px - subtle spacing */
+        }
+        
+        .spec-accordion-body {
+            padding: 26px 0;   /* +6px from 20px - content breathing */
+        }
+        
+        .spec-accordion-body p {
+            margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
+        }
+    </style>
+    
     <script src="../../../shared/js/product-modal.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,9 +188,7 @@
                 <div class="product-info">
                     <h1 class="product-title">NODES</h1>
                     <div class="product-description">
-                        <p>Invisible connections. Quiet infrastructure. Only noticed when gone. NODES - understated & present.</p>
-                        <p>Heavyweight organic cotton fleece with structured handfeel and brushed interior. Essential infrastructure for the digitally native.</p>
-                        <p><span class="cultural-header">Invisible connections.</span> <span class="cultural-header">Quiet infrastructure.</span></p>
+                        <p>A heavyweight organic cotton terry hoodie with a defined silhouette, formed yet breathable. Its graphic carries layered color saturation, silkscreened to achieve depth and presence — a signal that gains strength in connection.</p>
                     </div>
                 </div>
 
@@ -162,12 +201,11 @@
                         </div>
                         <div class="spec-accordion-content">
                             <div class="spec-accordion-body">
-                                <p><span class="cultural-header">Materials:</span> Heavier-weight organic cotton fleece with a structured handfeel and brushed interior</p>
-                                <p><span class="cultural-header">Construction:</span> Ribbed side panels and cuffs for movement and subtle shape retention</p>
-                                <p><span class="cultural-header">Fit:</span> Unisex sizing built on a standard men's fit; structured through the body with room to layer</p>
-                                <p><span class="cultural-header">Sizing Note:</span> For feminine frames, XS and S best match a U.S. women's small or medium</p>
-                                <p><span class="cultural-header">Care:</span> Spot clean or dry clean only</p>
-                                <p><span class="cultural-header">Philosophy:</span> Infrastructure that works silently</p>
+                                <p><span class="cultural-header">Materials:</span> Textured exterior with loop-back interior</p>
+                                <p><span class="cultural-header">Construction:</span> Overlapping front hood detail for a clean neckline and simple finish</p>
+                                <p><span class="cultural-header">Fit:</span> Slightly oversized fit on a standard men's frame; subtle shoulder drop for movement</p>
+                                <p><span class="cultural-header">Sizing Note:</span> For feminine frames, size S typically aligns with a U.S. women's medium</p>
+                                <p><span class="cultural-header">Care:</span> Dry clean only</p>
                             </div>
                         </div>
                     </div>
