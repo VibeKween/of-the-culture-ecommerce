@@ -365,6 +365,27 @@
                         card.classList.remove('hover-active');
                     });
                 }, { passive: true });
+                
+                // Clear hover states during scroll to prevent persistence
+                let scrollTimeout;
+                document.addEventListener('scroll', function() {
+                    // Clear any persistent hover states during scroll
+                    const activeCards = document.querySelectorAll('.product-card.hover-active');
+                    if (activeCards.length > 0) {
+                        activeCards.forEach(card => {
+                            card.classList.remove('hover-active');
+                        });
+                    }
+                    
+                    // Debounced cleanup - ensure no hover states persist after scroll ends
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        const remainingActiveCards = document.querySelectorAll('.product-card.hover-active');
+                        remainingActiveCards.forEach(card => {
+                            card.classList.remove('hover-active');
+                        });
+                    }, 100);
+                }, { passive: true });
             }
             
             // Initialize when DOM is ready

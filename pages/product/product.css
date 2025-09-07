@@ -452,6 +452,20 @@ ALD-inspired layout patterns:
     margin-bottom: 0;
 }
 
+/* Production Notes email link styling - Match footer treatment */
+.spec-accordion-body a {
+    font-size: 0.85rem; /* Match accordion body text size */
+    color: var(--color-black);
+    text-decoration: none;
+    border-bottom: none;
+    padding-bottom: 0;
+    transition: opacity 0.2s ease;
+}
+
+.spec-accordion-body a:hover {
+    opacity: 0.7;
+}
+
 /* ==============================================================================
    NAVIGATION FOOTER
 ============================================================================== */

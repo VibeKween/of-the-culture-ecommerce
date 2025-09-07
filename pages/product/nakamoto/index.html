@@ -168,6 +168,19 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="spec-accordion">
+                        <div class="spec-accordion-header" onclick="toggleAccordion(this)">
+                            Production Notes
+                            <span class="spec-accordion-icon">▼</span>
+                        </div>
+                        <div class="spec-accordion-content">
+                            <div class="spec-accordion-body">
+                                <p>Produced in small batches once orders are confirmed, each release is made in measured runs so only the needed amount is created. Returns are available only for items that arrive damaged or mis-shipped.</p>
+                                <p>For order assistance, contact <a href="mailto:orders@oftheculture.co?subject=OF THE CULTURE | Order Assistance">orders@oftheculture.co</a></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -428,18 +441,15 @@
         
         syncFormSelections();
 
-        // Accordion functionality
+        // Accordion functionality - Allow multiple sections to be open
         function toggleAccordion(header) {
             const accordion = header.parentElement;
             const isOpen = accordion.classList.contains('open');
             
-            // Close all accordions
-            document.querySelectorAll('.spec-accordion').forEach(acc => {
-                acc.classList.remove('open');
-            });
-            
-            // Open clicked accordion if it wasn't already open
-            if (!isOpen) {
+            // Toggle just the clicked accordion
+            if (isOpen) {
+                accordion.classList.remove('open');
+            } else {
                 accordion.classList.add('open');
             }
         }
