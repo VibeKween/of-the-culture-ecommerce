@@ -44,43 +44,46 @@
     <link rel="stylesheet" href="../../../shared/css/main.css">
     <link rel="stylesheet" href="../product.css">
     
-    <!-- LOCAL TESTING: Desktop spacing optimization (WE/ME page only) -->
+    <!-- LOCAL TESTING: Original Creative Director recommendations - Desktop only -->
     <style>
-        /* MINIMAL CHANGE 1: Container breathing room */
-        .product-page {
-            max-width: 1500px; /* +300px from 1200px - utilize more horizontal space */
-            padding: 0 60px;   /* +20px from 40px - generous side padding */
-        }
+        /* DESKTOP ONLY - Original Creative Director spacing recommendations */
+        @media (min-width: 769px) {
+            /* MINIMAL CHANGE 1: Container breathing room */
+            .product-page {
+                max-width: 1500px; /* +300px from 1200px - utilize more horizontal space */
+                padding: 0 60px;   /* +20px from 40px - generous side padding */
+            }
 
-        /* MINIMAL CHANGE 2: Grid spacing enhancement + balanced proportions */
-        .product-container {
-            grid-template-columns: 1.4fr 2fr 1.4fr; /* Balanced left/right columns */
-            gap: 80px;         /* +20px from 60px - more generous spacing */
-        }
+            /* MINIMAL CHANGE 2: Grid spacing enhancement + balanced proportions */
+            .product-container {
+                grid-template-columns: 1.4fr 2fr 1.4fr; /* Balanced left/right columns */
+                gap: 80px;         /* +20px from 60px - more generous spacing */
+            }
 
-        /* MINIMAL CHANGE 3: Typography breathing (preserves cart styling) */
-        .product-description p {
-            line-height: 1.55; /* +0.05 from 1.5 - minimal improvement */
-        }
+            /* MINIMAL CHANGE 3: Typography breathing (preserves cart styling) */
+            .product-description p {
+                line-height: 1.55; /* +0.05 from 1.5 - minimal improvement */
+            }
 
-        /* MINIMAL CHANGE 4: Cart form expansion */
-        .purchase-form.desktop-form {
-            gap: 24px;         /* +4px from 20px - more breathing room */
-            padding: 28px 32px; /* +4px vertical, +8px horizontal - expand form */
-            max-width: none;   /* Remove any width constraints */
-        }
-        
-        /* MINIMAL CHANGE 5: Accordion breathing */
-        .spec-accordion-header {
-            padding: 22px 0;   /* +2px from 20px - subtle spacing */
-        }
-        
-        .spec-accordion-body {
-            padding: 26px 0;   /* +6px from 20px - content breathing */
-        }
-        
-        .spec-accordion-body p {
-            margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
+            /* MINIMAL CHANGE 4: Cart form expansion */
+            .purchase-form.desktop-form {
+                gap: 24px;         /* +4px from 20px - more breathing room */
+                padding: 28px 32px; /* +4px vertical, +8px horizontal - expand form */
+                max-width: none;   /* Remove any width constraints */
+            }
+            
+            /* MINIMAL CHANGE 5: Accordion breathing */
+            .spec-accordion-header {
+                padding: 22px 0;   /* +2px from 20px - subtle spacing */
+            }
+            
+            .spec-accordion-body {
+                padding: 26px 0;   /* +6px from 20px - content breathing */
+            }
+            
+            .spec-accordion-body p {
+                margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
+            }
         }
     </style>
     

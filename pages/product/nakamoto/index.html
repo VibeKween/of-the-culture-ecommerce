@@ -44,13 +44,8 @@
     <link rel="stylesheet" href="../../../shared/css/main.css">
     <link rel="stylesheet" href="../product.css">
     
-    <!-- LOCAL TESTING: Desktop + Mobile spacing improvements -->
+    <!-- LOCAL TESTING: Original Creative Director recommendations - Desktop only -->
     <style>
-        /* MOBILE SPACING IMPROVEMENTS - Reduce space between description and ATELIER NOTES */
-        .product-specs {
-            margin-top: 30px; /* Down from 40px - brings sections closer together */
-        }
-        
         /* DESKTOP ONLY - Original Creative Director spacing recommendations */
         @media (min-width: 769px) {
             /* MINIMAL CHANGE 1: Container breathing room */
@@ -88,36 +83,6 @@
             
             .spec-accordion-body p {
                 margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
-            }
-        }
-        
-        /* DESKTOP LARGE - Typography refinement + tighter ATELIER NOTES spacing */
-        @media (min-width: 1200px) {
-            /* Font size reduction for spacious feel */
-            .product-description p,
-            .cultural-header,
-            .spec-accordion-body p,
-            .purchase-form.desktop-form label,
-            .add-to-cart-btn {
-                font-size: 0.75rem; /* Down from 0.85rem */
-            }
-            
-            .purchase-form.desktop-form select {
-                font-size: 0.75rem !important;
-            }
-            
-            /* ATELIER NOTES spacing adjustment - even tighter on desktop */
-            .product-specs {
-                margin-top: 20px; /* Even tighter spacing on desktop */
-            }
-            
-            .spec-accordion-header {
-                padding: 18px 0; /* Down from 22px - subtle reduction */
-            }
-            
-            /* Bottom alignment refinement */
-            .spec-accordion:last-child {
-                margin-bottom: 10px; /* Minimal bottom spacing */
             }
         }
     </style>
