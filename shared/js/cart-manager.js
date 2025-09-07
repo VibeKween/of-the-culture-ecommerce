@@ -294,7 +294,7 @@ class CartManager {
                     } else if (urlPath.includes('dtom')) {
                         productId = 'dtom';
                         name = 'DTOM';
-                        price = '115';
+                        price = '135';
                     } else if (urlPath.includes('openheart')) {
                         productId = 'openheart';
                         name = 'OPENHEART';
