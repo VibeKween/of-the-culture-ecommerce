@@ -32,16 +32,16 @@ jobs:
           # Archived CSS tracking (separate from active system)
           ARCHIVED_CSS_LINES=$(find ARCHIVE -name "*.css" -exec wc -l {} + 2>/dev/null | tail -1 | awk '{print $1}' || echo "0")
           
-          # Main system stats
+          # Main system stats - only count existing files
           MAIN_CSS_LINES=$(wc -l < shared/css/main.css)
           CART_CSS_LINES=$(wc -l < shared/css/cart.css)
           PRODUCT_CSS_LINES=$(wc -l < pages/product/product.css)
-          CHECKOUT_CSS_LINES=$(wc -l < pages/checkout/checkout.css)
+          CHECKOUT_CSS_LINES=$([ -f "pages/checkout/checkout.css" ] && wc -l < pages/checkout/checkout.css || echo "0")
           
-          # Analysis across all files
-          CSS_COMMENTS=$(find . -name "*.css" -not -path "./.git/*" -not -path "./docs/BACKUP*" -not -path "./cart-testing/*" -exec grep -c "^/\*\|^[[:space:]]*\/\*" {} + | awk -F: '{sum += $2} END {print sum}')
-          MEDIA_QUERIES=$(find . -name "*.css" -not -path "./.git/*" -not -path "./docs/BACKUP*" -not -path "./cart-testing/*" -exec grep -c "@media" {} + | awk -F: '{sum += $2} END {print sum}')
-          CUSTOM_PROPS=$(find . -name "*.css" -not -path "./.git/*" -not -path "./docs/BACKUP*" -not -path "./cart-testing/*" -exec grep -c "\-\-color-\|\-\-font-\|\-\-size-" {} + | awk -F: '{sum += $2} END {print sum}')
+          # Analysis across all files - only existing CSS files
+          CSS_COMMENTS=$(find . -name "*.css" -not -path "./.git/*" -not -path "./docs/BACKUP*" -not -path "./cart-testing/*" -not -path "./ARCHIVE/*" -exec grep -c "^/\*\|^[[:space:]]*\/\*" {} + 2>/dev/null | awk -F: '{sum += $2} END {print sum+0}')
+          MEDIA_QUERIES=$(find . -name "*.css" -not -path "./.git/*" -not -path "./docs/BACKUP*" -not -path "./cart-testing/*" -not -path "./ARCHIVE/*" -exec grep -c "@media" {} + 2>/dev/null | awk -F: '{sum += $2} END {print sum+0}')
+          CUSTOM_PROPS=$(find . -name "*.css" -not -path "./.git/*" -not -path "./docs/BACKUP*" -not -path "./cart-testing/*" -not -path "./ARCHIVE/*" -exec grep -c "\-\-color-\|\-\-font-\|\-\-size-" {} + 2>/dev/null | awk -F: '{sum += $2} END {print sum+0}')
           
           # Store for later use
           echo "css_lines=$CSS_LINES" >> $GITHUB_OUTPUT
