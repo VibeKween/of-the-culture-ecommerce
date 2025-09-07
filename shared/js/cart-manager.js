@@ -13,11 +13,13 @@ class CartManager {
         };
         
         this.storageKey = 'of-the-culture-cart';
+        this.navigationKey = 'of-the-culture-has-navigated';
         this.init();
     }
 
     init() {
         this.loadCartFromStorage();
+        this.markPageVisit();
         this.updateCartDisplay();
         this.attachEventListeners();
         console.log('Cart Manager initialized');
@@ -45,6 +47,40 @@ class CartManager {
             console.log('Cart saved to storage');
         } catch (error) {
             console.error('Error saving cart to storage:', error);
+        }
+    }
+
+    // Navigation Tracking Operations
+    markPageVisit() {
+        try {
+            const hasNavigated = sessionStorage.getItem(this.navigationKey);
+            if (!hasNavigated) {
+                // First visit - don't set navigation flag yet
+                console.log('First page visit - bag will remain hidden until navigation');
+            } else {
+                console.log('User has navigated before - bag will be visible');
+            }
+        } catch (error) {
+            console.error('Error checking navigation state:', error);
+        }
+    }
+
+    setNavigationFlag() {
+        try {
+            sessionStorage.setItem(this.navigationKey, 'true');
+            console.log('Navigation flag set - bag will now be visible on applicable pages');
+        } catch (error) {
+            console.error('Error setting navigation flag:', error);
+        }
+    }
+
+    hasUserNavigated() {
+        try {
+            return sessionStorage.getItem(this.navigationKey) === 'true';
+        } catch (error) {
+            console.error('Error checking navigation flag:', error);
+            // Default to showing bag if sessionStorage fails
+            return true;
         }
     }
 
@@ -208,9 +244,17 @@ class CartManager {
         const isNonProductPage = !currentPath.includes('/pages/product/');
         
         if (isNonProductPage) {
-            // Always show bag indicator on non-product pages per Creative Director/UX recommendation
-            // JavaScript will update the content from "bag::(0)" to "review :: bag(X)" as needed
-            bagIndicator.style.display = 'block';
+            // Show bag indicator only after user has navigated OR if cart has items
+            // This creates a cleaner first impression while preserving commerce functionality
+            const shouldShowBag = this.hasUserNavigated() || this.cart.itemCount > 0;
+            
+            if (shouldShowBag) {
+                bagIndicator.style.display = 'block';
+                console.log('Bag indicator shown - user has navigated or cart has items');
+            } else {
+                bagIndicator.style.display = 'none';
+                console.log('Bag indicator hidden - first visit with empty cart');
+            }
         }
     }
 
@@ -388,6 +432,15 @@ class CartManager {
                 } else {
                     e.target.value = 1;
                 }
+            }
+        });
+
+        // Navigation tracking - detect when user clicks on navigation links
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('a');
+            if (target && target.href && !target.href.startsWith('#')) {
+                // User clicked on a real navigation link (not anchor/hash link)
+                this.setNavigationFlag();
             }
         });
     }
