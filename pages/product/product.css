@@ -410,6 +410,7 @@ ALD-inspired layout patterns:
     transition: opacity 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.02em;
+    font-synthesis: none; /* Prevent browser font variations */
 }
 
 .spec-accordion-header:hover {
