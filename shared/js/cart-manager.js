@@ -208,13 +208,9 @@ class CartManager {
         const isNonProductPage = !currentPath.includes('/pages/product/');
         
         if (isNonProductPage) {
-            if (this.cart.itemCount > 0) {
-                // Show bag indicator when cart has items
-                bagIndicator.style.display = 'block';
-            } else {
-                // Hide bag indicator when cart is empty
-                bagIndicator.style.display = 'none';
-            }
+            // Always show bag indicator on non-product pages per Creative Director/UX recommendation
+            // JavaScript will update the content from "bag::(0)" to "review :: bag(X)" as needed
+            bagIndicator.style.display = 'block';
         }
     }
 
