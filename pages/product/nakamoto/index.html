@@ -44,43 +44,81 @@
     <link rel="stylesheet" href="../../../shared/css/main.css">
     <link rel="stylesheet" href="../product.css">
     
-    <!-- LOCAL TESTING: Desktop spacing optimization (NAKAMOTO page only) -->
+    <!-- LOCAL TESTING: Desktop + Mobile spacing improvements -->
     <style>
-        /* MINIMAL CHANGE 1: Container breathing room */
-        .product-page {
-            max-width: 1500px; /* +300px from 1200px - utilize more horizontal space */
-            padding: 0 60px;   /* +20px from 40px - generous side padding */
-        }
-
-        /* MINIMAL CHANGE 2: Grid spacing enhancement + balanced proportions */
-        .product-container {
-            grid-template-columns: 1.4fr 2fr 1.4fr; /* Balanced left/right columns */
-            gap: 80px;         /* +20px from 60px - more generous spacing */
-        }
-
-        /* MINIMAL CHANGE 3: Typography breathing (preserves cart styling) */
-        .product-description p {
-            line-height: 1.55; /* +0.05 from 1.5 - minimal improvement */
-        }
-
-        /* MINIMAL CHANGE 4: Cart form expansion */
-        .purchase-form.desktop-form {
-            gap: 24px;         /* +4px from 20px - more breathing room */
-            padding: 28px 32px; /* +4px vertical, +8px horizontal - expand form */
-            max-width: none;   /* Remove any width constraints */
+        /* MOBILE SPACING IMPROVEMENTS - Reduce space between description and ATELIER NOTES */
+        .product-specs {
+            margin-top: 30px; /* Down from 40px - brings sections closer together */
         }
         
-        /* MINIMAL CHANGE 5: Accordion breathing */
-        .spec-accordion-header {
-            padding: 22px 0;   /* +2px from 20px - subtle spacing */
+        /* DESKTOP ONLY - Original Creative Director spacing recommendations */
+        @media (min-width: 769px) {
+            /* MINIMAL CHANGE 1: Container breathing room */
+            .product-page {
+                max-width: 1500px; /* +300px from 1200px - utilize more horizontal space */
+                padding: 0 60px;   /* +20px from 40px - generous side padding */
+            }
+
+            /* MINIMAL CHANGE 2: Grid spacing enhancement + balanced proportions */
+            .product-container {
+                grid-template-columns: 1.4fr 2fr 1.4fr; /* Balanced left/right columns */
+                gap: 80px;         /* +20px from 60px - more generous spacing */
+            }
+
+            /* MINIMAL CHANGE 3: Typography breathing (preserves cart styling) */
+            .product-description p {
+                line-height: 1.55; /* +0.05 from 1.5 - minimal improvement */
+            }
+
+            /* MINIMAL CHANGE 4: Cart form expansion */
+            .purchase-form.desktop-form {
+                gap: 24px;         /* +4px from 20px - more breathing room */
+                padding: 28px 32px; /* +4px vertical, +8px horizontal - expand form */
+                max-width: none;   /* Remove any width constraints */
+            }
+            
+            /* MINIMAL CHANGE 5: Accordion breathing */
+            .spec-accordion-header {
+                padding: 22px 0;   /* +2px from 20px - subtle spacing */
+            }
+            
+            .spec-accordion-body {
+                padding: 26px 0;   /* +6px from 20px - content breathing */
+            }
+            
+            .spec-accordion-body p {
+                margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
+            }
         }
         
-        .spec-accordion-body {
-            padding: 26px 0;   /* +6px from 20px - content breathing */
-        }
-        
-        .spec-accordion-body p {
-            margin-bottom: 14px; /* +2px from 12px - paragraph spacing */
+        /* DESKTOP LARGE - Typography refinement + tighter ATELIER NOTES spacing */
+        @media (min-width: 1200px) {
+            /* Font size reduction for spacious feel */
+            .product-description p,
+            .cultural-header,
+            .spec-accordion-body p,
+            .purchase-form.desktop-form label,
+            .add-to-cart-btn {
+                font-size: 0.75rem; /* Down from 0.85rem */
+            }
+            
+            .purchase-form.desktop-form select {
+                font-size: 0.75rem !important;
+            }
+            
+            /* ATELIER NOTES spacing adjustment - even tighter on desktop */
+            .product-specs {
+                margin-top: 20px; /* Even tighter spacing on desktop */
+            }
+            
+            .spec-accordion-header {
+                padding: 18px 0; /* Down from 22px - subtle reduction */
+            }
+            
+            /* Bottom alignment refinement */
+            .spec-accordion:last-child {
+                margin-bottom: 10px; /* Minimal bottom spacing */
+            }
         }
     </style>
     
