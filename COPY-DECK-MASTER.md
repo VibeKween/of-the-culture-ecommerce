@@ -98,7 +98,7 @@ Each design a quiet reflection of where we are now.
 
 #### OPEN HEART *(Grid Position 2)*
 - **Concept**: Transparency as architecture
-- **Signal**: A heart unguarded sets ideas free to multiply.
+- **Signal**: A heart unguarded sets ideas free to momentum.
 
 #### DTOM (Don't Tread on Memes) *(Grid Position 3)*
 - **Concept**: Cultural velocity
@@ -106,7 +106,7 @@ Each design a quiet reflection of where we are now.
 
 #### NODES *(Grid Position 4)*
 - **Concept**: Points of presence
-- **Signal**: Alone a signal, together the network.
+- **Signal**: A layer steady on its own, resonant when connected with others.
 
 #### NAKAMOTO *(Grid Position 5)*
 - **Concept**: A myth, encrypted
@@ -183,18 +183,15 @@ Each release finds form here. The Grant Collection presented in its current run.
 
 **Product Description:**
 ```
-American-milled wool gives this cap its tailored structure and tonal 
-tactility. A quiet homage to origins—digitally born, culturally embedded.
+A black wool six-panel baseball cap elevated in feel and detail. At its front, an embroidered wool patch underscores its heritage roots, bringing craft and anonymity into the same frame — a piece that speaks without a name.
 ```
 
 **Cultural Headers**: "Origins and craft. Elegance in first principles."
 
 **ATELIER NOTES:**
-- **Construction**: "Gently curved brim in a classic silhouette"
-- **Hardware**: "Brushed nickel rear clasp for discreet adjustability"
-- **Color**: "Navy Herringbone"
+- **Materials**: "Milled in the U.S. from heritage Herringbone Wool"
+- **Construction**: "Curved brim with brushed nickel rear clasp for discreet adjustability"
 - **Sizing**: "One Size (OS)"
-- **Origin**: "Made in the USA"
 - **Care**: "Spot clean or dry clean only"
 
 ---
@@ -203,17 +200,16 @@ tactility. A quiet homage to origins—digitally born, culturally embedded.
 
 **Product Description:**
 ```
-Balanced and intentional, this French terry crewneck is garment-dyed for 
-tonal depth and everyday rhythm. A reminder that personal presence and 
-collective motion can coexist—sometimes, even harmonize.
+Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. Its custom embroidery allows the words to stand off the base in dimensional relief, embodying the rhythm between presence as an individual and strength as part of a whole.
 ```
 
 **Cultural Headers**: "Collective and individual motion. Building connections across distance."
 
 **ATELIER NOTES:**
-- **Materials**: "Certified organic cotton construction with a smooth exterior and breathable, soft looped interior"
-- **Fit**: "Built on a standard men's fit through the chest, shoulders, and sleeves; true to U.S. sizing and ideal for layering"
-- **Sizing Note**: "For a closer fit on feminine frames, sizes XS and S generally align with a U.S. women's small or medium"
+- **Materials**: "Certified organic cotton with a smooth exterior and soft loop-back interior"
+- **Finish**: "Dyed for a lived-in character"
+- **Fit**: "Standard men's sizing with a slightly tailored drape, ideal for layering"
+- **Sizing Note**: "For feminine frames, sizes XS and S align with a U.S. women's small or medium"
 - **Care**: "Dry clean only"
 
 ---
@@ -224,18 +220,16 @@ collective motion can coexist—sometimes, even harmonize.
 
 **Product Description:**
 ```
-A refined staple, this structured paneled cotton crewneck offers an 
-updated take on a wardrobe essential. Carrying a message grounded in a 
-deeper truth: memes move faster than markets—and often outlast them too.
+A structured paneled cotton sweatshirt designed with intent. The phrase across its chest is rendered in a velvety print, pressed into the fabric with subtle elevation — a shorthand for meaning that outpaces the market.
 ```
 
 **Cultural Headers**: "Ideas as living currency. Understanding moves faster than markets."
 
 **ATELIER NOTES:**
-- **Materials**: "Heavier-weight organic cotton fleece with a substantial hand and soft-brushed interior"
-- **Construction**: "Ribbed side panels and cuffs for movement and subtle shape retention"
-- **Fit**: "Unisex sizing built on a standard men's fit; structured through the body with room to layer"
-- **Sizing Note**: "For feminine frames, XS and S best match a U.S. women's small or medium"
+- **Materials**: "Cotton fleece with natural weight and a soft-brushed interior"
+- **Construction**: "Ribbed side panels and cuffs for shape retention"
+- **Fit**: "Standard men's fit through the body with room to layer"
+- **Sizing Note**: "For feminine frames, XS and S align with a U.S. women's small or medium"
 - **Care**: "Dry clean only"
 
 ---
@@ -244,17 +238,16 @@ deeper truth: memes move faster than markets—and often outlast them too.
 
 **Product Description:**
 ```
-A relaxed tee with a soft structure and lived-in ease, cut from 
-mid-weight combed cotton. A quiet nod to remix culture—open source, 
-open stance.
+A midweight cotton t-shirt with soft form and lived-in ease. The front artwork is silkscreened with raised, suede-like detailing, a finish that lends both tactility and quiet emphasis — a nod to remix culture.
 ```
 
 **Cultural Headers**: "Transparency in process. A quiet nod to shared creation."
 
 **ATELIER NOTES:**
-- **Materials**: "Mid-weight 100% combed cotton with a clean, breathable handfeel"
-- **Fit**: "Relaxed silhouette with light form through the shoulders"
-- **Sizing Note**: "Designed with a cropped, feminine cut using standard U.S. sizing; for a more relaxed fit or if between sizes, consider sizing up"
+- **Materials**: "100% combed cotton, chosen for breathable comfort"
+- **Construction**: "Mid-weight fabric with a premium handfeel"
+- **Fit**: "Silhouette with subtle shaping through the shoulders"
+- **Sizing Note**: "Shorter, boxier drape for a modern proportion"
 - **Care**: "Dry clean only"
 
 ---
@@ -263,17 +256,16 @@ open stance.
 
 **Product Description:**
 ```
-Structured yet breathable, this heavyweight hoodie is built from dense 
-organic terry for form and ease. A signal in stillness—quiet code in motion.
+A heavyweight organic cotton terry hoodie with a defined silhouette, formed yet breathable. Its graphic carries layered color saturation, silkscreened to achieve depth and presence — a signal that gains strength in connection.
 ```
 
 **Cultural Headers**: "Essential infrastructure. Quiet presence, vital function."
 
 **ATELIER NOTES:**
-- **Materials**: "Organic cotton terry with a structured exterior silhouette and a breathable looped interior"
-- **Construction**: "Overlapping front hood detail for a clean neckline and visual simplicity"
-- **Fit**: "Slightly oversized fit built on a standard men's frame; tailored through the shoulders with a subtle drop"
-- **Sizing Note**: "For a closer fit on feminine frames, size S typically aligns with a U.S. women's medium"
+- **Materials**: "Textured exterior with loop-back interior"
+- **Construction**: "Overlapping front hood detail for a clean neckline and simple finish"
+- **Fit**: "Slightly oversized fit on a standard men's frame; subtle shoulder drop for movement"
+- **Sizing Note**: "For feminine frames, size S typically aligns with a U.S. women's medium"
 - **Care**: "Dry clean only"
 
 ### Navigation (All Product Pages)
@@ -281,6 +273,45 @@ organic terry for form and ease. A signal in stillness—quiet code in motion.
 - **"view :: lookbook"**
 - **"back :: catalogue"**
 - **"bag::(0)"** *(empty state - JavaScript controlled)*
+
+---
+
+## 📋 Future Use - Alternative Copy Versions
+
+### Condensed Product Descriptions *(For mobile/product pages)*
+
+#### OPEN HEART - Condensed
+```
+A midweight cotton t-shirt with soft form and lived-in ease, finished with a silkscreen print and suede-textured detailing — a nod to remix culture.
+```
+
+#### WE / ME - Condensed  
+```
+A French terry crewneck sweatshirt with custom embroidery that lifts from the base — a rhythm between presence as an individual and strength as part of a whole.
+```
+
+#### DTOM - Condensed
+```
+A paneled cotton sweatshirt with structure and intent, its chest graphic rendered in velvety print — meaning carried faster than the market.
+```
+
+#### NODES - Condensed
+```
+A heavyweight organic cotton terry hoodie with a defined silhouette, its layered silkscreen print built in dense color — a signal strengthened through connection.
+```
+
+#### NAKAMOTO - Condensed
+```
+A black wool six-panel baseball cap, elevated with an embroidered wool patch at the front — heritage and anonymity in the same frame.
+```
+
+### Product Taglines *(For cards, captions, lookbook spreads)*
+
+- **OPEN HEART**: "A t-shirt with raised detail — open by design."
+- **WE / ME**: "Embroidered to stand apart, made to stand together."
+- **DTOM**: "A sweatshirt that prints what words can't keep up with."
+- **NODES**: "Heavyweight, color-layered, built for connection."
+- **NAKAMOTO**: "A wool cap that speaks without a name."
 
 ---
 
