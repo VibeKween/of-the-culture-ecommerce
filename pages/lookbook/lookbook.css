@@ -265,12 +265,27 @@ Benefits:
 }
 
 /* Typography Hierarchy - Complementary Font System */
+.lookbook-intro {
+    text-align: center;
+}
+
 .lookbook-intro p {
     font-family: 'Lekton', sans-serif;
     font-weight: 400;
     font-size: 1rem; /* Consistent base size */
     letter-spacing: 0.01em;
     line-height: 1.6;
+    max-width: 400px; /* Creates square-ish proportions */
+    margin: 0 auto 16px auto; /* Center and space paragraphs */
+}
+
+.lookbook-intro p:last-child {
+    margin-bottom: 0;
+}
+
+/* Enhanced H2 spacing for proper hierarchy */
+.lookbook-intro h2 {
+    margin-bottom: 32px; /* Increased breathing room */
 }
 
 /* Maintain JetBrains Mono for headers and technical elements */
@@ -298,10 +313,16 @@ Benefits:
         margin-bottom: 24px;
     }
     
-    /* Philosophy block optimization */
+    /* Philosophy block optimization - maintain square concept on mobile */
     .lookbook-intro p {
         letter-spacing: 0.01em;
         margin-bottom: 14px;
+        max-width: 320px; /* Smaller square for mobile */
+    }
+    
+    /* Enhanced mobile H2 spacing */
+    .lookbook-intro h2 {
+        margin-bottom: 28px;
     }
 }
 
