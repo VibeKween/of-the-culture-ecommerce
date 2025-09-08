@@ -249,10 +249,10 @@ class CartManager {
             const shouldShowBag = this.hasUserNavigated() || this.cart.itemCount > 0;
             
             if (shouldShowBag) {
-                bagIndicator.style.display = 'block';
+                bagIndicator.style.visibility = 'visible';
                 console.log('Bag indicator shown - user has navigated or cart has items');
             } else {
-                bagIndicator.style.display = 'none';
+                bagIndicator.style.visibility = 'hidden';
                 console.log('Bag indicator hidden - first visit with empty cart');
             }
         }
@@ -379,6 +379,14 @@ class CartManager {
         if (reviewBagBtn) {
             reviewBagBtn.addEventListener('click', () => this.showCart());
         }
+
+        // Bag link click handlers (for all bag-link elements)
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('bag-link') && !e.target.classList.contains('empty')) {
+                e.preventDefault();
+                this.showCart();
+            }
+        });
 
         // Close cart
         const cartClose = document.getElementById('cartClose');

@@ -96,7 +96,7 @@ select {
   height: auto;
   display: block;
   margin: 0;
-  transform: scale(2.0) translateY(-2px);
+  transform: scale(1.7) translateY(-2px);
   transform-origin: left top;
 }
 
