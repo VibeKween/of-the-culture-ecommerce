@@ -330,14 +330,14 @@ Benefits:
     /* Add space between H1 and content */
     /* Reduce mobile header sizes to prevent overwhelm */
     .lookbook-intro h1 {
-        font-size: 1.8rem; /* Reduced from 2.2rem */
-        margin-bottom: 24px;
+        font-size: 1.5rem; /* Further reduced to prevent wrapping */
+        margin-bottom: 20px;
         line-height: 1.1;
     }
     
     .lookbook-intro h2 {
-        font-size: 1rem; /* Reduced from default */
-        margin-bottom: 20px;
+        font-size: 0.9rem; /* Smaller for better balance */
+        margin-bottom: 18px;
         line-height: 1.2;
     }
     
@@ -378,10 +378,6 @@ Benefits:
         margin-bottom: 100px;
     }
     
-    .lookbook-intro h1 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-    }
     
     /* 🔒 PROTECTED: Mobile grid rules - DO NOT MODIFY */
     .lookbook-gallery {
