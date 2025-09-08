@@ -206,6 +206,18 @@ a:hover {
   display: inline-block;
 }
 
+/* Invisible Touch Target Expansion - WCAG 2.1 AA Compliance */
+.directory-link::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: -12px; 
+  bottom: -12px;
+  left: -12px;
+  /* Creates 44px+ touch area while preserving exact visual appearance */
+  /* This pseudo-element is invisible but captures touch/click events */
+}
+
 .directory-link::before {
   content: "├── ";
   color: var(--color-black);

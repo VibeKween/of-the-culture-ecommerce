@@ -16,6 +16,18 @@
     display: block;
     text-decoration: none;
     transition: color 0.25s ease, opacity 0.25s ease;
+    position: relative;
+}
+
+/* Invisible Touch Target Expansion for Bag Indicator - WCAG 2.1 AA Compliance */
+.bag-link::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    bottom: -12px;  
+    left: -12px;
+    /* Creates 44px+ touch area while preserving exact visual appearance */
 }
 
 .bag-link.empty {
