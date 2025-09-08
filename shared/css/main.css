@@ -309,7 +309,7 @@ a:hover {
   
   .wordmark img {
     max-width: 85%;
-    transform: scale(1.7);
+    transform: scale(1.7) translateY(-2px);
   }
 
   .navigation {
