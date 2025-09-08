@@ -181,5 +181,23 @@
       "lookbook_to_shop": "natural unfolding → where vision meets craft",
       "overall_narrative": "Ideas → Exploration → Craft"
     }
+  },
+  "typography_hierarchy": {
+    "font_system": "Two-font complementary hierarchy for enhanced readability",
+    "primary_font": {
+      "family": "JetBrains Mono",
+      "usage": "Headers (H1, H2), navigation, ATELIER NOTES, cultural-headers, technical elements",
+      "purpose": "Brand identity and technical authenticity"
+    },
+    "secondary_font": {
+      "family": "Lekton",
+      "usage": "Philosophy text, intro paragraphs, main content blocks",
+      "purpose": "Clean minimal readability, content breathing room"
+    },
+    "implementation": {
+      "desktop_and_mobile": "Universal application across all screen sizes",
+      "mobile_enhancements": "0.85rem font-size, 1.7 line-height, optimized spacing",
+      "fallbacks": "Sans-serif and monospace fallbacks for reliability"
+    }
   }
 }

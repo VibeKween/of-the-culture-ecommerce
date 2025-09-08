@@ -299,6 +299,19 @@
     }
 }
 
+/* Typography Hierarchy - Complementary Font System */
+.shop-intro p {
+    font-family: 'Lekton', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+/* Maintain JetBrains Mono for headers and technical elements */
+.shop-intro h1,
+.shop-intro h2 {
+    font-family: 'JetBrains Mono', monospace;
+}
+
 /* Mobile Typography Enhancement - CLAUDE.md compliant approach */
 @media (max-width: 768px) {
     /* Match homepage mobile typography consistency */
