@@ -345,8 +345,8 @@
 
 /* Mobile Typography Enhancement - CLAUDE.md compliant approach */
 @media (max-width: 768px) {
-    /* Match homepage mobile typography consistency */
-    .block p {
+    /* Match homepage mobile typography consistency - EXCLUDE footer */
+    .block:not(.footer) p {
         line-height: 1.7;
         margin-bottom: 16px;
         font-size: 0.85rem; /* Match homepage body copy size */

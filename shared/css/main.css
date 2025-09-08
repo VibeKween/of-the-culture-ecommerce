@@ -198,7 +198,8 @@ a:hover {
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  padding: 4px 0;
+  padding: 12px 8px; /* Enhanced touch targets for WCAG 2.1 AA compliance */
+  margin: -8px -8px; /* Negative margin maintains visual spacing */
   line-height: 1.4;
   letter-spacing: 0.01em;
   transition: all 0.25s ease;
@@ -206,17 +207,8 @@ a:hover {
   display: inline-block;
 }
 
-/* Invisible Touch Target Expansion - WCAG 2.1 AA Compliance */
-.directory-link::after {
-  content: '';
-  position: absolute;
-  top: -12px;
-  right: -12px; 
-  bottom: -12px;
-  left: -12px;
-  /* Creates 44px+ touch area while preserving exact visual appearance */
-  /* This pseudo-element is invisible but captures touch/click events */
-}
+/* REMOVED: Invisible touch target expansion causing click interference */
+/* Touch targets will be handled via direct padding approach if needed */
 
 .directory-link::before {
   content: "├── ";
