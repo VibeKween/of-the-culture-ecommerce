@@ -49,6 +49,10 @@
     "title": "The Grant Collection Lookbook",
     "subtitle": "Philosophy of Exploration",
     "opening_philosophy": "The Grant Collection Lookbook is a study in exploration. An experiment in using the tools at hand to give form to ideas. Thought gathers shape. Intent takes color. Something imagined begins to live before it is tangible.",
+    "opening_philosophy_structure": {
+      "paragraph_1": "The Grant Collection Lookbook is a study in exploration. An experiment in using the tools at hand to give form to ideas.",
+      "paragraph_2": "Thought gathers shape. Intent takes color. Something imagined begins to live before it is tangible."
+    },
     "closing_statement": "What begins as exploration becomes form, less a season, more a natural unfolding.",
     "products_showcase": [
       {
