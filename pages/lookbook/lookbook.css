@@ -266,17 +266,27 @@ Benefits:
 
 /* Mobile Typography Enhancement - CLAUDE.md compliant approach */
 @media (max-width: 768px) {
-    /* Universal mobile readability improvement */
+    /* Match homepage mobile typography consistency */
     .block p {
-        line-height: 1.75;
-        margin-bottom: 18px;
-        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 16px;
+        font-size: 0.85rem; /* Match homepage body copy size */
+    }
+    
+    /* Add space between H1 and content */
+    .lookbook-intro h1 {
+        margin-bottom: 32px;
+    }
+    
+    /* Add space between H2 and paragraphs */
+    .lookbook-intro h2 {
+        margin-bottom: 24px;
     }
     
     /* Philosophy block optimization */
     .lookbook-intro p {
-        letter-spacing: 0.02em;
-        margin-bottom: 16px;
+        letter-spacing: 0.01em;
+        margin-bottom: 14px;
     }
 }
 
