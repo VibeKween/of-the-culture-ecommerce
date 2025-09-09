@@ -188,8 +188,14 @@
 
             <!-- Gallery Item 4 -->
             <article class="gallery-item" data-product="nodes-hoodie">
-                <div class="image-container">
-                    <img src="../../images/products/lookbook/lookbook-nodes-main.jpeg" alt="NODES Hoodie - Lookbook styling" loading="lazy" decoding="async">
+                <div class="image-container" data-src="../../images/products/lookbook/lookbook-nodes-main.jpeg" data-lazy="true">
+                    <div class="placeholder-image loading-placeholder">
+                        <span class="placeholder-text">NODES</span>
+                        <span class="placeholder-subtitle">Loading...</span>
+                    </div>
+                    <noscript>
+                        <img src="../../images/products/lookbook/lookbook-nodes-main.jpeg" alt="NODES Hoodie - Lookbook styling" class="fallback-image">
+                    </noscript>
                 </div>
                 <div class="item-meta">
                     <h3 class="item-title">NODES</h3>
@@ -269,5 +275,82 @@
         // - User behavior heatmaps
         // - A/B testing framework
     </script>
+
+    <!-- Progressive Enhancement Lazy Loading System -->
+    <script>
+        (function() {
+            'use strict';
+            
+            // Lazy loading with IntersectionObserver
+            function initLazyLoading() {
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const container = entry.target;
+                                const src = container.dataset.src;
+                                
+                                if (src) {
+                                    // Create and load image
+                                    const img = new Image();
+                                    img.onload = function() {
+                                        container.style.backgroundImage = `url('${src}')`;
+                                        container.style.backgroundSize = 'cover';
+                                        container.style.backgroundPosition = 'center';
+                                        container.classList.add('image-loaded');
+                                        
+                                        // Hide placeholder
+                                        const placeholder = container.querySelector('.loading-placeholder');
+                                        if (placeholder) {
+                                            placeholder.style.opacity = '0';
+                                            setTimeout(() => {
+                                                placeholder.style.display = 'none';
+                                            }, 300);
+                                        }
+                                    };
+                                    img.onerror = function() {
+                                        console.warn('Failed to load image:', src);
+                                        // Keep placeholder visible on error
+                                    };
+                                    img.src = src;
+                                    observer.unobserve(container);
+                                }
+                            }
+                        });
+                    }, {
+                        rootMargin: '50px 0px',
+                        threshold: 0.1
+                    });
+                    
+                    // Observe all lazy load images
+                    const lazyImages = document.querySelectorAll('[data-lazy="true"]');
+                    lazyImages.forEach(img => imageObserver.observe(img));
+                    
+                    console.log('OF THE CULTURE Lookbook: Lazy loading initialized for', lazyImages.length, 'images');
+                } else {
+                    // Fallback for browsers without IntersectionObserver
+                    console.warn('IntersectionObserver not supported, loading all images immediately');
+                    const lazyImages = document.querySelectorAll('[data-lazy="true"]');
+                    lazyImages.forEach(container => {
+                        const src = container.dataset.src;
+                        if (src) {
+                            container.style.backgroundImage = `url('${src}')`;
+                            container.style.backgroundSize = 'cover';
+                            container.style.backgroundPosition = 'center';
+                            container.classList.add('image-loaded');
+                        }
+                    });
+                }
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initLazyLoading);
+            } else {
+                initLazyLoading();
+            }
+        })();
+    </script>
+
 </body>
 </html>
