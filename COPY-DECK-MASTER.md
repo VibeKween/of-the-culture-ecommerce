@@ -133,12 +133,12 @@ less a season, more a story quietly unfolding.
 - **Keywords**: "OF THE CULTURE shop, SZN2026, digital culture fashion, limited-run clothing, small-batch apparel"
 
 ### Page Headers
-- **H1**: "CATALOGUE"
-- **Subtitle**: "SZN2026 | Deliberate, never rushed."
+- **H1**: "The Grant Collection"
+- **H2**: "Exploration Becomes Form"
 
 ### Shop Introduction
 ```
-Each release finds form here. The Grant Collection presented in its current run.
+Silkscreen, embroidery, and textures move across wool, French terry, and organic cotton. Techniques chosen for meaning, materials selected for presence. Each piece emerges into something made to be worn.
 ```
 
 ### Product Catalog *(Left-to-right, top-to-bottom grid order)*
