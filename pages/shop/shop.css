@@ -389,6 +389,11 @@
         margin-bottom: 40px;
     }
     
+    /* Mobile navigation spacing - reduced to show product grid above fold */
+    .navigation {
+        margin-bottom: 60px;
+    }
+    
     
     .shop-philosophy {
         margin-bottom: 40px;

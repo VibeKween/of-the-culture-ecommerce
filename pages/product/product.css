@@ -492,6 +492,11 @@ ALD-inspired layout patterns:
         margin-top: 60px !important;
     }
     
+    /* Mobile navigation spacing - reduced to show product content above fold */
+    .navigation {
+        margin-bottom: 60px;
+    }
+    
     .product-page {
         max-width: 600px !important; /* Match lookbook mobile width */
         padding: 30px 16px 160px 16px !important; /* Extra bottom padding for footer visibility above cart */
