@@ -78,16 +78,12 @@ and forward-thinking ethos of our time.
 - **Description**: "OF THE CULTURE SZN2026 lookbook featuring limited-run apparel inspired by digital culture. Visual showcase of thoughtfully designed pieces that speak to craft, intention, and cultural resonance."
 
 ### Page Headers
-- **H1**: "THE GRANT COLLECTION"
-- **Subtitle**: "SZN2026 Lookbook"
-- **Tagline**: "Everything you do matters."
+- **H1**: "The Grant Collection"
+- **H2**: "Philosophy of Exploration"
 
-**⚠️ DESIGN REVIEW NEEDED:** Mobile typography scaling and line breaks for "THE GRANT COLLECTION" header require creative/UI-UX optimization.
-
-### Lookbook Philosophy
+### Lookbook Introduction
 ```
-Clothing as a language: subtle, precise, open to interpretation.
-Each design a quiet reflection of where we are now.
+An experiment in using technology at hand to give form to ideas. Thought gathers shape, something imagined begins to live.
 ```
 
 ### Product Concepts *(Left-to-right, top-to-bottom grid order)*
