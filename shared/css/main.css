@@ -311,6 +311,10 @@ a:hover {
     max-width: 85%;
     transform: scale(1.7) translateY(-2px);
   }
+  
+  .wordmark a {
+    max-width: 85%;
+  }
 
   .navigation {
     margin-bottom: 100px;

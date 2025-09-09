@@ -373,9 +373,9 @@ Benefits:
         margin-top: 60px !important;
     }
     
-    /* Mobile navigation spacing - matches main.css homepage */
+    /* Mobile navigation spacing - reduced to show gallery above fold */
     .navigation {
-        margin-bottom: 100px;
+        margin-bottom: 60px;
     }
     
     
