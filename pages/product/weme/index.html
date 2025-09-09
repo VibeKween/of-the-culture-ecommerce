@@ -235,17 +235,11 @@
             <div class="product-images">
                 <div class="product-gallery">
                     <!-- Main Product Image -->
-                    <div class="image-container main-view" data-src="../../../images/products/product-pages/weme-main.jpg" data-lazy="true">
-                        <div class="placeholder-image loading-placeholder">
-                            <span class="placeholder-text">WE / ME</span>
-                            <span class="placeholder-subtitle">Loading...</span>
-                        </div>
+                    <div class="image-container main-view">
+                        <img src="../../../images/products/product-pages/weme-main.jpg" alt="WE / ME Crewneck - Front View" class="product-main-image" loading="lazy" decoding="async">
                         <div class="image-overlay">
                             <span class="view-label">FRONT VIEW</span>
                         </div>
-                        <noscript>
-                            <img src="../../../images/products/product-pages/weme-main.jpg" alt="WE / ME Crewneck - Front View" class="fallback-image">
-                        </noscript>
                     </div>
                     
                     <!-- Additional Views Grid -->
@@ -546,61 +540,5 @@
 
     <script src="../../../shared/js/cart-manager.js"></script>
 </body>
-</html>                                    const img = new Image();
-                                    img.onload = function() {
-                                        container.style.backgroundImage = `url('${src}')`;
-                                        container.style.backgroundSize = 'cover';
-                                        container.style.backgroundPosition = 'center';
-                                        container.classList.add('image-loaded');
-                                        
-                                        // Hide placeholder
-                                        const placeholder = container.querySelector('.loading-placeholder');
-                                        if (placeholder) {
-                                            placeholder.style.opacity = '0';
-                                            setTimeout(() => {
-                                                placeholder.style.display = 'none';
-                                            }, 300);
-                                        }
-                                    };
-                                    img.onerror = function() {
-                                        console.warn('Failed to load product image:', src);
-                                    };
-                                    img.src = src;
-                                    observer.unobserve(container);
-                                }
-                            }
-                        });
-                    }, {
-                        rootMargin: '50px 0px',
-                        threshold: 0.1
-                    });
-                    
-                    // Observe all lazy load images
-                    const lazyImages = document.querySelectorAll('[data-lazy="true"]');
-                    lazyImages.forEach(img => imageObserver.observe(img));
-                    
-                    console.log('OF THE CULTURE Product: Lazy loading initialized for', lazyImages.length, 'images');
-                } else {
-                    // Fallback for browsers without IntersectionObserver
-                    const lazyImages = document.querySelectorAll('[data-lazy="true"]');
-                    lazyImages.forEach(container => {
-                        const src = container.dataset.src;
-                        if (src) {
-                            container.style.backgroundImage = `url('${src}')`;
-                            container.style.backgroundSize = 'cover';
-                            container.style.backgroundPosition = 'center';
-                            container.classList.add('image-loaded');
-                        }
-                    });
-                }
-            }
-            
-            // Initialize when DOM is ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initLazyLoading);
-            } else {
-                initLazyLoading();
-            }
-        })();
-    </script>
+</html>
 
