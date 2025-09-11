@@ -558,7 +558,7 @@ class CartManager {
         
         // Map cart items to Shopify variant IDs and build URL parameters
         const cartParams = this.cart.items.map(item => {
-            const variantId = this.getShopifyVariantId(item.product, item.size);
+            const variantId = this.getShopifyVariantId(item.productId, item.size);
             return `${variantId}:${item.quantity}`;
         }).join(',');
         
