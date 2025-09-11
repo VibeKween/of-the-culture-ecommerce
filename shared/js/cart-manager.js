@@ -529,6 +529,100 @@ class CartManager {
         }
     }
 
+    // Shopify Integration - Hybrid Checkout
+    checkout() {
+        if (this.cart.items.length === 0) {
+            console.warn('Checkout attempted with empty cart');
+            return;
+        }
+
+        console.log('Initiating checkout with cart:', this.cart);
+        
+        try {
+            // Build Shopify checkout URL with cart items
+            const checkoutUrl = this.buildShopifyCheckoutUrl();
+            console.log('Redirecting to Shopify checkout:', checkoutUrl);
+            
+            // Redirect to Shopify checkout - preserves cart data through URL params
+            window.location.href = checkoutUrl;
+            
+        } catch (error) {
+            console.error('Checkout error:', error);
+            alert('There was an error processing your request. Please try again.');
+        }
+    }
+
+    buildShopifyCheckoutUrl() {
+        // Shopify Cart API endpoint for your store
+        const shopifyDomain = 'oftheculture.myshopify.com';
+        
+        // Map cart items to Shopify variant IDs and build URL parameters
+        const cartParams = this.cart.items.map(item => {
+            const variantId = this.getShopifyVariantId(item.product, item.size);
+            return `${variantId}:${item.quantity}`;
+        }).join(',');
+        
+        // Build complete checkout URL
+        const checkoutUrl = `https://${shopifyDomain}/cart/${cartParams}`;
+        
+        return checkoutUrl;
+    }
+
+    getShopifyVariantId(productId, size) {
+        // Map your cart product IDs and sizes to Shopify variant IDs
+        // These will need to be updated with actual Shopify variant IDs from your store
+        const variantMap = {
+            'nakamoto': {
+                'OS': '49535554420929' // NAKAMOTO Cap One Size
+            },
+            'weme': {
+                'XS': '49535523455169',
+                'S': '49535523487937',
+                'M': '49535523520705',
+                'L': '49535523553473',
+                'XL': '49535523586241',
+                'XXL': '49535523619009'
+            },
+            'dtom': {
+                'XS': '49535534891201',
+                'S': '49535534858433',
+                'M': '49535534825665',
+                'L': '49535534792897',
+                'XL': '49535534760129',
+                'XXL': '49535534923969'
+            },
+            'openheart': {
+                'XS': '49535561236673',
+                'S': '49535561269441',
+                'M': '49535561302209',
+                'L': '49535561334977',
+                'XL': '49535561367745'
+            },
+            'nodes': {
+                'XS': '49535569035457',
+                'S': '49535569068225',
+                'M': '49535569100993',
+                'L': '49535569133761',
+                'XL': '49535569166529',
+                'XXL': '49535569199297'
+            }
+        };
+        
+        const productVariants = variantMap[productId];
+        if (!productVariants) {
+            console.error(`No variant mapping found for product: ${productId}`);
+            return null;
+        }
+        
+        const variantId = productVariants[size];
+        if (!variantId) {
+            console.error(`No variant ID found for ${productId} size ${size}`);
+            return null;
+        }
+        
+        return variantId;
+    }
+
 
     // Utility Methods
     getCart() {
