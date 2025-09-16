@@ -738,7 +738,8 @@ class CartOptimizer {
     }
 
     /**
-     * Referrer validation for Shopify checkout returns
+     * Conservative referrer validation following 2024 Shopify best practices
+     * Only clears cart from confirmed completion/success pages
      */
     checkReferrer() {
         const referrer = document.referrer;
@@ -746,15 +747,21 @@ class CartOptimizer {
 
         try {
             const referrerUrl = new URL(referrer);
-            const isShopifyDomain = referrerUrl.hostname === this.config.shopifyDomain ||
-                                  referrerUrl.hostname.includes('myshopify.com');
 
-            // Additional validation: check for checkout-related paths
-            const isCheckoutPath = referrer.includes('/checkout') ||
-                                 referrer.includes('/cart') ||
-                                 referrer.includes('/thank_you');
+            // Specific domain validation
+            const isShopifyDomain = referrerUrl.hostname === this.config.shopifyDomain;
 
-            return isShopifyDomain && isCheckoutPath;
+            // Conservative: Only clear for confirmed completion paths
+            const isCompletionPath = referrer.includes('/thank_you') ||
+                                   referrer.includes('/orders/') ||
+                                   referrer.includes('?step=thank_you') ||
+                                   referrer.includes('checkout_token');
+
+            if (this.config.debugMode && isShopifyDomain) {
+                console.log('Shopify referrer detected:', referrer, 'Completion path:', isCompletionPath);
+            }
+
+            return isShopifyDomain && isCompletionPath;
         } catch (error) {
             if (this.config.debugMode) {
                 console.error('Error parsing referrer URL:', error);
@@ -764,23 +771,41 @@ class CartOptimizer {
     }
 
     /**
-     * URL parameter analysis for success indicators
+     * URL parameter analysis following Shopify 2024 standards
+     * Checks for official Shopify completion parameters
      */
     checkUrlParams() {
         const urlParams = new URLSearchParams(window.location.search);
 
-        // Standard success parameters
-        const successIndicators = [
-            'checkout=complete',
-            'success=true',
-            'purchase=complete',
-            'order=confirmed'
+        // Shopify standard parameters (2024)
+        const shopifyParams = [
+            'order_id',           // Standard Shopify order completion
+            'checkout_id',        // Checkout completion identifier
+            'checkout_token',     // Shopify checkout token
+            'first_name',         // Present in thank you page URLs
+            'last_name'           // Present in thank you page URLs
         ];
 
-        return successIndicators.some(indicator => {
-            const [key, value] = indicator.split('=');
-            return urlParams.get(key) === value;
-        });
+        // Custom success parameters (fallback)
+        const customParams = [
+            { key: 'checkout', value: 'complete' },
+            { key: 'success', value: 'true' },
+            { key: 'status', value: 'success' }
+        ];
+
+        // Check for Shopify standard parameters
+        const hasShopifyParam = shopifyParams.some(param => urlParams.has(param));
+
+        // Check for custom parameters
+        const hasCustomParam = customParams.some(({ key, value }) =>
+            urlParams.get(key) === value
+        );
+
+        if (this.config.debugMode && (hasShopifyParam || hasCustomParam)) {
+            console.log('Success parameters detected:', Object.fromEntries(urlParams));
+        }
+
+        return hasShopifyParam || hasCustomParam;
     }
 
     /**
@@ -909,12 +934,16 @@ document.addEventListener('DOMContentLoaded', () => {
         location.reload();
     };
 
-    // Debug utilities for development
-    window.DebugUtils = {
-        enableCartDebugging: () => window.cartOptimizer.enableDebugMode(),
-        validateCartState: () => window.cartOptimizer.validateStorageState(),
-        manualClearCart: (reason) => window.cartOptimizer.manualClear(reason)
-    };
+    // Debug utilities for development - ensure cartOptimizer is available
+    if (window.cartOptimizer) {
+        window.DebugUtils = {
+            enableCartDebugging: () => window.cartOptimizer.enableDebugMode(),
+            validateCartState: () => window.cartOptimizer.validateStorageState(),
+            manualClearCart: (reason) => window.cartOptimizer.manualClear(reason)
+        };
+    } else {
+        console.error('CartOptimizer not available - DebugUtils not initialized');
+    }
 
     console.log('Cart system ready with optimization');
 });
