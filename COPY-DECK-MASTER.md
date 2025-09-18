@@ -110,7 +110,7 @@ An experiment in using technology at hand to give form to ideas. Thought gathers
 
 ### Closing Statement
 ```
-One moment a showcase of what can be created in this moment of time; the next, a memory book of what was.
+One moment a showcase of what can be created in this moment of time. The next, a memory book of what was.
 ```
 
 ### Navigation
