@@ -86,6 +86,12 @@ and forward-thinking ethos of our time.
 An experiment in using technology at hand to give form to ideas. Thought gathers shape, something imagined begins to live.
 ```
 
+### Hero Group Composition Image
+- **Image**: `lookbook-composition.jpg` - Full-width hero image between intro and gallery
+- **Purpose**: Visual showcase of complete Grant Collection before individual product presentations
+- **Technical**: Responsive lazy loading with 16:9 desktop ratio, 16:10 mobile ratio
+- **Placeholder Text**: "GRANT COLLECTION" with "Loading..." subtitle
+
 ### Product Concepts *(Left-to-right, top-to-bottom grid order)*
 
 #### WE / ME *(Grid Position 1)*

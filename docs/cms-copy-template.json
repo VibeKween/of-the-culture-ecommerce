@@ -54,6 +54,18 @@
       "paragraph_2": "Thought gathers shape. Intent takes color. Something imagined begins to live before it is tangible."
     },
     "closing_statement": "What begins as exploration becomes form, less a season, more a natural unfolding.",
+    "hero_composition": {
+      "image_file": "lookbook-composition.jpg",
+      "alt_text": "Grant Collection - Group composition showcasing SZN2026 pieces",
+      "placeholder_text": "GRANT COLLECTION",
+      "placeholder_subtitle": "Loading...",
+      "technical_specs": {
+        "aspect_ratio_desktop": "16/9",
+        "aspect_ratio_mobile": "16/10",
+        "lazy_loading": true,
+        "responsive_system": "unified_with_gallery"
+      }
+    },
     "products_showcase": [
       {
         "title": "WE / ME",
