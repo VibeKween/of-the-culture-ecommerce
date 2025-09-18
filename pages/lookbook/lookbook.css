@@ -577,3 +577,141 @@ Benefits:
         opacity: 1;
     }
 }
+
+/*
+==============================================================================
+🖼️ HERO COMPOSITION SECTION - NEW ADDITION 🖼️
+==============================================================================
+*/
+
+/* Hero Section - Full width composition image */
+.lookbook-hero {
+    margin-bottom: 80px;
+    margin-top: 60px;
+    /* Break out to match gallery width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9; /* Cinematic ratio for group composition */
+    background-color: #f9f9f9;
+    overflow: hidden;
+    max-width: 1400px; /* Match gallery-container max-width */
+    padding: 0 60px; /* Match gallery-container padding */
+    box-sizing: border-box;
+}
+
+.hero-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Show full composition instead of cropping */
+    object-position: center;
+    display: block;
+}
+
+/* Hero-specific placeholder styling */
+.hero-placeholder {
+    background: linear-gradient(135deg, #f8f8f8 0%, #eeeeee 100%);
+}
+
+.hero-placeholder .placeholder-text {
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+}
+
+.hero-placeholder .placeholder-subtitle {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    opacity: 0.65;
+}
+
+/*
+==============================================================================
+🔧 PRODUCT IMAGE SIZE ADJUSTMENTS - VISUAL BALANCE 🔧
+==============================================================================
+*/
+
+/* Reduce product image sizes to balance with hero image */
+.gallery-container {
+    gap: 50px; /* Reduced from 60px */
+    max-width: 1200px; /* Reduced from 1400px for better proportion */
+}
+
+.image-container {
+    aspect-ratio: 3/4; /* Slightly less square, more portrait */
+}
+
+/* Mobile responsiveness for hero */
+@media (max-width: 768px) {
+    .lookbook-hero {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    .hero-image-container {
+        aspect-ratio: 4/3; /* More square on mobile */
+        padding: 0 16px; /* Match mobile gallery padding */
+        margin: 0 16px; /* Add whitespace around the container itself */
+        max-width: calc(100% - 32px); /* Account for the margin */
+    }
+
+    .hero-placeholder .placeholder-text {
+        font-size: 1.1rem;
+    }
+
+    .hero-placeholder .placeholder-subtitle {
+        font-size: 0.75rem;
+    }
+
+    /* Adjust product grid spacing on mobile */
+    .gallery-container {
+        gap: 80px; /* Reduced from 100px */
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery-container {
+        gap: 35px; /* Reduced from 40px */
+        max-width: 1000px; /* Reduced from 1200px */
+    }
+}
+
+/* Desktop refinements */
+@media (min-width: 1025px) {
+    .gallery-container {
+        gap: 60px; /* Reduced from 80px */
+        max-width: 1400px; /* Reduced from 1800px */
+    }
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1440px) {
+    .gallery-container {
+        gap: 70px; /* Reduced from 100px */
+        max-width: 1600px; /* Reduced from 2000px */
+    }
+}
+
+/* Ultra-wide adjustments */
+@media (min-width: 1920px) {
+    .gallery-container {
+        gap: 90px; /* Reduced from 140px */
+        max-width: 1800px; /* Reduced from 2400px */
+    }
+}
