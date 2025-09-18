@@ -666,7 +666,7 @@ Benefits:
 
     .hero-image-container {
         aspect-ratio: 16/10; /* Wider ratio to match image proportions better */
-        padding: 20px 16px; /* Match gallery padding exactly */
+        padding: 10px 16px; /* Reduced top/bottom padding for more zoom */
         margin: 0 16px; /* Match gallery margin exactly */
         max-width: calc(100% - 32px); /* Account for the margin */
     }
