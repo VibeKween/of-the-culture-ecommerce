@@ -83,7 +83,7 @@ and forward-thinking ethos of our time.
 
 ### Lookbook Introduction
 ```
-An experiment in using technology at hand to give form to ideas. A showcase of what can be created today, and a moment later, a memory book of what was. Thought gathers shape, something imagined begins to live.
+An experiment in using technology at hand to give form to ideas. Thought gathers shape, something imagined begins to live. One moment a showcase of what can be created in this moment of time; the next, a memory book of what was.
 ```
 
 ### Product Concepts *(Left-to-right, top-to-bottom grid order)*
