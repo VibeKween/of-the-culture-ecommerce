@@ -665,9 +665,9 @@ Benefits:
 
     .hero-image-container {
         aspect-ratio: 4/3; /* More square on mobile */
-        padding: 20px 16px; /* Add internal padding to scale image down */
-        margin: 0 16px; /* Add whitespace around the container itself */
-        max-width: calc(100% - 32px); /* Account for the margin */
+        padding: 30px 24px; /* Increase padding to scale image down more */
+        margin: 0 20px; /* Slightly more margin for breathing room */
+        max-width: calc(100% - 40px); /* Account for the larger margin */
     }
 
     .hero-placeholder .placeholder-text {
