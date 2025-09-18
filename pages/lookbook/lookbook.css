@@ -709,6 +709,11 @@ Benefits:
     .gallery-container {
         gap: 60px;
     }
+
+    /* Desktop-only: Reduce hero image padding to show more composition */
+    .hero-image-container {
+        padding: 20px 80px; /* Add top/bottom padding to reduce cropping */
+    }
 }
 
 /* Large desktop adjustments */
