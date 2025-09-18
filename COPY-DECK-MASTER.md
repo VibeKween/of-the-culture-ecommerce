@@ -83,7 +83,7 @@ and forward-thinking ethos of our time.
 
 ### Lookbook Introduction
 ```
-An experiment in using technology at hand to give form to ideas. Thought gathers shape, something imagined begins to live.
+An experiment in using technology at hand to give form to ideas. A showcase of what can be created today, and a moment later, a memory book of what was. Thought gathers shape, something imagined begins to live.
 ```
 
 ### Product Concepts *(Left-to-right, top-to-bottom grid order)*
@@ -96,7 +96,7 @@ An experiment in using technology at hand to give form to ideas. Thought gathers
 - **Concept**: Transparency as architecture
 - **Signal**: A heart unguarded sets ideas free to momentum.
 
-#### DTOM (Don't Tread on Memes) *(Grid Position 3)*
+#### Don't Tread on Memes *(Grid Position 3)*
 - **Concept**: Cultural velocity
 - **Signal**: The message outruns the market.
 
