@@ -675,6 +675,10 @@ Benefits:
     .hero-image-container img {
         padding: 12px; /* Optimized space around the image to prevent edge cropping */
         box-sizing: border-box;
+        top: 12px; /* Offset for padding */
+        left: 12px; /* Offset for padding */
+        width: calc(100% - 24px); /* Account for left + right padding */
+        height: calc(100% - 24px); /* Account for top + bottom padding */
     }
 
     .hero-placeholder .placeholder-text {
