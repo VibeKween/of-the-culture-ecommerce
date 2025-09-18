@@ -673,7 +673,7 @@ Benefits:
 
     /* Mobile: Add internal padding to show more of the model */
     .hero-image-container img {
-        padding: 8px; /* Subtle space around the image to prevent edge cropping */
+        padding: 12px; /* Optimized space around the image to prevent edge cropping */
         box-sizing: border-box;
     }
 
