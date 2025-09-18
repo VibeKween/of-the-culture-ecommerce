@@ -665,9 +665,9 @@ Benefits:
 
     .hero-image-container {
         aspect-ratio: 16/10; /* Wider ratio to match image proportions better */
-        padding: 20px 20px; /* Balanced padding for scaling */
-        margin: 0 20px; /* Margin for breathing room */
-        max-width: calc(100% - 40px); /* Account for the margin */
+        padding: 20px 16px; /* Match gallery padding exactly */
+        margin: 0 16px; /* Match gallery margin exactly */
+        max-width: calc(100% - 32px); /* Account for the margin */
     }
 
     .hero-placeholder .placeholder-text {
