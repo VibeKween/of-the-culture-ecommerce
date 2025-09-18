@@ -665,7 +665,7 @@ Benefits:
 
     .hero-image-container {
         aspect-ratio: 4/3; /* More square on mobile */
-        padding: 0 16px; /* Match mobile gallery padding */
+        padding: 20px 16px; /* Add internal padding to scale image down */
         margin: 0 16px; /* Add whitespace around the container itself */
         max-width: calc(100% - 32px); /* Account for the margin */
     }
