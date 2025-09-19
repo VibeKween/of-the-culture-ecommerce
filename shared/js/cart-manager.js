@@ -95,7 +95,7 @@ class CartManager {
         if (existingItemIndex >= 0) {
             // Item exists, add to existing quantity
             this.cart.items[existingItemIndex].quantity += addQuantity;
-            this.cart.items[existingItemIndex].total = 
+            this.cart.items[existingItemIndex].total =
                 this.cart.items[existingItemIndex].quantity * this.cart.items[existingItemIndex].price;
         } else {
             // New item
@@ -112,7 +112,10 @@ class CartManager {
         this.updateCartTotals();
         this.saveCartToStorage();
         this.updateCartDisplay();
-        
+
+        // Analytics: Track add_to_cart event
+        this.trackAddToCart(productId, name, price, size, addQuantity);
+
         console.log('Item added to cart:', { productId, name, price, size, quantity: addQuantity });
         return true;
     }
@@ -123,6 +126,11 @@ class CartManager {
         );
 
         if (itemIndex >= 0) {
+            const removedItem = this.cart.items[itemIndex];
+
+            // Analytics: Track remove_from_cart event
+            this.trackRemoveFromCart(removedItem.productId, removedItem.name, removedItem.price, removedItem.size, removedItem.quantity);
+
             this.cart.items.splice(itemIndex, 1);
             this.updateCartTotals();
             this.saveCartToStorage();
@@ -458,6 +466,10 @@ class CartManager {
     // Cart UI Controls
     showCart() {
         this.renderCartItems();
+
+        // Analytics: Track cart view
+        this.trackCartView();
+
         const cartOverlay = document.getElementById('cartOverlay');
         if (cartOverlay) {
             cartOverlay.classList.add('active');
@@ -538,15 +550,18 @@ class CartManager {
         }
 
         console.log('Initiating checkout with cart:', this.cart);
-        
+
+        // Analytics: Track begin_checkout event
+        this.trackBeginCheckout();
+
         try {
             // Build Shopify checkout URL with cart items
             const checkoutUrl = this.buildShopifyCheckoutUrl();
             console.log('Redirecting to Shopify checkout:', checkoutUrl);
-            
+
             // Redirect to Shopify checkout - preserves cart data through URL params
             window.location.href = checkoutUrl;
-            
+
         } catch (error) {
             console.error('Checkout error:', error);
             alert('There was an error processing your request. Please try again.');
@@ -682,6 +697,162 @@ class CartManager {
         };
         
         return imageMap[productId] || `${productId}-main.jpg`;
+    }
+
+    // Analytics Integration Methods
+    trackAddToCart(productId, name, price, size, quantity) {
+        try {
+            // Google Analytics 4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'add_to_cart', {
+                    'event_category': 'ecommerce',
+                    'currency': 'USD',
+                    'value': parseFloat(price) * quantity,
+                    'items': [{
+                        'item_id': productId,
+                        'item_name': name,
+                        'item_category': this.getItemCategory(productId),
+                        'item_brand': 'OF THE CULTURE',
+                        'price': parseFloat(price),
+                        'quantity': quantity,
+                        'item_variant': size
+                    }]
+                });
+            }
+
+            // Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_ids: [productId],
+                    content_name: name,
+                    content_type: 'product',
+                    value: parseFloat(price) * quantity,
+                    currency: 'USD'
+                });
+            }
+
+            console.log('Analytics: Tracked add_to_cart for', { productId, name, price, size, quantity });
+        } catch (error) {
+            console.error('Analytics tracking error:', error);
+        }
+    }
+
+    trackRemoveFromCart(productId, name, price, size, quantity) {
+        try {
+            // Google Analytics 4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'remove_from_cart', {
+                    'event_category': 'ecommerce',
+                    'currency': 'USD',
+                    'value': parseFloat(price) * quantity,
+                    'items': [{
+                        'item_id': productId,
+                        'item_name': name,
+                        'item_category': this.getItemCategory(productId),
+                        'item_brand': 'OF THE CULTURE',
+                        'price': parseFloat(price),
+                        'quantity': quantity,
+                        'item_variant': size
+                    }]
+                });
+            }
+
+            // Meta Pixel (custom event for removal)
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'RemoveFromCart', {
+                    content_ids: [productId],
+                    content_name: name,
+                    content_type: 'product',
+                    value: parseFloat(price) * quantity,
+                    currency: 'USD'
+                });
+            }
+
+            console.log('Analytics: Tracked remove_from_cart for', { productId, name, price, size, quantity });
+        } catch (error) {
+            console.error('Analytics tracking error:', error);
+        }
+    }
+
+    trackBeginCheckout() {
+        try {
+            const cartItems = this.cart.items.map(item => ({
+                'item_id': item.productId,
+                'item_name': item.name,
+                'item_category': this.getItemCategory(item.productId),
+                'item_brand': 'OF THE CULTURE',
+                'price': item.price,
+                'quantity': item.quantity,
+                'item_variant': item.size
+            }));
+
+            // Google Analytics 4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'begin_checkout', {
+                    'event_category': 'ecommerce',
+                    'currency': 'USD',
+                    'value': this.cart.subtotal,
+                    'items': cartItems
+                });
+            }
+
+            // Meta Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_ids: this.cart.items.map(item => item.productId),
+                    contents: this.cart.items.map(item => ({
+                        id: item.productId,
+                        quantity: item.quantity
+                    })),
+                    content_type: 'product',
+                    value: this.cart.subtotal,
+                    currency: 'USD',
+                    num_items: this.cart.itemCount
+                });
+            }
+
+            console.log('Analytics: Tracked begin_checkout for cart:', this.cart);
+        } catch (error) {
+            console.error('Analytics tracking error:', error);
+        }
+    }
+
+    trackCartView() {
+        try {
+            // Custom event for cart modal view
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'view_cart', {
+                    'event_category': 'ecommerce',
+                    'currency': 'USD',
+                    'value': this.cart.subtotal,
+                    'items': this.cart.items.map(item => ({
+                        'item_id': item.productId,
+                        'item_name': item.name,
+                        'item_category': this.getItemCategory(item.productId),
+                        'item_brand': 'OF THE CULTURE',
+                        'price': item.price,
+                        'quantity': item.quantity,
+                        'item_variant': item.size
+                    }))
+                });
+            }
+
+            console.log('Analytics: Tracked cart view');
+        } catch (error) {
+            console.error('Analytics tracking error:', error);
+        }
+    }
+
+    getItemCategory(productId) {
+        // Map product IDs to categories
+        const categories = {
+            'nakamoto': 'accessories',
+            'weme': 'apparel',
+            'dtom': 'apparel',
+            'openheart': 'apparel',
+            'nodes': 'apparel'
+        };
+        return categories[productId] || 'apparel';
     }
 }
 

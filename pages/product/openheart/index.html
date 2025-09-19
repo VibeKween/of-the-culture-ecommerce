@@ -93,7 +93,58 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/cart.css">
-    
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQEJ1LNY9S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HQEJ1LNY9S', {
+            page_title: 'OPENHEART Tee - OF THE CULTURE',
+            custom_map: {'custom_parameter_1': 'product_view'}
+        });
+
+        // E-commerce product view event
+        gtag('event', 'view_item', {
+            'event_category': 'ecommerce',
+            'event_label': 'openheart',
+            'currency': 'USD',
+            'value': 65,
+            'items': [{
+                'item_id': 'openheart',
+                'item_name': 'OPENHEART Tee',
+                'item_category': 'apparel',
+                'item_brand': 'OF THE CULTURE',
+                'price': 65
+            }]
+        });
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID_HERE');
+        fbq('track', 'PageView');
+        fbq('track', 'ViewContent', {
+            content_type: 'product',
+            content_ids: ['openheart'],
+            content_name: 'OPENHEART Tee',
+            value: 65,
+            currency: 'USD'
+        });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
+    /></noscript>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {

@@ -45,7 +45,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQEJ1LNY9S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HQEJ1LNY9S', {
+            page_title: 'Lookbook - OF THE CULTURE',
+            custom_map: {'custom_parameter_1': 'lookbook_visit'}
+        });
+
+        // Custom event for lookbook view
+        gtag('event', 'view_item_list', {
+            'event_category': 'lookbook',
+            'event_label': 'grant_collection',
+            'value': 1
+        });
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID_HERE');
+        fbq('track', 'PageView');
+        fbq('track', 'ViewContent', {
+            content_type: 'product_group',
+            content_name: 'Grant Collection Lookbook'
+        });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
+    /></noscript>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -320,7 +360,7 @@
                                         container.style.backgroundSize = 'cover';
                                         container.style.backgroundPosition = 'center';
                                         container.classList.add('image-loaded');
-                                        
+
                                         // Hide placeholder
                                         const placeholder = container.querySelector('.loading-placeholder');
                                         if (placeholder) {
@@ -329,6 +369,9 @@
                                                 placeholder.style.display = 'none';
                                             }, 300);
                                         }
+
+                                        // Analytics: Track image load event
+                                        trackLookbookImageLoad(container, src);
                                     };
                                     img.onerror = function() {
                                         console.warn('Failed to load image:', src);
@@ -364,12 +407,152 @@
                     });
                 }
             }
-            
+
+            // Analytics Functions for Lookbook Interactions
+            function trackLookbookImageLoad(container, src) {
+                try {
+                    // Extract product info from container or parent
+                    const galleryItem = container.closest('.gallery-item') || container.closest('.hero-image-container');
+                    let productName = 'Unknown';
+                    let productType = 'lookbook_image';
+
+                    if (galleryItem) {
+                        const titleElement = galleryItem.querySelector('.item-title');
+                        if (titleElement) {
+                            productName = titleElement.textContent.trim();
+                        }
+
+                        const productData = galleryItem.dataset.product;
+                        if (productData) {
+                            productType = productData;
+                        }
+                    }
+
+                    // Check if this is the hero image
+                    if (container.classList.contains('hero-image-container')) {
+                        productName = 'Grant Collection Hero';
+                        productType = 'hero_composition';
+                    }
+
+                    // Google Analytics 4
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'lookbook_image_load', {
+                            'event_category': 'lookbook_interaction',
+                            'event_label': productName,
+                            'custom_parameter_1': productType,
+                            'value': 1
+                        });
+                    }
+
+                    // Meta Pixel
+                    if (typeof fbq !== 'undefined') {
+                        fbq('trackCustom', 'LookbookImageView', {
+                            content_name: productName,
+                            content_type: 'lookbook_image',
+                            custom_data: {
+                                image_type: productType
+                            }
+                        });
+                    }
+
+                    console.log('Analytics: Tracked lookbook image load for', productName);
+                } catch (error) {
+                    console.error('Analytics tracking error:', error);
+                }
+            }
+
+            function trackGalleryItemInteraction(item, interactionType) {
+                try {
+                    const titleElement = item.querySelector('.item-title');
+                    const productName = titleElement ? titleElement.textContent.trim() : 'Unknown';
+                    const productData = item.dataset.product || 'unknown';
+
+                    // Google Analytics 4
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'lookbook_item_interaction', {
+                            'event_category': 'lookbook_interaction',
+                            'event_label': productName,
+                            'custom_parameter_1': interactionType,
+                            'custom_parameter_2': productData,
+                            'value': 1
+                        });
+                    }
+
+                    console.log('Analytics: Tracked gallery item interaction:', interactionType, 'for', productName);
+                } catch (error) {
+                    console.error('Analytics tracking error:', error);
+                }
+            }
+
+            // Track scroll depth for lookbook engagement
+            function initScrollTracking() {
+                const sections = document.querySelectorAll('.gallery-item');
+                const scrollThresholds = [25, 50, 75, 100];
+                let trackedThresholds = new Set();
+
+                function checkScrollDepth() {
+                    const scrollTop = window.pageYOffset;
+                    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPercent = Math.round((scrollTop / documentHeight) * 100);
+
+                    scrollThresholds.forEach(threshold => {
+                        if (scrollPercent >= threshold && !trackedThresholds.has(threshold)) {
+                            trackedThresholds.add(threshold);
+
+                            // Google Analytics 4
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'lookbook_scroll_depth', {
+                                    'event_category': 'lookbook_engagement',
+                                    'event_label': `${threshold}%`,
+                                    'value': threshold
+                                });
+                            }
+
+                            console.log('Analytics: Tracked scroll depth', threshold + '%');
+                        }
+                    });
+                }
+
+                // Throttled scroll listener
+                let scrollTimeout;
+                window.addEventListener('scroll', () => {
+                    if (scrollTimeout) {
+                        clearTimeout(scrollTimeout);
+                    }
+                    scrollTimeout = setTimeout(checkScrollDepth, 100);
+                });
+            }
+
+            // Add click tracking to gallery items
+            function initClickTracking() {
+                const galleryItems = document.querySelectorAll('.gallery-item');
+                galleryItems.forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        trackGalleryItemInteraction(item, 'click');
+                    });
+                });
+
+                // Track hover events for desktop
+                if (window.innerWidth > 768) {
+                    galleryItems.forEach(item => {
+                        item.addEventListener('mouseenter', (e) => {
+                            trackGalleryItemInteraction(item, 'hover');
+                        });
+                    });
+                }
+            }
+
             // Initialize when DOM is ready
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initLazyLoading);
+                document.addEventListener('DOMContentLoaded', () => {
+                    initLazyLoading();
+                    initScrollTracking();
+                    initClickTracking();
+                });
             } else {
                 initLazyLoading();
+                initScrollTracking();
+                initClickTracking();
             }
         })();
     </script>
