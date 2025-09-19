@@ -665,16 +665,24 @@ Benefits:
     }
 
     .hero-image-container {
-        aspect-ratio: 3/2; /* Taller than 16/10 but less cropping than 4/3 */
-        padding: 5px 16px; /* Further reduced for more prominent composition */
+        aspect-ratio: 16/10; /* Match image ratio to prevent any cropping */
+        padding: 24px; /* White frame padding for generous spacing */
         margin: 0 16px; /* Match gallery margin exactly */
         max-width: calc(100% - 32px); /* Account for the margin */
+        background-color: #ffffff; /* White frame background */
+        border: 1px solid #f0f0f0; /* Subtle border for definition */
+        overflow: visible; /* Allow scaled image to show beyond container */
     }
 
-    /* Mobile: Scale down image to create breathing room around models */
+    /* Mobile: Scale down to show full composition with proper spacing */
     .hero-image-container img {
-        transform: scale(0.85); /* Scale down to 85% to create space around edges */
+        position: relative; /* Remove absolute positioning for transform compatibility */
+        transform: scale(0.85); /* Scale down to show full image with white frame */
         transform-origin: center;
+        object-fit: contain; /* Show full composition without cropping */
+        width: 100%;
+        height: 100%;
+        display: block;
     }
 
     .hero-placeholder .placeholder-text {
