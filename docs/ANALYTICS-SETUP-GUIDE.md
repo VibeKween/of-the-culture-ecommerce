@@ -214,6 +214,38 @@ function trackAddToCart(productId, name, price, size, quantity) {
 - **Conversion paths**: First-touch and last-touch attribution
 - **Campaign performance**: UTM parameter tracking ready
 - **Social proof**: Meta Pixel conversion tracking for ads
+- **Cross-brand analytics**: Enhanced UTM tracking for Tuku Group links
+
+### Cross-Brand Analytics Implementation
+
+#### UTM Parameter Tracking for Tuku Group Links
+All footer links to Tuku Group now include contextual UTM parameters for comprehensive cross-brand funnel analysis:
+
+**Root Homepage**:
+```
+https://tukugroup.com?utm_source=of-the-culture&utm_medium=footer&utm_campaign=homepage-discovery&utm_content=brand-introduction
+```
+
+**Lookbook Page**:
+```
+https://tukugroup.com?utm_source=of-the-culture&utm_medium=footer&utm_campaign=lookbook-engagement&utm_content=visual-brand-discovery
+```
+
+**Shop Catalog**:
+```
+https://tukugroup.com?utm_source=of-the-culture&utm_medium=footer&utm_campaign=catalog-browsing&utm_content=shopping-consideration
+```
+
+**Product Pages** (NAKAMOTO, WEME, DTOM, OPENHEART, NODES):
+```
+https://tukugroup.com?utm_source=of-the-culture&utm_medium=footer&utm_campaign=product-[name]&utm_content=product-consideration
+```
+
+#### Business Intelligence Benefits
+- **Cross-brand journey mapping**: Understand when and why users explore Tuku Group
+- **Context-aware attribution**: Track user intent based on page context
+- **Conversion funnel optimization**: Identify high-value touchpoints across brands
+- **Campaign performance**: Measure effectiveness of brand positioning strategy
 
 ## Troubleshooting
 
