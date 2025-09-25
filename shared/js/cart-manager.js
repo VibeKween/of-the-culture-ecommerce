@@ -690,10 +690,10 @@ class CartManager {
         // Map cart productId to product-pages main image naming convention
         const imageMap = {
             'nakamoto': 'nakamoto-main.jpg',
-            'weme': 'weme-main.jpg', 
-            'dtom': 'dtom-main.jpeg',
-            'openheart': 'openheart-main.jpeg',
-            'nodes': 'nodes-main.jpeg'
+            'weme': 'weme-main.jpg',
+            'dtom': 'dtom-main.jpg',
+            'openheart': 'openheart-main.jpg',
+            'nodes': 'nodes-main.jpg'
         };
         
         return imageMap[productId] || `${productId}-main.jpg`;
