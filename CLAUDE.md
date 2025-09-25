@@ -171,6 +171,13 @@ This project represents the full technical realization of the OF THE CULTURE bra
 
 ## Essential Development Patterns
 
+### **Professional Photography Integration**
+- **Image Specifications**: Main images 800x1200px (2:3), detail images 600x900px (2:3)
+- **Container Architecture**: Main images in 4:5 containers (preferred cropping), detail images in 2:3 containers (full display)
+- **Quality Standards**: JPG format, 72 DPI, 85-90% quality, pure white backgrounds
+- **Cart Thumbnails**: 60x75px standardized across desktop and mobile
+- **Naming Convention**: product-main.jpg, product-back.jpg, product-detail.jpg
+
 ### **Lazy Loading Implementation**
 - **Performance impact**: 40-60% faster page load times achieved
 - **Implementation**: IntersectionObserver with `50px rootMargin, 0.1 threshold`
@@ -289,5 +296,90 @@ DebugUtils.enableCartDebugging()
 - **Technical risks**: Crypto volatility, network congestion, security vulnerabilities
 - **Business risks**: Web3 complexity, development timeline, customer demand  
 - **Mitigation strategies**: Phased approach (traditional commerce first), comprehensive fallback options
+
+## Ecommerce Development Workflow
+
+**CRITICAL: Production-Safe Development for Revenue-Generating Site**
+
+This is an active ecommerce operation generating real revenue. All development must protect commerce functionality while enabling unlimited exploration and innovation.
+
+### **Change Classification Protocol**
+
+Before any modification, assess the change type:
+
+**A) Routine Updates** → Main Branch (Direct to production)
+- Copy updates (seasons, pricing, product names)
+- Image swaps or optimizations
+- Minor styling tweaks
+- Documentation updates
+- **Deployment**: 30 seconds to live site
+
+**B) Development Work** → Dev-Ecommerce-Safe Branch (Protected development)
+- Cart functionality changes
+- Shopify integration modifications
+- JavaScript/logic updates
+- New features or components
+- Performance modifications
+- Web3 integration exploration
+- **Deployment**: Only when fully tested and validated
+
+**C) Commerce-Critical** → Main Branch + Enhanced Validation
+- Checkout flow changes
+- Payment processing modifications
+- Analytics tracking updates
+- Revenue-affecting functionality
+- **Deployment**: Requires comprehensive testing + staging review
+
+### **Branch Management Strategy**
+
+**Source of Truth**: Main branch always reflects live site
+- `main` branch ←→ `vibekween.github.io/of-the-culture-ecommerce/`
+- Main branch contains current production state
+
+**Development Workflow**:
+```bash
+# Routine updates (90% of changes)
+git checkout main
+# Make changes directly
+git push origin main  # Live in 30 seconds
+
+# Development work (10% of changes)
+git checkout -b dev-ecommerce-safe  # Or existing dev branch
+# Develop and test safely
+git checkout main && git merge dev-ecommerce-safe  # Deploy when ready
+```
+
+**Dev Branch Lifecycle**:
+- Temporary workspace for complex development
+- Can be recreated anytime from main branch
+- Periodically sync with main: `git merge main`
+- Delete and recreate when needed for fresh start
+
+### **Ecommerce Protection Standards**
+
+**Revenue Protection**: Commerce functionality must never be disrupted
+- LocalStorage cart system preserved
+- Shopify integration maintained
+- Analytics tracking operational
+- Performance baselines protected (40-60% improvements)
+
+**Exploration Freedom**: Development branch enables unlimited innovation
+- Web3 feature exploration
+- New design concepts
+- API integrations
+- Performance experiments
+- **Zero impact on live commerce operations**
+
+### **Quality Gates for Commerce Changes**
+
+**Pre-deployment validation for commerce-critical changes**:
+- [ ] Cart functionality tested end-to-end
+- [ ] Shopify integration verified
+- [ ] Analytics tracking confirmed
+- [ ] Mobile commerce flow validated
+- [ ] Performance baselines maintained
+- [ ] Revenue functionality preserved
+
+This workflow ensures **unlimited exploration capability** while maintaining **rock-solid ecommerce operations** and protecting established revenue streams.
 
 This comprehensive synthesis provides complete project context for any new Claude session, consolidating insights from 67+ documentation files into immediately actionable development guidance.

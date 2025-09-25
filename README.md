@@ -15,8 +15,9 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 - Mobile-optimized responsive design and performance
 - Page-by-page modular development approach
 - **Progressive enhancement lazy loading system with 40-60% faster page loads**
-- **Organized Production/Archive image management with optimized compression**
-- **Premium add-to-cart system with "✓ Yours" confirmation**
+- **Professional Photography Integration with optimized aspect ratio display**
+- **Universal Image Architecture supporting 800x1200px main images and 600x900px detail images**
+- **Premium add-to-cart system with enhanced cart thumbnails and "✓ Yours" confirmation**
 - **Dynamic pricing with real-time quantity calculations**
 - **Universal inline validation across all devices**
 - **Desktop spacing optimization with Creative Director enhancements across all products**
@@ -79,6 +80,13 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 - **Colors**: Black (#000000), White (#FFFFFF), Gold (#C19A4B)
 - **Layout**: 600px max-width, centered, mobile-first responsive
 - **Spacing**: 80px between sections (60px on mobile)
+
+### Professional Photography Standards
+- **Main Product Images**: 800x1200px (2:3 ratio) displayed in 4:5 containers with optimal cropping
+- **Detail Images**: 600x900px (2:3 ratio) displayed in 2:3 containers for full visibility
+- **Format Standards**: JPG, 72 DPI, 85-90% quality, pure white backgrounds
+- **Cart Thumbnails**: 60x75px on both desktop and mobile for consistent visibility
+- **Naming Convention**: product-main.jpg, product-back.jpg, product-detail.jpg
 
 ## Development Approach
 
