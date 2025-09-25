@@ -77,6 +77,16 @@ ALD-inspired layout patterns:
     /* Ensures consistent 4:5 aspect ratio container sizing */
 }
 
+/* Product View Images - Back and Detail Views */
+.product-view-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    /* Ensures consistent 2:3 aspect ratio container sizing */
+}
+
 /* Additional Views Grid */
 .additional-views {
     display: grid;
@@ -87,7 +97,7 @@ ALD-inspired layout patterns:
 
 .image-container.view-item {
     position: relative;
-    aspect-ratio: 4/5;
+    aspect-ratio: 2/3;
     overflow: hidden;
     border-radius: 2px;
 }
