@@ -761,13 +761,13 @@ Benefits:
     letter-spacing: -0.12em;
 }
 
-/* Shop the Collection Overlay - matches product page overlay pattern */
+/* Shop the Collection Overlay - full image coverage */
 .shop-overlay {
     position: absolute;
-    top: 30%;
-    left: 20%;
-    right: 20%;
-    bottom: 30%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
@@ -776,7 +776,7 @@ Benefits:
     transition: opacity 0.4s ease;
     backdrop-filter: blur(1px);
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
 .shop-overlay:hover,
