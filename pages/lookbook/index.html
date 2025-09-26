@@ -552,47 +552,39 @@
 
                 if (!heroContainer || !shopOverlay) return;
 
-                // Create intersection observer for scroll trigger
-                const observer = new IntersectionObserver((entries) => {
+                let overlayTriggered = false;
+
+                // Watch hero image - trigger when it hits top of screen (user scrolled past intro copy)
+                const heroObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Show overlay when hero is 70% visible (user has scrolled further down)
-                            if (entry.intersectionRatio > 0.7) {
-                                setTimeout(() => {
-                                    shopOverlay.classList.add('scroll-triggered');
-                                    // Track scroll-triggered overlay appearance
-                                    if (typeof gtag !== 'undefined') {
-                                        gtag('event', 'lookbook_overlay_scroll_trigger', {
-                                            event_category: 'engagement',
-                                            event_label: 'scroll_triggered',
-                                            value: 1
-                                        });
-                                    }
-                                }, 1000); // Slightly longer delay
-                            }
-                        } else {
-                            // Hide overlay when hero goes out of view
-                            shopOverlay.classList.remove('scroll-triggered');
+                        // When hero image reaches top of viewport (boundingClientRect.top <= 0)
+                        const rect = entry.target.getBoundingClientRect();
+
+                        if (rect.top <= 0 && !overlayTriggered) {
+                            // User has scrolled past intro copy, hero image at top of screen
+                            setTimeout(() => {
+                                shopOverlay.classList.add('scroll-triggered');
+                                overlayTriggered = true;
+                                // Track scroll-triggered overlay appearance
+                                if (typeof gtag !== 'undefined') {
+                                    gtag('event', 'lookbook_overlay_scroll_trigger', {
+                                        event_category: 'engagement',
+                                        event_label: 'hero_top_trigger',
+                                        value: 1
+                                    });
+                                }
+                            }, 300);
                         }
                     });
                 }, {
-                    threshold: [0.5, 0.7, 0.9],
-                    rootMargin: '-20% 0px -20% 0px'
+                    threshold: [0, 0.1, 0.5, 1],
+                    rootMargin: '0px'
                 });
 
-                observer.observe(heroContainer);
+                heroObserver.observe(heroContainer);
 
-                // Hide overlay after 3 seconds if no interaction
-                let hideTimeout;
-                const autoHide = () => {
-                    hideTimeout = setTimeout(() => {
-                        shopOverlay.classList.remove('scroll-triggered');
-                    }, 3000);
-                };
-
-                // Clear timeout if user interacts + track analytics
+                // Track analytics on user interactions (persistent overlay)
                 shopOverlay.addEventListener('touchstart', () => {
-                    clearTimeout(hideTimeout);
                     // Track mobile touch interaction
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'lookbook_overlay_touch', {
@@ -604,7 +596,6 @@
                 });
 
                 shopOverlay.addEventListener('click', () => {
-                    clearTimeout(hideTimeout);
                     // Track overlay click to shop
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'lookbook_to_shop', {
@@ -614,20 +605,6 @@
                         });
                     }
                 });
-
-                // Set auto-hide when overlay becomes visible
-                const mutationObserver = new MutationObserver((mutations) => {
-                    mutations.forEach(mutation => {
-                        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                            if (shopOverlay.classList.contains('scroll-triggered')) {
-                                clearTimeout(hideTimeout);
-                                autoHide();
-                            }
-                        }
-                    });
-                });
-
-                mutationObserver.observe(shopOverlay, { attributes: true });
             }
 
             // Initialize when DOM is ready
