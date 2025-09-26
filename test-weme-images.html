@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEME Image Testing - OF THE CULTURE</title>
+
+    <link rel="stylesheet" href="shared/css/main.css">
+    <link rel="stylesheet" href="pages/product/product.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            background: #fafafa;
+        }
+        .test-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+        }
+        .test-title {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: var(--color-black);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .test-note {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .product-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .status-indicator {
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .status-ready {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f8f8f8 0%, #e9e9e9 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.8rem;
+            border: 2px dashed #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>WEME Image Testing - Professional Photography Preview</h1>
+    <p style="margin-bottom: 40px; color: #666; font-size: 0.9rem;">
+        Test your WEME images (weme-main.jpg, weme-back.jpg, weme-detail.jpg) with the optimized aspect ratio system before pushing live.
+    </p>
+
+    <div class="test-section">
+        <div class="test-title">WEME Product Images - Current Architecture</div>
+        <div class="status-indicator status-ready">✅ Using Session 17 optimized aspect ratios (Main: 4:5, Detail: 2:3)</div>
+        <div class="test-note">
+            <strong>Expected Images:</strong><br>
+            • weme-main.jpg (800x1200px) → displayed in 4:5 container with optimal cropping<br>
+            • weme-back.jpg (800x1200px) → displayed in 2:3 container for full visibility<br>
+            • weme-detail.jpg (600x900px) → displayed in 2:3 container for full visibility
+        </div>
+
+        <div class="product-container">
+            <div class="product-images">
+                <div class="product-gallery">
+                    <!-- Main Product Image (800x1200px in 4:5 container) -->
+                    <div class="image-container main-view">
+                        <img src="images/products/product-pages/weme-main.jpg"
+                             alt="WEME Main - Professional Photography"
+                             class="product-main-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                             onload="this.nextElementSibling.style.display='none';">
+                        <div class="image-placeholder">
+                            <div>WEME MAIN</div>
+                            <div style="font-size: 0.7rem; margin-top: 8px;">800x1200px → 4:5 container</div>
+                            <div style="font-size: 0.65rem; margin-top: 4px; opacity: 0.7;">Save as: weme-main.jpg</div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Views Grid -->
+                    <div class="additional-views">
+                        <!-- Back View (800x1200px in 2:3 container) -->
+                        <div class="image-container view-item">
+                            <img src="images/products/product-pages/weme-back.jpg"
+                                 alt="WEME Back - Professional Photography"
+                                 class="product-view-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="image-placeholder">
+                                <div>WEME BACK</div>
+                                <div style="font-size: 0.65rem; margin-top: 4px;">800x1200px → 2:3</div>
+                                <div style="font-size: 0.6rem; opacity: 0.7;">weme-back.jpg</div>
+                            </div>
+                        </div>
+
+                        <!-- Detail View (600x900px in 2:3 container) -->
+                        <div class="image-container view-item">
+                            <img src="images/products/product-pages/weme-detail.jpg"
+                                 alt="WEME Detail - Professional Photography"
+                                 class="product-view-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="image-placeholder">
+                                <div>WEME DETAIL</div>
+                                <div style="font-size: 0.65rem; margin-top: 4px;">600x900px → 2:3</div>
+                                <div style="font-size: 0.6rem; opacity: 0.7;">weme-detail.jpg</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">Cart Thumbnail Preview</div>
+        <div class="status-indicator status-ready">✅ Using optimized 60x75px cart thumbnails</div>
+        <div class="test-note">Preview how your WEME main image will appear in the cart modal (both desktop and mobile)</div>
+
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <div class="item-image" style="flex-shrink: 0; width: 60px; height: 75px; overflow: hidden; border-radius: 4px; background: #f5f5f5;">
+                <img src="images/products/product-pages/weme-main.jpg"
+                     alt="WEME Cart Thumbnail"
+                     class="cart-item-img"
+                     style="width: 100%; height: 100%; object-fit: cover; object-position: center top;"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                     onload="this.nextElementSibling.style.display='none';">
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #999;">
+                    WEME<br>THUMB
+                </div>
+            </div>
+            <div style="color: #666; font-size: 0.85rem;">
+                <strong>Cart Display:</strong> 60×75px thumbnail<br>
+                <strong>Source:</strong> weme-main.jpg<br>
+                <strong>Position:</strong> Center top cropping
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">Mobile Responsive Test</div>
+        <div class="test-note">Test how images display on mobile devices (resize browser window to under 768px width)</div>
+
+        <div style="max-width: 400px; margin: 0 auto;">
+            <div class="product-images">
+                <div class="product-gallery">
+                    <div class="image-container main-view">
+                        <img src="images/products/product-pages/weme-main.jpg"
+                             alt="WEME Main - Mobile Test"
+                             class="product-main-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                             onload="this.nextElementSibling.style.display='none';">
+                        <div class="image-placeholder">
+                            <div>MOBILE</div>
+                            <div style="font-size: 0.6rem;">WEME MAIN</div>
+                        </div>
+                    </div>
+
+                    <div class="additional-views">
+                        <div class="image-container view-item">
+                            <img src="images/products/product-pages/weme-back.jpg"
+                                 alt="WEME Back - Mobile Test"
+                                 class="product-view-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="image-placeholder">
+                                <div style="font-size: 0.65rem;">BACK</div>
+                            </div>
+                        </div>
+
+                        <div class="image-container view-item">
+                            <img src="images/products/product-pages/weme-detail.jpg"
+                                 alt="WEME Detail - Mobile Test"
+                                 class="product-view-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="image-placeholder">
+                                <div style="font-size: 0.65rem;">DETAIL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <div class="test-title">Next Steps</div>
+        <div class="test-note">
+            <strong>When images look good:</strong><br>
+            1. Let Claude know you're ready to deploy<br>
+            2. We'll update the WEME product page with the new images<br>
+            3. Update cart-manager.js to reference weme-main.jpg<br>
+            4. Push all changes live to production<br><br>
+
+            <strong>Image Specs Reminder:</strong><br>
+            • Main: 800x1200px, JPG, 72 DPI, white background<br>
+            • Detail: 600x900px, JPG, 72 DPI, white background<br>
+            • Quality: 85-90% for optimal file size/quality balance
+        </div>
+    </div>
+
+</body>
+</html>

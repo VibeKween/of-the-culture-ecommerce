@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Image Context Testing Suite - OF THE CULTURE</title>
+
+    <link rel="stylesheet" href="shared/css/main.css">
+    <link rel="stylesheet" href="pages/product/product.css">
+    <link rel="stylesheet" href="pages/shop/shop.css">
+    <link rel="stylesheet" href="shared/css/cart.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            background: #fafafa;
+        }
+
+        .context-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .context-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--color-black);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .context-subtitle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .products-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--color-black);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        /* SHOP PAGE CONTEXT */
+        .shop-container {
+            width: 100%;
+            height: 0;
+            padding-bottom: 140%;
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f8f8 0%, #eeeeee 100%);
+        }
+
+        .shop-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* PRODUCT PAGE MAIN CONTEXT */
+        .product-main-container {
+            width: 100%;
+            aspect-ratio: 4/5;
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            background: #f8f8f8;
+        }
+
+        .product-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* PRODUCT PAGE DETAIL CONTEXT */
+        .product-detail-container {
+            width: 100%;
+            aspect-ratio: 2/3;
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            background: #f8f8f8;
+        }
+
+        .product-detail-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* CART THUMBNAIL CONTEXT */
+        .cart-container {
+            width: 60px;
+            height: 75px;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #f5f5f5;
+            margin: 0 auto;
+        }
+
+        .cart-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.6rem;
+            background: linear-gradient(135deg, #f8f8f8 0%, #e9e9e9 100%);
+            border: 2px dashed #ddd;
+        }
+
+        .spec-info {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.7rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .context-demo {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+
+        .context-demo h4 {
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: var(--color-black);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .products-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            body {
+                padding: 15px;
+            }
+
+            .context-section {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Complete Image Context Testing Suite</h1>
+    <p style="margin-bottom: 40px; color: #666; font-size: 0.9rem;">
+        Test all your product images across every context they appear in - shop catalog, product pages, and cart thumbnails.
+        Ensure perfect visual consistency across the entire OF THE CULTURE experience.
+    </p>
+
+    <!-- SHOP PAGE CONTEXT -->
+    <div class="context-section">
+        <div class="context-title">Shop Catalog Context</div>
+        <div class="context-subtitle">
+            How your images appear in the main shop catalog - optimized for browsing and product recognition
+        </div>
+
+        <div class="products-row">
+            <div class="product-item">
+                <div class="product-label">NAKAMOTO</div>
+                <div class="shop-container">
+                    <img src="images/products/catalogue/Production/shop-nakamoto-live.jpg"
+                         alt="NAKAMOTO Shop"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NAKAMOTO</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">WEME</div>
+                <div class="shop-container">
+                    <img src="images/products/catalogue/Production/shop-weme-live.jpg"
+                         alt="WEME Shop"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>WEME</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">DTOM</div>
+                <div class="shop-container">
+                    <img src="images/products/catalogue/Production/shop-dtom-live.jpg"
+                         alt="DTOM Shop"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>DTOM</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">OPEN HEART</div>
+                <div class="shop-container">
+                    <img src="images/products/catalogue/Production/shop-openheart-live.jpg"
+                         alt="OPEN HEART Shop"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>OPEN HEART</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">NODES</div>
+                <div class="shop-container">
+                    <img src="images/products/catalogue/Production/shop-nodes-live.jpg"
+                         alt="NODES Shop"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NODES</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spec-info">
+            <strong>Shop Specs:</strong> 1:1.4 aspect ratio (padding-bottom: 140%) • object-fit: cover • 3px border-radius
+        </div>
+    </div>
+
+    <!-- PRODUCT PAGE MAIN CONTEXT -->
+    <div class="context-section">
+        <div class="context-title">Product Page Main Images</div>
+        <div class="context-subtitle">
+            Main product images as they appear on individual product pages - detailed view for purchase consideration
+        </div>
+
+        <div class="products-row">
+            <div class="product-item">
+                <div class="product-label">NAKAMOTO</div>
+                <div class="product-main-container">
+                    <img src="images/products/product-pages/nakamoto-main.jpg"
+                         alt="NAKAMOTO Product"
+                         class="product-main-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NAKAMOTO</div>
+                        <div>MAIN</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">WEME</div>
+                <div class="product-main-container">
+                    <img src="images/products/product-pages/weme-main.jpg"
+                         alt="WEME Product"
+                         class="product-main-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>WEME</div>
+                        <div>MAIN</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">DTOM</div>
+                <div class="product-main-container">
+                    <img src="images/products/product-pages/dtom-main.jpg"
+                         alt="DTOM Product"
+                         class="product-main-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>DTOM</div>
+                        <div>MAIN</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">OPEN HEART</div>
+                <div class="product-main-container">
+                    <img src="images/products/product-pages/openheart-main.jpg"
+                         alt="OPEN HEART Product"
+                         class="product-main-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>OPEN HEART</div>
+                        <div>MAIN</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">NODES</div>
+                <div class="product-main-container">
+                    <img src="images/products/product-pages/nodes-main.jpg"
+                         alt="NODES Product"
+                         class="product-main-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NODES</div>
+                        <div>MAIN</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spec-info">
+            <strong>Product Main Specs:</strong> 4:5 aspect ratio • object-fit: cover • 2px border-radius • 800x1200px source
+        </div>
+    </div>
+
+    <!-- PRODUCT PAGE DETAIL CONTEXT -->
+    <div class="context-section">
+        <div class="context-title">Product Page Detail Images</div>
+        <div class="context-subtitle">
+            Back and detail images as they appear on product pages - secondary views for product inspection
+        </div>
+
+        <div class="products-row">
+            <div class="product-item">
+                <div class="product-label">NAKAMOTO</div>
+                <div class="product-detail-container">
+                    <img src="images/products/product-pages/nakamoto-back.jpg"
+                         alt="NAKAMOTO Detail"
+                         class="product-detail-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NAKAMOTO</div>
+                        <div>BACK</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">WEME</div>
+                <div class="product-detail-container">
+                    <img src="images/products/product-pages/weme-back.jpg"
+                         alt="WEME Detail"
+                         class="product-detail-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>WEME</div>
+                        <div>BACK</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">DTOM</div>
+                <div class="product-detail-container">
+                    <img src="images/products/product-pages/dtom-back.jpg"
+                         alt="DTOM Detail"
+                         class="product-detail-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>DTOM</div>
+                        <div>BACK</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">OPEN HEART</div>
+                <div class="product-detail-container">
+                    <img src="images/products/product-pages/openheart-back.jpg"
+                         alt="OPEN HEART Detail"
+                         class="product-detail-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>OPEN HEART</div>
+                        <div>BACK</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">NODES</div>
+                <div class="product-detail-container">
+                    <img src="images/products/product-pages/nodes-back.jpg"
+                         alt="NODES Detail"
+                         class="product-detail-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NODES</div>
+                        <div>BACK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spec-info">
+            <strong>Product Detail Specs:</strong> 2:3 aspect ratio • object-fit: cover • 2px border-radius • 600x900px or 800x1200px source
+        </div>
+    </div>
+
+    <!-- CART THUMBNAIL CONTEXT -->
+    <div class="context-section">
+        <div class="context-title">Cart Thumbnail Context</div>
+        <div class="context-subtitle">
+            How your main product images appear as cart thumbnails - small but must remain recognizable
+        </div>
+
+        <div class="products-row">
+            <div class="product-item">
+                <div class="product-label">NAKAMOTO</div>
+                <div class="cart-container">
+                    <img src="images/products/product-pages/nakamoto-main.jpg"
+                         alt="NAKAMOTO Cart"
+                         class="cart-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NAK</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">WEME</div>
+                <div class="cart-container">
+                    <img src="images/products/product-pages/weme-main.jpg"
+                         alt="WEME Cart"
+                         class="cart-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>WEME</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">DTOM</div>
+                <div class="cart-container">
+                    <img src="images/products/product-pages/dtom-main.jpg"
+                         alt="DTOM Cart"
+                         class="cart-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>DTOM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">OPEN HEART</div>
+                <div class="cart-container">
+                    <img src="images/products/product-pages/openheart-main.jpg"
+                         alt="OPEN HEART Cart"
+                         class="cart-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>OPEN</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-label">NODES</div>
+                <div class="cart-container">
+                    <img src="images/products/product-pages/nodes-main.jpg"
+                         alt="NODES Cart"
+                         class="cart-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="placeholder">
+                        <div>NODES</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spec-info">
+            <strong>Cart Thumbnail Specs:</strong> 60x75px fixed size • object-fit: cover • object-position: center top • 4px border-radius
+        </div>
+    </div>
+
+    <!-- CROSS-CONTEXT COMPARISON -->
+    <div class="context-section">
+        <div class="context-title">Cross-Context Recognition Test</div>
+        <div class="context-subtitle">
+            Test one product across all contexts to ensure consistent brand recognition and visual flow
+        </div>
+
+        <div class="comparison-grid">
+            <div class="context-demo">
+                <h4>SHOP CATALOG</h4>
+                <div class="shop-container" style="max-width: 150px; margin: 0 auto;">
+                    <img src="images/products/catalogue/Production/shop-nodes-live.jpg"
+                         alt="NODES Shop Context"
+                         class="shop-image">
+                </div>
+                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
+                    Browsing & Discovery
+                </div>
+            </div>
+
+            <div class="context-demo">
+                <h4>PRODUCT MAIN</h4>
+                <div class="product-main-container" style="max-width: 120px; margin: 0 auto;">
+                    <img src="images/products/product-pages/nodes-main.jpg"
+                         alt="NODES Product Context"
+                         class="product-main-image">
+                </div>
+                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
+                    Purchase Consideration
+                </div>
+            </div>
+
+            <div class="context-demo">
+                <h4>PRODUCT DETAIL</h4>
+                <div class="product-detail-container" style="max-width: 100px; margin: 0 auto;">
+                    <img src="images/products/product-pages/nodes-back.jpg"
+                         alt="NODES Detail Context"
+                         class="product-detail-image">
+                </div>
+                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
+                    Product Inspection
+                </div>
+            </div>
+
+            <div class="context-demo">
+                <h4>CART THUMBNAIL</h4>
+                <div class="cart-container">
+                    <img src="images/products/product-pages/nodes-main.jpg"
+                         alt="NODES Cart Context"
+                         class="cart-image">
+                </div>
+                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
+                    Purchase Confirmation
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 4px; text-align: center;">
+        <strong>Complete Visual Consistency Testing</strong><br>
+        <span style="font-size: 0.85rem; color: #666;">
+            Your images are now tested across every context they appear in - ensuring perfect brand recognition
+            and professional presentation throughout the entire customer journey.
+        </span>
+    </div>
+
+    <script>
+        console.log('OF THE CULTURE :: Complete Image Context Testing Suite Loaded');
+    </script>
+
+</body>
+</html>

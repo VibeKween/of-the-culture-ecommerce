@@ -96,6 +96,19 @@
 **Analytics Property**: OF THE CULTURE Ecommerce (Google Analytics 4)
 **Stream**: OF THE CULTURE Website (ID: 12184974167)
 
+### Email Aliases Configuration
+
+**Primary Account**: falon@oftheculture.co
+**Configured Aliases** (all redirect to primary account):
+- atelier@oftheculture.co
+- hello@oftheculture.co
+- orders@oftheculture.co ← Currently used in site copy
+- privacy@oftheculture.co
+- shop@oftheculture.co
+- support@oftheculture.co
+
+**Note**: All email references in site copy use `orders@oftheculture.co` which is properly configured.
+
 ### Next Steps
 
 1. **Test Current Setup**: Verify tracking on GitHub Pages site

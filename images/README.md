@@ -16,7 +16,7 @@ images/
 │       ├── weme-main.jpg        # Used on product pages & cart thumbnails
 │       ├── dtom-main.jpeg       # Consistent with productId naming
 │       ├── openheart-main.jpeg  # Support for JPEG/JPG formats
-│       └── nodes-main.jpeg      # Optimized for web performance
+│       └── nodes-main.jpg       # Optimized for web performance
 ├── og-images/             # Open Graph / social media images
 └── wordmark_2.svg         # Current brand wordmark
 ```
