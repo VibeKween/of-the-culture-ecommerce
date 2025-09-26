@@ -554,13 +554,13 @@
 
                 let overlayTriggered = false;
 
-                // Watch hero image - trigger when it hits top of screen (user scrolled past intro copy)
+                // Watch hero image - trigger slightly before it hits top of screen
                 const heroObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        // When hero image reaches top of viewport (boundingClientRect.top <= 0)
+                        // Trigger when hero image is close to top of viewport (50px from top)
                         const rect = entry.target.getBoundingClientRect();
 
-                        if (rect.top <= 0 && !overlayTriggered) {
+                        if (rect.top <= 50 && !overlayTriggered) {
                             // User has scrolled past intro copy, hero image at top of screen
                             setTimeout(() => {
                                 shopOverlay.classList.add('scroll-triggered');
