@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Context Testing - OF THE CULTURE</title>
+
+    <link rel="stylesheet" href="shared/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            background: #fafafa;
+        }
+
+        .tool-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .tool-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--color-black);
+        }
+
+        .tool-subtitle {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .instructions {
+            background: #e8f4ff;
+            border: 1px solid #b3d9ff;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 40px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .instructions h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: var(--color-black);
+        }
+
+        /* Shop Grid for Selection */
+        .shop-selection-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: var(--color-black);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .shop-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .shop-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .shop-item.active {
+            transform: scale(1.02);
+        }
+
+        .shop-item-name {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--color-black);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .shop-item-price {
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .shop-image-container {
+            width: 100%;
+            height: 0;
+            padding-bottom: 140%; /* 1:1.4 aspect ratio to match shop.css */
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f8f8 0%, #eeeeee 100%);
+            border: 2px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .shop-item.active .shop-image-container {
+            border-color: var(--color-gold);
+        }
+
+        .shop-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .shop-image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.7rem;
+            background: linear-gradient(135deg, #f8f8f8 0%, #e9e9e9 100%);
+            border: 2px dashed #ddd;
+        }
+
+        /* Context Display Area */
+        .context-display {
+            display: none;
+            padding: 40px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+
+        .context-display.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-contexts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .context-item {
+            text-align: center;
+        }
+
+        .context-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--color-black);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .context-image-container {
+            background: linear-gradient(135deg, #f8f8f8 0%, #eeeeee 100%);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        /* Shop context - maintain original aspect ratio */
+        .context-shop .context-image-container {
+            aspect-ratio: 1/1.4;
+        }
+
+        /* Product page contexts - 4:5 aspect ratio */
+        .context-product .context-image-container,
+        .context-detail .context-image-container {
+            aspect-ratio: 4/5;
+        }
+
+        /* Cart thumbnail - smaller, different ratio */
+        .context-cart .context-image-container {
+            aspect-ratio: 4/5;
+            max-width: 80px;
+            margin: 0 auto 8px auto;
+        }
+
+        .context-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .context-specs {
+            font-size: 0.65rem;
+            color: #666;
+            line-height: 1.3;
+        }
+
+        .context-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #999;
+            font-size: 0.7rem;
+            background: linear-gradient(135deg, #f8f8f8 0%, #e9e9e9 100%);
+            border: 2px dashed #ddd;
+        }
+
+        .selected-product-info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .selected-product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 8px;
+        }
+
+        .selected-product-details {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .shop-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .product-contexts {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            body {
+                padding: 15px;
+            }
+
+            .shop-selection-section,
+            .context-display {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shop-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-contexts {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tool-header">
+        <h1 class="tool-title">Interactive Image Context Testing</h1>
+        <p class="tool-subtitle">
+            Click any shop catalog image below to see how it appears across all contexts: shop grid, product page, detail views, and cart thumbnails
+        </p>
+    </div>
+
+    <div class="instructions">
+        <h4>How to Use This Tool:</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <strong>Image Quality Check:</strong>
+                <ul style="margin: 8px 0; padding-left: 16px; font-size: 0.75rem;">
+                    <li>Click any product in the shop grid</li>
+                    <li>Review image consistency across all contexts</li>
+                    <li>Check for proper aspect ratios and cropping</li>
+                    <li>Verify loading performance across views</li>
+                </ul>
+            </div>
+            <div>
+                <strong>Cross-Context Recognition:</strong>
+                <ul style="margin: 8px 0; padding-left: 16px; font-size: 0.75rem;">
+                    <li>Ensure product is recognizable in all formats</li>
+                    <li>Verify color consistency across contexts</li>
+                    <li>Check cart thumbnail clarity at small size</li>
+                    <li>Validate detail views show important features</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Selection Grid -->
+    <div class="shop-selection-section">
+        <div class="section-title">Select Product from Shop Catalog</div>
+
+        <div class="shop-grid">
+            <div class="shop-item" data-product="nakamoto" data-price="$195">
+                <div class="shop-item-name">NAKAMOTO</div>
+                <div class="shop-item-price">$195</div>
+                <div class="shop-image-container">
+                    <img src="images/products/catalogue/Production/shop-nakamoto-live.jpg"
+                         alt="NAKAMOTO Shop Image"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="shop-image-placeholder">
+                        <div>NAKAMOTO</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-item" data-product="weme" data-price="$155">
+                <div class="shop-item-name">WEME</div>
+                <div class="shop-item-price">$155</div>
+                <div class="shop-image-container">
+                    <img src="images/products/catalogue/Production/shop-weme-live.jpg"
+                         alt="WEME Shop Image"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="shop-image-placeholder">
+                        <div>WEME</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-item" data-product="dtom" data-price="$135">
+                <div class="shop-item-name">DTOM</div>
+                <div class="shop-item-price">$135</div>
+                <div class="shop-image-container">
+                    <img src="images/products/catalogue/Production/shop-dtom-live.jpg"
+                         alt="DTOM Shop Image"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="shop-image-placeholder">
+                        <div>DTOM</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-item" data-product="openheart" data-price="$75">
+                <div class="shop-item-name">OPEN HEART</div>
+                <div class="shop-item-price">$75</div>
+                <div class="shop-image-container">
+                    <img src="images/products/catalogue/Production/shop-openheart-live.jpg"
+                         alt="OPEN HEART Shop Image"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="shop-image-placeholder">
+                        <div>OPEN HEART</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shop-item" data-product="nodes" data-price="$145">
+                <div class="shop-item-name">NODES</div>
+                <div class="shop-item-price">$145</div>
+                <div class="shop-image-container">
+                    <img src="images/products/catalogue/Production/shop-nodes-live.jpg"
+                         alt="NODES Shop Image"
+                         class="shop-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                         onload="this.nextElementSibling.style.display='none';">
+                    <div class="shop-image-placeholder">
+                        <div>NODES</div>
+                        <div>SHOP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Context Display Area -->
+    <div class="context-display" id="contextDisplay">
+        <div class="selected-product-info">
+            <div class="selected-product-name" id="selectedProductName">Select a Product</div>
+            <div class="selected-product-details" id="selectedProductDetails">Choose a product from the shop grid above to see cross-context analysis</div>
+        </div>
+
+        <div class="product-contexts">
+            <!-- Shop Context -->
+            <div class="context-item context-shop">
+                <div class="context-label">Shop Catalog</div>
+                <div class="context-image-container">
+                    <img id="shopContextImage" class="context-image" alt="">
+                    <div class="context-placeholder" id="shopContextPlaceholder">
+                        <div>SHOP</div>
+                        <div>IMAGE</div>
+                    </div>
+                </div>
+                <div class="context-specs">
+                    1:1.4 ratio<br>
+                    Cover fit<br>
+                    Lazy loaded
+                </div>
+            </div>
+
+            <!-- Product Page Main -->
+            <div class="context-item context-product">
+                <div class="context-label">Product Main</div>
+                <div class="context-image-container">
+                    <img id="productContextImage" class="context-image" alt="">
+                    <div class="context-placeholder" id="productContextPlaceholder">
+                        <div>MAIN</div>
+                        <div>VIEW</div>
+                    </div>
+                </div>
+                <div class="context-specs">
+                    4:5 ratio<br>
+                    Cover fit<br>
+                    Hero image
+                </div>
+            </div>
+
+            <!-- Product Page Detail -->
+            <div class="context-item context-detail">
+                <div class="context-label">Detail View</div>
+                <div class="context-image-container">
+                    <img id="detailContextImage" class="context-image" alt="">
+                    <div class="context-placeholder" id="detailContextPlaceholder">
+                        <div>DETAIL</div>
+                        <div>VIEW</div>
+                    </div>
+                </div>
+                <div class="context-specs">
+                    2:3 ratio<br>
+                    Cover fit<br>
+                    Secondary view
+                </div>
+            </div>
+
+            <!-- Cart Thumbnail -->
+            <div class="context-item context-cart">
+                <div class="context-label">Cart Thumbnail</div>
+                <div class="context-image-container">
+                    <img id="cartContextImage" class="context-image" alt="">
+                    <div class="context-placeholder" id="cartContextPlaceholder">
+                        <div>CART</div>
+                        <div>THUMB</div>
+                    </div>
+                </div>
+                <div class="context-specs">
+                    60x75px<br>
+                    Center top<br>
+                    LocalStorage
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product image mappings
+        const productImageMaps = {
+            nakamoto: {
+                shop: 'images/products/catalogue/Production/shop-nakamoto-live.jpg',
+                main: 'images/products/product-pages/nakamoto-main.jpg',
+                detail: 'images/products/product-pages/nakamoto-back.jpg',
+                cart: 'images/products/product-pages/nakamoto-main.jpg'
+            },
+            weme: {
+                shop: 'images/products/catalogue/Production/shop-weme-live.jpg',
+                main: 'images/products/product-pages/weme-main.jpg',
+                detail: 'images/products/product-pages/weme-back.jpg',
+                cart: 'images/products/product-pages/weme-main.jpg'
+            },
+            dtom: {
+                shop: 'images/products/catalogue/Production/shop-dtom-live.jpg',
+                main: 'images/products/product-pages/dtom-main.jpg',
+                detail: 'images/products/product-pages/dtom-back.jpg',
+                cart: 'images/products/product-pages/dtom-main.jpg'
+            },
+            openheart: {
+                shop: 'images/products/catalogue/Production/shop-openheart-live.jpg',
+                main: 'images/products/product-pages/openheart-main.jpg',
+                detail: 'images/products/product-pages/openheart-back.jpg',
+                cart: 'images/products/product-pages/openheart-main.jpg'
+            },
+            nodes: {
+                shop: 'images/products/catalogue/Production/shop-nodes-live.jpg',
+                main: 'images/products/product-pages/nodes-main.jpg',
+                detail: 'images/products/product-pages/nodes-back.jpg',
+                cart: 'images/products/product-pages/nodes-main.jpg'
+            }
+        };
+
+        const productDetails = {
+            nakamoto: {
+                fullName: 'NAKAMOTO',
+                type: 'Embroidered T-Shirt',
+                description: 'Invisible founder, eternal code'
+            },
+            weme: {
+                fullName: 'WE/ME',
+                type: 'Long-sleeve Shirt',
+                description: 'Individual threads, collective fabric'
+            },
+            dtom: {
+                fullName: 'DTOM',
+                type: 'Graphic T-Shirt',
+                description: 'Don\'t tread on me reimagined'
+            },
+            openheart: {
+                fullName: 'OPEN HEART',
+                type: 'Statement T-Shirt',
+                description: 'Vulnerability as strength'
+            },
+            nodes: {
+                fullName: 'NODES',
+                type: 'Heavyweight Hoodie',
+                description: 'Invisible connections, quiet infrastructure'
+            }
+        };
+
+        // Event listeners for product selection
+        document.addEventListener('DOMContentLoaded', function() {
+            const shopItems = document.querySelectorAll('.shop-item');
+            const contextDisplay = document.getElementById('contextDisplay');
+
+            shopItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const productId = this.dataset.product;
+                    const productPrice = this.dataset.price;
+
+                    // Update active state
+                    shopItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show context display
+                    contextDisplay.classList.add('active');
+
+                    // Update product info
+                    const details = productDetails[productId];
+                    document.getElementById('selectedProductName').textContent = details.fullName;
+                    document.getElementById('selectedProductDetails').innerHTML =
+                        `${details.type} • ${productPrice} • ${details.description}`;
+
+                    // Load images for all contexts
+                    loadProductImages(productId);
+                });
+            });
+        });
+
+        function loadProductImages(productId) {
+            const images = productImageMaps[productId];
+
+            // Load shop context image
+            loadContextImage('shopContextImage', 'shopContextPlaceholder', images.shop, 'Shop catalog view');
+
+            // Load product main image
+            loadContextImage('productContextImage', 'productContextPlaceholder', images.main, 'Product page main view');
+
+            // Load detail image
+            loadContextImage('detailContextImage', 'detailContextPlaceholder', images.detail, 'Product detail view');
+
+            // Load cart thumbnail
+            loadContextImage('cartContextImage', 'cartContextPlaceholder', images.cart, 'Cart thumbnail view');
+        }
+
+        function loadContextImage(imageId, placeholderId, imageSrc, altText) {
+            const img = document.getElementById(imageId);
+            const placeholder = document.getElementById(placeholderId);
+
+            // Show placeholder initially
+            img.style.display = 'none';
+            placeholder.style.display = 'flex';
+
+            // Set up image
+            img.src = imageSrc;
+            img.alt = altText;
+
+            img.onload = function() {
+                img.style.display = 'block';
+                placeholder.style.display = 'none';
+            };
+
+            img.onerror = function() {
+                img.style.display = 'none';
+                placeholder.style.display = 'flex';
+            };
+        }
+
+        console.log('OF THE CULTURE :: Interactive Image Context Testing Tool Loaded');
+    </script>
+
+</body>
+</html>

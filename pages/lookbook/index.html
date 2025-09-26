@@ -181,6 +181,9 @@
                     <span class="placeholder-text">GRANT COLLECTION</span>
                     <span class="placeholder-subtitle">Loading...</span>
                 </div>
+                <div class="shop-overlay">
+                    <a href="../shop/" class="shop-label">SHOP THE COLLECTION</a>
+                </div>
                 <noscript>
                     <img src="../../images/products/lookbook/lookbook-composition-live.jpg" alt="Grant Collection - Group composition showcasing SZN2026 pieces" class="fallback-image">
                 </noscript>
@@ -221,7 +224,7 @@
                     </noscript>
                 </div>
                 <div class="item-meta">
-                    <h3 class="item-title">OPEN HEART</h3>
+                    <h3 class="item-title">OPEN HEART <span class="tight-slashes">//</span> OPEN SOURCE</h3>
                     <p class="item-concept"><span class="cultural-header">Transparency as architecture</span></p>
                     <p class="item-signal">A heart unguarded sets ideas free to multiply.</p>
                 </div>
@@ -239,7 +242,7 @@
                     </noscript>
                 </div>
                 <div class="item-meta">
-                    <h3 class="item-title">Don't Tread on Memes</h3>
+                    <h3 class="item-title">DON'T TREAD ON MEMES</h3>
                     <p class="item-concept"><span class="cultural-header">Cultural velocity</span></p>
                     <p class="item-signal">The message outruns the market.</p>
                 </div>
@@ -542,17 +545,104 @@
                 }
             }
 
+            // Shop overlay scroll trigger for mobile
+            function initShopOverlay() {
+                const heroContainer = document.querySelector('.hero-image-container');
+                const shopOverlay = document.querySelector('.shop-overlay');
+
+                if (!heroContainer || !shopOverlay) return;
+
+                // Create intersection observer for scroll trigger
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Show overlay when hero is 70% visible (user has scrolled further down)
+                            if (entry.intersectionRatio > 0.7) {
+                                setTimeout(() => {
+                                    shopOverlay.classList.add('scroll-triggered');
+                                    // Track scroll-triggered overlay appearance
+                                    if (typeof gtag !== 'undefined') {
+                                        gtag('event', 'lookbook_overlay_scroll_trigger', {
+                                            event_category: 'engagement',
+                                            event_label: 'scroll_triggered',
+                                            value: 1
+                                        });
+                                    }
+                                }, 1000); // Slightly longer delay
+                            }
+                        } else {
+                            // Hide overlay when hero goes out of view
+                            shopOverlay.classList.remove('scroll-triggered');
+                        }
+                    });
+                }, {
+                    threshold: [0.5, 0.7, 0.9],
+                    rootMargin: '-20% 0px -20% 0px'
+                });
+
+                observer.observe(heroContainer);
+
+                // Hide overlay after 3 seconds if no interaction
+                let hideTimeout;
+                const autoHide = () => {
+                    hideTimeout = setTimeout(() => {
+                        shopOverlay.classList.remove('scroll-triggered');
+                    }, 3000);
+                };
+
+                // Clear timeout if user interacts + track analytics
+                shopOverlay.addEventListener('touchstart', () => {
+                    clearTimeout(hideTimeout);
+                    // Track mobile touch interaction
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'lookbook_overlay_touch', {
+                            event_category: 'engagement',
+                            event_label: 'mobile_touch',
+                            value: 1
+                        });
+                    }
+                });
+
+                shopOverlay.addEventListener('click', () => {
+                    clearTimeout(hideTimeout);
+                    // Track overlay click to shop
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'lookbook_to_shop', {
+                            event_category: 'navigation',
+                            event_label: 'overlay_click',
+                            value: 1
+                        });
+                    }
+                });
+
+                // Set auto-hide when overlay becomes visible
+                const mutationObserver = new MutationObserver((mutations) => {
+                    mutations.forEach(mutation => {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                            if (shopOverlay.classList.contains('scroll-triggered')) {
+                                clearTimeout(hideTimeout);
+                                autoHide();
+                            }
+                        }
+                    });
+                });
+
+                mutationObserver.observe(shopOverlay, { attributes: true });
+            }
+
             // Initialize when DOM is ready
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
                     initLazyLoading();
                     initScrollTracking();
                     initClickTracking();
+                    initShopOverlay();
                 });
             } else {
                 initLazyLoading();
                 initScrollTracking();
                 initClickTracking();
+                initShopOverlay();
             }
         })();
     </script>

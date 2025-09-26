@@ -755,3 +755,48 @@ Benefits:
         gap: 90px;
     }
 }
+
+/* Tight kerning for forward slashes to match logo styling */
+.tight-slashes {
+    letter-spacing: -0.12em;
+}
+
+/* Shop the Collection Overlay - matches product page overlay pattern */
+.shop-overlay {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    right: 20%;
+    bottom: 30%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(1px);
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.shop-overlay:hover,
+.shop-overlay.scroll-triggered {
+    opacity: 1;
+}
+
+.shop-label {
+    color: var(--color-white);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.shop-label:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}

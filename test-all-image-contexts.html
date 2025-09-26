@@ -220,6 +220,69 @@
                 gap: 20px;
             }
         }
+
+        /* Cross-Context Recognition Test - Exact Site Sizing */
+        .cross-context-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Shop Catalog - Exact match to shop.css */
+        .cross-context-shop .shop-container {
+            width: 280px; /* Matches actual shop catalog size (~415px * 0.67 scale for testing) */
+            height: 0;
+            padding-bottom: 140%; /* 1:1.4 aspect ratio from shop.css */
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* Product Main - Match product page main image */
+        .cross-context-main .product-main-container {
+            width: 200px; /* Typical product main image width */
+            aspect-ratio: 4/5; /* 4:5 aspect ratio from product.css */
+            margin: 0 auto;
+        }
+
+        /* Product Detail - Match product page detail view */
+        .cross-context-detail .product-detail-container {
+            width: 160px; /* Smaller detail view width */
+            aspect-ratio: 2/3; /* 2:3 aspect ratio for detail images */
+            margin: 0 auto;
+        }
+
+        /* Cart Thumbnail - Exact cart dimensions */
+        .cross-context-cart .cart-container {
+            width: 60px; /* Exact cart thumbnail width */
+            height: 75px; /* Exact cart thumbnail height */
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .cross-context-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .cross-context-shop .shop-container {
+                width: 140px; /* Proportional mobile sizing */
+            }
+
+            .cross-context-main .product-main-container {
+                width: 140px;
+            }
+
+            .cross-context-detail .product-detail-container {
+                width: 110px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cross-context-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -316,6 +379,95 @@
 
         <div class="spec-info">
             <strong>Shop Specs:</strong> 1:1.4 aspect ratio (padding-bottom: 140%) • object-fit: cover • 3px border-radius
+        </div>
+
+        <!-- Shop Catalog Detailed Specifications -->
+        <div style="margin-top: 30px; padding: 25px; background: #f8f9fa; border-radius: 4px; border-left: 4px solid var(--color-gold);">
+            <h4 style="margin: 0 0 20px 0; font-size: 1rem; color: var(--color-black); text-transform: uppercase; letter-spacing: 0.02em;">Current Shop Image Specifications:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; font-size: 0.85rem; line-height: 1.5;">
+                <div>• <strong>File Format:</strong> JPG, optimized for web loading</div>
+                <div>• <strong>Display Aspect Ratio:</strong> 1:1.4 (padding-bottom: 140%)</div>
+                <div>• <strong>Object Fit:</strong> Cover (fills container, may crop for consistency)</div>
+                <div>• <strong>Lazy Loading:</strong> Enabled with IntersectionObserver</div>
+                <div>• <strong>Naming Convention:</strong> shop-[product]-live.jpg</div>
+            </div>
+
+            <!-- Product Status with File Sizes -->
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-top: 25px;">
+                <div style="text-align: center; padding: 15px; background: white; border-radius: 3px; border: 1px solid #ddd;">
+                    <div style="font-weight: 600; margin-bottom: 5px;">NAKAMOTO</div>
+                    <div style="font-size: 0.75rem; color: #666; margin-bottom: 8px;">$195</div>
+                    <div style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 500;">📁 UPDATED</div>
+                    <div style="margin-top: 8px; font-size: 0.7rem; color: #888;">125KB</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: white; border-radius: 3px; border: 1px solid #ddd;">
+                    <div style="font-weight: 600; margin-bottom: 5px;">WE/ME</div>
+                    <div style="font-size: 0.75rem; color: #666; margin-bottom: 8px;">$155</div>
+                    <div style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 500;">📁 UPDATED</div>
+                    <div style="margin-top: 8px; font-size: 0.7rem; color: #888;">142KB</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: white; border-radius: 3px; border: 1px solid #ddd;">
+                    <div style="font-weight: 600; margin-bottom: 5px;">DTOM</div>
+                    <div style="font-size: 0.75rem; color: #666; margin-bottom: 8px;">$135</div>
+                    <div style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 500;">📁 UPDATED</div>
+                    <div style="margin-top: 8px; font-size: 0.7rem; color: #888;">136KB</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: white; border-radius: 3px; border: 1px solid #ddd;">
+                    <div style="font-weight: 600; margin-bottom: 5px;">OPEN HEART</div>
+                    <div style="font-size: 0.75rem; color: #666; margin-bottom: 8px;">$75</div>
+                    <div style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 500;">📁 UPDATED</div>
+                    <div style="margin-top: 8px; font-size: 0.7rem; color: #888;">118KB</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: white; border-radius: 3px; border: 1px solid #ddd;">
+                    <div style="font-weight: 600; margin-bottom: 5px;">NODES</div>
+                    <div style="font-size: 0.75rem; color: #666; margin-bottom: 8px;">$145</div>
+                    <div style="background: #e3f2fd; color: #1976d2; padding: 3px 8px; border-radius: 12px; font-size: 0.7rem; font-weight: 500;">📁 UPDATED</div>
+                    <div style="margin-top: 8px; font-size: 0.7rem; color: #888;">149KB</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shop Catalog Visual Consistency Guidelines -->
+        <div style="margin-top: 25px; padding: 25px; background: white; border: 1px solid #ddd; border-radius: 4px;">
+            <h4 style="margin: 0 0 20px 0; font-size: 1rem; color: var(--color-black); text-transform: uppercase; letter-spacing: 0.02em;">Shop Catalog Visual Consistency Guidelines</h4>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h5 style="margin: 0 0 12px 0; font-size: 0.9rem; color: var(--color-gold); text-transform: uppercase;">Image Composition:</h5>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; line-height: 1.6;">
+                        <li>Product clearly visible and recognizable in thumbnail</li>
+                        <li>Consistent scale and framing across all products</li>
+                        <li>Model photography maintains professional aesthetic</li>
+                        <li>Background consistency (studio vs lifestyle)</li>
+                    </ul>
+
+                    <h5 style="margin: 20px 0 12px 0; font-size: 0.9rem; color: var(--color-gold); text-transform: uppercase;">Technical Quality:</h5>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; line-height: 1.6;">
+                        <li>Sharp focus throughout product area</li>
+                        <li>Consistent white balance and color temperature</li>
+                        <li>Optimized file sizes for fast catalog loading</li>
+                        <li>No compression artifacts or noise</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 style="margin: 0 0 12px 0; font-size: 0.9rem; color: var(--color-gold); text-transform: uppercase;">Shopping Experience:</h5>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; line-height: 1.6;">
+                        <li>Products instantly recognizable at thumbnail size</li>
+                        <li>Visual hierarchy guides eye through catalog</li>
+                        <li>Consistent lighting creates cohesive brand feel</li>
+                        <li>Professional presentation builds trust</li>
+                    </ul>
+
+                    <h5 style="margin: 20px 0 12px 0; font-size: 0.9rem; color: var(--color-gold); text-transform: uppercase;">Brand Standards:</h5>
+                    <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; line-height: 1.6;">
+                        <li>Minimal aesthetic maintained throughout</li>
+                        <li>Color consistency with brand palette</li>
+                        <li>Quality reflects "craft over noise" philosophy</li>
+                        <li>Professional model photography standards</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -581,61 +733,354 @@
         </div>
     </div>
 
-    <!-- CROSS-CONTEXT COMPARISON -->
-    <div class="context-section">
+
+    <!-- COMPREHENSIVE PRODUCT MAPPING -->
+    <div class="context-section" style="margin-top: 60px;">
         <div class="context-title">Cross-Context Recognition Test</div>
         <div class="context-subtitle">
             Test one product across all contexts to ensure consistent brand recognition and visual flow
         </div>
 
-        <div class="comparison-grid">
-            <div class="context-demo">
-                <h4>SHOP CATALOG</h4>
-                <div class="shop-container" style="max-width: 150px; margin: 0 auto;">
-                    <img src="images/products/catalogue/Production/shop-nodes-live.jpg"
-                         alt="NODES Shop Context"
-                         class="shop-image">
-                </div>
-                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
-                    Browsing & Discovery
+        <!-- Product Cross-Context Layout -->
+        <div style="margin-top: 30px;">
+
+            <!-- NAKAMOTO Cross-Context Mapping -->
+            <div style="background: white; border: 1px solid #ddd; border-radius: 4px; padding: 30px; margin-bottom: 30px;">
+                <h4 style="margin: 0 0 25px 0; font-size: 0.9rem; color: var(--color-black); text-align: center; text-transform: uppercase; letter-spacing: 0.02em;">NAKAMOTO • $195</h4>
+                <div class="cross-context-grid">
+                    <div class="cross-context-shop" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">SHOP CATALOG</div>
+                        <div class="shop-container">
+                            <img src="images/products/catalogue/Production/shop-nakamoto-live.jpg"
+                                 alt="NAKAMOTO Shop"
+                                 class="shop-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NAK</div>
+                                <div>SHOP</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Browsing & Discovery</div>
+                    </div>
+                    <div class="cross-context-main" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT MAIN</div>
+                        <div class="product-main-container">
+                            <img src="images/products/product-pages/nakamoto-main.jpg"
+                                 alt="NAKAMOTO Main"
+                                 class="product-main-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NAK</div>
+                                <div>MAIN</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Consideration</div>
+                    </div>
+                    <div class="cross-context-detail" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT DETAIL</div>
+                        <div class="product-detail-container">
+                            <img src="images/products/product-pages/nakamoto-back.jpg"
+                                 alt="NAKAMOTO Detail"
+                                 class="product-detail-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NAK</div>
+                                <div>DETAIL</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Product Inspection</div>
+                    </div>
+                    <div class="cross-context-cart" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">CART THUMBNAIL</div>
+                        <div class="cart-container">
+                            <img src="images/products/product-pages/nakamoto-main.jpg"
+                                 alt="NAKAMOTO Cart"
+                                 class="cart-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NAK</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Confirmation</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="context-demo">
-                <h4>PRODUCT MAIN</h4>
-                <div class="product-main-container" style="max-width: 120px; margin: 0 auto;">
-                    <img src="images/products/product-pages/nodes-main.jpg"
-                         alt="NODES Product Context"
-                         class="product-main-image">
-                </div>
-                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
-                    Purchase Consideration
+            <!-- WEME Cross-Context Mapping -->
+            <div style="background: white; border: 1px solid #ddd; border-radius: 4px; padding: 30px; margin-bottom: 30px;">
+                <h4 style="margin: 0 0 25px 0; font-size: 0.9rem; color: var(--color-black); text-align: center; text-transform: uppercase; letter-spacing: 0.02em;">WE/ME • $155</h4>
+                <div class="cross-context-grid">
+                    <div class="cross-context-shop" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">SHOP CATALOG</div>
+                        <div class="shop-container">
+                            <img src="images/products/catalogue/Production/shop-weme-live.jpg"
+                                 alt="WEME Shop"
+                                 class="shop-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>WEME</div>
+                                <div>SHOP</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Browsing & Discovery</div>
+                    </div>
+                    <div class="cross-context-main" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT MAIN</div>
+                        <div class="product-main-container">
+                            <img src="images/products/product-pages/weme-main.jpg"
+                                 alt="WEME Main"
+                                 class="product-main-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>WEME</div>
+                                <div>MAIN</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Consideration</div>
+                    </div>
+                    <div class="cross-context-detail" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT DETAIL</div>
+                        <div class="product-detail-container">
+                            <img src="images/products/product-pages/weme-back.jpg"
+                                 alt="WEME Detail"
+                                 class="product-detail-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>WEME</div>
+                                <div>DETAIL</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Product Inspection</div>
+                    </div>
+                    <div class="cross-context-cart" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">CART THUMBNAIL</div>
+                        <div class="cart-container">
+                            <img src="images/products/product-pages/weme-main.jpg"
+                                 alt="WEME Cart"
+                                 class="cart-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>WEME</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Confirmation</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="context-demo">
-                <h4>PRODUCT DETAIL</h4>
-                <div class="product-detail-container" style="max-width: 100px; margin: 0 auto;">
-                    <img src="images/products/product-pages/nodes-back.jpg"
-                         alt="NODES Detail Context"
-                         class="product-detail-image">
-                </div>
-                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
-                    Product Inspection
+            <!-- DTOM Cross-Context Mapping -->
+            <div style="background: white; border: 1px solid #ddd; border-radius: 4px; padding: 30px; margin-bottom: 30px;">
+                <h4 style="margin: 0 0 25px 0; font-size: 0.9rem; color: var(--color-black); text-align: center; text-transform: uppercase; letter-spacing: 0.02em;">DTOM • $135</h4>
+                <div class="cross-context-grid">
+                    <div class="cross-context-shop" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">SHOP CATALOG</div>
+                        <div class="shop-container">
+                            <img src="images/products/catalogue/Production/shop-dtom-live.jpg"
+                                 alt="DTOM Shop"
+                                 class="shop-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>DTOM</div>
+                                <div>SHOP</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Browsing & Discovery</div>
+                    </div>
+                    <div class="cross-context-main" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT MAIN</div>
+                        <div class="product-main-container">
+                            <img src="images/products/product-pages/dtom-main.jpg"
+                                 alt="DTOM Main"
+                                 class="product-main-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>DTOM</div>
+                                <div>MAIN</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Consideration</div>
+                    </div>
+                    <div class="cross-context-detail" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT DETAIL</div>
+                        <div class="product-detail-container">
+                            <img src="images/products/product-pages/dtom-back.jpg"
+                                 alt="DTOM Detail"
+                                 class="product-detail-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>DTOM</div>
+                                <div>DETAIL</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Product Inspection</div>
+                    </div>
+                    <div class="cross-context-cart" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">CART THUMBNAIL</div>
+                        <div class="cart-container">
+                            <img src="images/products/product-pages/dtom-main.jpg"
+                                 alt="DTOM Cart"
+                                 class="cart-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>DTOM</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Confirmation</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="context-demo">
-                <h4>CART THUMBNAIL</h4>
-                <div class="cart-container">
-                    <img src="images/products/product-pages/nodes-main.jpg"
-                         alt="NODES Cart Context"
-                         class="cart-image">
-                </div>
-                <div style="margin-top: 10px; font-size: 0.65rem; color: #666;">
-                    Purchase Confirmation
+            <!-- OPEN HEART Cross-Context Mapping -->
+            <div style="background: white; border: 1px solid #ddd; border-radius: 4px; padding: 30px; margin-bottom: 30px;">
+                <h4 style="margin: 0 0 25px 0; font-size: 0.9rem; color: var(--color-black); text-align: center; text-transform: uppercase; letter-spacing: 0.02em;">OPEN HEART • $75</h4>
+                <div class="cross-context-grid">
+                    <div class="cross-context-shop" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">SHOP CATALOG</div>
+                        <div class="shop-container">
+                            <img src="images/products/catalogue/Production/shop-openheart-live.jpg"
+                                 alt="OPEN HEART Shop"
+                                 class="shop-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>OPEN</div>
+                                <div>SHOP</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Browsing & Discovery</div>
+                    </div>
+                    <div class="cross-context-main" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT MAIN</div>
+                        <div class="product-main-container">
+                            <img src="images/products/product-pages/openheart-main.jpg"
+                                 alt="OPEN HEART Main"
+                                 class="product-main-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>OPEN</div>
+                                <div>MAIN</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Consideration</div>
+                    </div>
+                    <div class="cross-context-detail" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT DETAIL</div>
+                        <div class="product-detail-container">
+                            <img src="images/products/product-pages/openheart-back.jpg"
+                                 alt="OPEN HEART Detail"
+                                 class="product-detail-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>OPEN</div>
+                                <div>DETAIL</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Product Inspection</div>
+                    </div>
+                    <div class="cross-context-cart" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">CART THUMBNAIL</div>
+                        <div class="cart-container">
+                            <img src="images/products/product-pages/openheart-main.jpg"
+                                 alt="OPEN HEART Cart"
+                                 class="cart-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>OPEN</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Confirmation</div>
+                    </div>
                 </div>
             </div>
+
+            <!-- NODES Cross-Context Mapping -->
+            <div style="background: white; border: 1px solid #ddd; border-radius: 4px; padding: 30px; margin-bottom: 30px;">
+                <h4 style="margin: 0 0 25px 0; font-size: 0.9rem; color: var(--color-black); text-align: center; text-transform: uppercase; letter-spacing: 0.02em;">NODES • $145</h4>
+                <div class="cross-context-grid">
+                    <div class="cross-context-shop" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">SHOP CATALOG</div>
+                        <div class="shop-container">
+                            <img src="images/products/catalogue/Production/shop-nodes-live.jpg"
+                                 alt="NODES Shop"
+                                 class="shop-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NODES</div>
+                                <div>SHOP</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Browsing & Discovery</div>
+                    </div>
+                    <div class="cross-context-main" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT MAIN</div>
+                        <div class="product-main-container">
+                            <img src="images/products/product-pages/nodes-main.jpg"
+                                 alt="NODES Main"
+                                 class="product-main-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NODES</div>
+                                <div>MAIN</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Consideration</div>
+                    </div>
+                    <div class="cross-context-detail" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">PRODUCT DETAIL</div>
+                        <div class="product-detail-container">
+                            <img src="images/products/product-pages/nodes-back.jpg"
+                                 alt="NODES Detail"
+                                 class="product-detail-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NODES</div>
+                                <div>DETAIL</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Product Inspection</div>
+                    </div>
+                    <div class="cross-context-cart" style="text-align: center;">
+                        <div style="font-size: 0.75rem; margin-bottom: 12px; color: #666; font-weight: 500; text-transform: uppercase;">CART THUMBNAIL</div>
+                        <div class="cart-container">
+                            <img src="images/products/product-pages/nodes-main.jpg"
+                                 alt="NODES Cart"
+                                 class="cart-image"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onload="this.nextElementSibling.style.display='none';">
+                            <div class="placeholder">
+                                <div>NODES</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.65rem; color: #999; margin-top: 8px;">Purchase Confirmation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Stats -->
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 4px; text-align: center;">
+            <strong>Cross-Context Recognition Complete</strong><br>
+            <span style="font-size: 0.85rem; color: #666;">
+                All 5 products tested across 4 contexts each = 20 image contexts for consistent brand recognition and visual flow
+            </span>
         </div>
     </div>
 

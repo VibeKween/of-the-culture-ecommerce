@@ -99,10 +99,12 @@ An experiment in using technology at hand to give form to ideas. Thought gathers
 - **Signal**: The many exist because the one insists.
 
 #### OPEN HEART *(Grid Position 2)*
+- **Product Title**: "OPEN HEART // OPEN SOURCE"
 - **Concept**: Transparency as architecture
 - **Signal**: A heart unguarded sets ideas free to momentum.
 
 #### Don't Tread on Memes *(Grid Position 3)*
+- **Product Title**: "DON'T TREAD ON MEMES"
 - **Concept**: Cultural velocity
 - **Signal**: The message outruns the market.
 
@@ -123,6 +125,10 @@ One moment a showcase of what can be created in this moment of time. The next, a
 - **"return :: homepage"**
 - **"browse :: catalogue"**
 - **"bag::(0)"** *(empty state - JavaScript controlled)*
+
+### Interactive Elements *(January 2025 Update)*
+- **Hero Image Overlay**: "SHOP THE COLLECTION" *(uppercase, hover + scroll-triggered on mobile)*
+- **Overlay Analytics**: Tracks `lookbook_overlay_scroll_trigger`, `lookbook_overlay_touch`, `lookbook_to_shop`
 
 ---
 
@@ -179,6 +185,7 @@ Silkscreen, embroidery, and textures move across wool, French terry, and organic
 - **Production Header**: "PRODUCTION NOTES" *(caps, unchanged from live)*
 
 ### Individual Product Copy *(Shop grid order: left-to-right, top-to-bottom)*
+**Updated Order (January 2025): NAKAMOTO → OPEN HEART → DTOM → WE/ME → NODES**
 
 #### NAKAMOTO Cap - $85 *(Shop Grid Position 1)*
 
