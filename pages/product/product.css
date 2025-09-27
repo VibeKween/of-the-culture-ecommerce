@@ -200,6 +200,27 @@ ALD-inspired layout patterns:
     backdrop-filter: blur(1px);
 }
 
+/* Refined hover area to prevent accidental triggers during scrolling */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+/* Remove pointer events from the main container, delegate to the inset area */
+.image-container {
+    pointer-events: none;
+}
+
+.image-container::before {
+    pointer-events: auto;
+}
+
 .image-container:hover .image-overlay {
     opacity: 1;
 }
