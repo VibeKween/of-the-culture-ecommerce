@@ -90,6 +90,7 @@ const heroObserver = new IntersectionObserver((entries) => {
 ```
 - 15px padding prevents accidental hover triggers during mobile scrolling
 - Maintains intentional interaction while improving mobile UX
+- **Post-session extension**: Applied same refinement to product page image galleries for consistency
 
 ### 🔧 Product Page UX Polish
 
@@ -237,8 +238,9 @@ Ecommerce Psychology Order:
 ```
 
 ### **UX Polish Architecture**
-- Product page overlays: Informational labels (no false affordance)
+- Product page overlays: Informational labels (no false affordance) + 15px hover padding
 - Shop hover areas: 15px padding prevents accidental triggers
+- Consistent interaction: Same refined hover behavior across shop and product pages
 - Mobile interaction: Touch-safe design throughout
 
 ## Future Considerations

@@ -193,9 +193,10 @@ This project represents the full technical realization of the OF THE CULTURE bra
 
 ### **Mobile Optimization Solutions**
 - **Touch-safe hover systems**: Prevents phantom hover states on mobile
-- **Viewport fixes**: Eliminated content cut-off issues on mobile devices  
+- **Viewport fixes**: Eliminated content cut-off issues on mobile devices
 - **Shadow bug resolution**: Fixed thumb-scrolling artifacts on shop page
 - **Form standardization**: Global select element styling with JetBrains Mono
+- **Consistent hover areas**: 15px padding refinement applied to shop + product pages
 
 ### **Accordion Behavior Standards**
 - **Multiple sections open**: Users can expand multiple accordions simultaneously
