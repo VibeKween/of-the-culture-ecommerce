@@ -128,6 +128,9 @@ One moment a showcase of what can be created in this moment of time. The next, a
 
 ### Interactive Elements *(January 2025 Update)*
 - **Hero Image Overlay**: "SHOP THE COLLECTION" *(uppercase, hover + scroll-triggered on mobile)*
+- **Trigger Behavior**: Activates when hero image 50px from viewport top
+- **Persistence**: Remains visible for entire session once triggered
+- **Full Coverage**: Complete hero image overlay for maximum visibility
 - **Overlay Analytics**: Tracks `lookbook_overlay_scroll_trigger`, `lookbook_overlay_touch`, `lookbook_to_shop`
 
 ---
