@@ -245,12 +245,12 @@ Silkscreen, embroidery, and textures move across wool, French terry, and organic
 
 **Product Description:**
 ```
-A six-panel wool baseball cap with an adjustable fit. At its front, an embroidered wool patch anchors the design, blending heritage craft with anonymity in a single emblem.
+A six-panel herringbone wool baseball cap with an adjustable fit. At its front, an embroidered wool patch anchors the design, blending heritage craft with anonymity in a single emblem.
 ```
 
 
 **ATELIER NOTES:**
-- **Materials**: "Wool construction"
+- **Materials**: "100% natural wool construction"
 - **Colorway**: "Black"
 - **Fit**: "Adjustable fit with classic six-panel structure"
 - **Care**: "Spot clean or dry clean only"
