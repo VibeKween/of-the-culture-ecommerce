@@ -335,19 +335,19 @@ class CartManager {
                     if (urlPath.includes('nakamoto')) {
                         productId = 'nakamoto';
                         name = 'NAKAMOTO';
-                        price = '85';
+                        price = '68';
                     } else if (urlPath.includes('weme')) {
                         productId = 'weme';
-                        name = 'WEME'; 
-                        price = '125';
+                        name = 'WEME';
+                        price = '139';
                     } else if (urlPath.includes('dtom')) {
                         productId = 'dtom';
                         name = 'DTOM';
-                        price = '135';
+                        price = '119';
                     } else if (urlPath.includes('openheart')) {
                         productId = 'openheart';
                         name = 'OPENHEART';
-                        price = '65';
+                        price = '72';
                     } else if (urlPath.includes('nodes')) {
                         productId = 'nodes';
                         name = 'NODES';

@@ -152,10 +152,10 @@ Silkscreen, embroidery, and textures move across wool, French terry, and organic
 ```
 
 ### Product Catalog *(Left-to-right, top-to-bottom grid order)*
-1. **NAKAMOTO** - $85 *(Grid Position 1)*
-2. **WE / ME** - $125 *(Grid Position 2)*
-3. **DTOM** - $135 *(Grid Position 3)*
-4. **OPEN HEART** - $65 *(Grid Position 4)*
+1. **NAKAMOTO** - $68 *(Grid Position 1)*
+2. **WE / ME** - $139 *(Grid Position 2)*
+3. **DTOM** - $119 *(Grid Position 3)*
+4. **OPEN HEART** - $72 *(Grid Position 4)*
 5. **NODES** - $145 *(Grid Position 5)*
 
 ### Navigation
@@ -190,71 +190,74 @@ Silkscreen, embroidery, and textures move across wool, French terry, and organic
 ### Individual Product Copy *(Shop grid order: left-to-right, top-to-bottom)*
 **Updated Order (January 2025): NAKAMOTO → OPEN HEART → DTOM → WE/ME → NODES**
 
-#### NAKAMOTO Cap - $85 *(Shop Grid Position 1)*
+#### NAKAMOTO Cap - $68 *(Shop Grid Position 1)*
 
 **Product Description:**
 ```
-A black wool six-panel baseball cap elevated in feel and detail. At its front, an embroidered wool patch underscores its heritage roots, bringing craft and anonymity into the same frame — a piece that speaks without a name.
+A six-panel wool baseball cap with an adjustable fit. At its front, an embroidered wool patch anchors the design, blending heritage craft with anonymity in a single emblem.
 ```
 
 
 **ATELIER NOTES:**
-- **Materials**: "Milled in the U.S. from heritage Herringbone Wool"
-- **Construction**: "Curved brim with brushed nickel rear clasp for discreet adjustability"
-- **Sizing**: "One Size (OS)"
-- **Care**: "Spot clean or dry clean only"
+- **Materials**: "Wool construction"
+- **Colorway**: "Black"
+- **Fit**: "Adjustable fit with classic six-panel structure"
+- **Care**: "Dry clean only"
 
 ---
 
-#### WE / ME Crewneck - $125 *(Shop Grid Position 2)*
+#### WE / ME Crewneck - $139 *(Shop Grid Position 2)*
 
 **Product Description:**
 ```
-Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. Its custom embroidery allows the words to stand off the base in dimensional relief, embodying the rhythm between presence as an individual and strength as part of a whole.
+Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. Custom embroidery renders the words with clarity, a quiet mark of balance between self and collective.
 ```
 
 
 **ATELIER NOTES:**
 - **Materials**: "Certified organic cotton with a smooth exterior and soft loop-back interior"
+- **Colorway**: "Orion Blue"
 - **Finish**: "Dyed for a lived-in character"
-- **Fit**: "Standard men's sizing with a slightly tailored drape, ideal for layering"
+- **Fit**: "Standard US men's sizing with a slightly tailored drape, ideal for layering"
 - **Sizing Note**: "For feminine frames, sizes XS and S align with a U.S. women's small or medium"
 - **Care**: "Dry clean only"
 
 ---
 
-#### DTOM Crewneck - $135 *(Shop Grid Position 3)*
+#### DTOM Crewneck - $119 *(Shop Grid Position 3)*
 
 **Product Title**: "DON'T TREAD ON MEMES"
 
 **Product Description:**
 ```
-A structured paneled cotton sweatshirt designed with intent. The phrase across its chest is rendered in a velvety print, pressed into the fabric with subtle elevation — a shorthand for meaning that outpaces the market.
+A structured paneled cotton crewneck designed with intent. The phrase is rendered in suede print, giving the surface depth, texture, and definition.
 ```
 
 
 **ATELIER NOTES:**
 - **Materials**: "Cotton fleece with natural weight and a soft-brushed interior"
+- **Colorway**: "Phantom Grey"
 - **Construction**: "Ribbed side panels and cuffs for shape retention"
-- **Fit**: "Standard men's fit through the body with room to layer"
+- **Fit**: "Standard US men's sizing through the body with room to layer"
 - **Sizing Note**: "For feminine frames, XS and S align with a U.S. women's small or medium"
 - **Care**: "Dry clean only"
 
 ---
 
-#### OPEN HEART Tee - $65 *(Shop Grid Position 4)*
+#### OPEN HEART Tee - $72 *(Shop Grid Position 4)*
 
 **Product Description:**
 ```
-A midweight cotton t-shirt with soft form and lived-in ease. The front artwork is silkscreened with raised, suede-like detailing, a finish that lends both tactility and quiet emphasis — a nod to remix culture.
+A midweight cotton t-shirt with a relaxed drape. The front artwork layers silkscreen detail with velvet-like texture, lending tactile weight and quiet emphasis to the design.
 ```
 
 
 **ATELIER NOTES:**
 - **Materials**: "100% combed cotton, chosen for breathable comfort"
+- **Colorway**: "Jet Black"
 - **Construction**: "Mid-weight fabric with a premium handfeel"
-- **Fit**: "Silhouette with subtle shaping through the shoulders"
-- **Sizing Note**: "Shorter, boxier drape for a modern proportion"
+- **Fit**: "Designed for women's silhouette with subtle shaping through the shoulders"
+- **Sizing**: "Standard US women's sizing with shorter, boxier drape for a modern proportion"
 - **Care**: "Dry clean only"
 
 ---
@@ -263,14 +266,15 @@ A midweight cotton t-shirt with soft form and lived-in ease. The front artwork i
 
 **Product Description:**
 ```
-A heavyweight organic cotton terry hoodie with a defined silhouette, formed yet breathable. Its graphic carries layered color saturation, silkscreened to achieve depth and presence — a signal that gains strength in connection.
+A heavyweight organic cotton terry hoodie with a defined silhouette, formed but breathable. Its layered silkscreen graphic carries saturated color, building depth and connection in form.
 ```
 
 
 **ATELIER NOTES:**
 - **Materials**: "Textured exterior with loop-back interior"
+- **Colorway**: "Jet Black"
 - **Construction**: "Overlapping front hood detail for a clean neckline and simple finish"
-- **Fit**: "Slightly oversized fit on a standard men's frame; subtle shoulder drop for movement"
+- **Fit**: "Slightly oversized fit on a standard US men's sizing frame; subtle shoulder drop for movement"
 - **Sizing Note**: "For feminine frames, size S typically aligns with a U.S. women's medium"
 - **Care**: "Dry clean only"
 
