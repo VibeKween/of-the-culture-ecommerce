@@ -169,12 +169,63 @@ Silkscreen, embroidery, and textures move across wool, French terry, and organic
 
 ### SEO & Meta Templates
 - **Title Pattern**: "[Product Name] - OF THE CULTURE | Digital Culture Apparel"
-- **Description Pattern**: "[Product description]. [Cultural positioning]. [Technical details]."
+- **Description Pattern**: Uses exact product description copy for consistency
+- **Keywords Pattern**: "OF THE CULTURE, [Product Name], [Material], [Colorway], [Product Type], digital culture fashion, limited-run apparel"
+
+#### Individual Product SEO Content
+
+**NAKAMOTO Cap:**
+- **Meta Description**: "A six-panel wool baseball cap with an adjustable fit. At its front, an embroidered wool patch anchors the design, blending heritage craft with anonymity in a single emblem."
+- **Keywords**: "OF THE CULTURE, NAKAMOTO cap, wool baseball cap, six-panel cap, black wool cap, adjustable cap, digital culture fashion, limited-run apparel"
+- **Image Alt Text**: "NAKAMOTO Black Wool Baseball Cap - [View Type]" / "NAKAMOTO Black Wool Baseball Cap - Embroidered Patch Detail"
+
+**OPEN HEART Tee:**
+- **Meta Description**: "A midweight cotton t-shirt with a relaxed drape. The front artwork layers silkscreen detail with velvet-like texture, lending tactile weight and quiet emphasis to the design."
+- **Keywords**: "OF THE CULTURE, OPEN HEART tee, cotton t-shirt, silkscreen tee, jet black tee, women's fit tee, digital culture fashion"
+- **Image Alt Text**: "OPEN HEART Jet Black Cotton Tee - [View Type]" / "OPEN HEART Jet Black Cotton Tee - Silkscreen Detail"
+
+**DTOM Crewneck:**
+- **Meta Description**: "A structured paneled cotton crewneck designed with intent. The phrase is rendered in suede print, giving the surface depth, texture, and definition."
+- **Keywords**: "OF THE CULTURE, DTOM crewneck, don't tread on memes, phantom grey crewneck, structured cotton sweatshirt, suede print, paneled crewneck"
+- **Image Alt Text**: "DTOM Phantom Grey Crewneck - [View Type]" / "DTOM Phantom Grey Crewneck - Suede Print Detail"
+
+**WE / ME Crewneck:**
+- **Meta Description**: "Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. Custom embroidery renders the words with clarity, a quiet mark of balance between self and collective."
+- **Keywords**: "OF THE CULTURE, WE ME crewneck, French terry sweatshirt, orion blue crewneck, embroidered sweatshirt, organic cotton crewneck, digital culture fashion"
+- **Image Alt Text**: "WE / ME Orion Blue French Terry Crewneck - [View Type]" / "WE / ME Orion Blue French Terry Crewneck - Embroidery Detail"
+
+**NODES Hoodie:**
+- **Meta Description**: "A heavyweight organic cotton terry hoodie with a defined silhouette, formed but breathable. Its layered silkscreen graphic carries saturated color, building depth and connection in form."
+- **Keywords**: "OF THE CULTURE, NODES hoodie, heavyweight terry hoodie, jet black hoodie, organic cotton hoodie, silkscreen hoodie, oversized fit hoodie"
+- **Image Alt Text**: "NODES Jet Black Terry Hoodie - [View Type]" / "NODES Jet Black Terry Hoodie - Silkscreen Graphic Detail"
 
 ### Universal Product Page Elements
 
 #### Product Gallery
 - **View Labels**: "FRONT VIEW", "BACK VIEW", "DETAIL VIEW"
+- **Image Alt Text Pattern**: "[Product Name] [Colorway] [Material] [Product Type] - [View Label]"
+- **Detail Alt Text Pattern**: "[Product Name] [Colorway] [Material] [Product Type] - [Specific Detail Description]"
+
+#### Analytics & Tracking Specifications
+
+**Google Analytics 4:**
+- **Page Title Pattern**: "[Product Name] [Product Type] - OF THE CULTURE"
+- **Item Names**: Must match exact product page titles
+- **Categories**: "apparel" for all products
+- **Brand**: "OF THE CULTURE"
+
+**Meta Pixel:**
+- **Content Names**: Must match GA4 item names exactly
+- **Content Categories**: "apparel"
+- **Currency**: "USD"
+- **Value**: Current pricing (updated systematically)
+
+**Product Naming Consistency:**
+- NAKAMOTO Cap
+- OPEN HEART Tee
+- DTOM Crewneck
+- WE / ME Crewneck
+- NODES Hoodie
 
 #### Purchase Form
 - **Size Label**: "Size"
