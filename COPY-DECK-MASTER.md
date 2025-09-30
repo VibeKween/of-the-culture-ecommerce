@@ -253,7 +253,7 @@ A six-panel wool baseball cap with an adjustable fit. At its front, an embroider
 - **Materials**: "Wool construction"
 - **Colorway**: "Black"
 - **Fit**: "Adjustable fit with classic six-panel structure"
-- **Care**: "Dry clean only"
+- **Care**: "Spot clean or dry clean only"
 
 ---
 
@@ -271,7 +271,7 @@ Cut in French terry cotton, this crewneck sweatshirt balances fit and finish. Cu
 - **Finish**: "Dyed for a lived-in character"
 - **Fit**: "Standard US men's sizing with a slightly tailored drape, ideal for layering"
 - **Sizing Note**: "For feminine frames, sizes XS and S align with a U.S. women's small or medium"
-- **Care**: "Dry clean only"
+- **Care**: "Dry clean recommended"
 
 ---
 
@@ -309,7 +309,7 @@ A midweight cotton t-shirt with a relaxed drape. The front artwork layers silksc
 - **Construction**: "Mid-weight fabric with a premium handfeel"
 - **Fit**: "Designed for women's silhouette with subtle shaping through the shoulders"
 - **Sizing**: "Standard US women's sizing with shorter, boxier drape for a modern proportion"
-- **Care**: "Dry clean only"
+- **Care**: "Dry clean recommended"
 
 ---
 
@@ -327,7 +327,7 @@ A heavyweight organic cotton terry hoodie with a defined silhouette, formed but 
 - **Construction**: "Overlapping front hood detail for a clean neckline and simple finish"
 - **Fit**: "Slightly oversized fit on a standard US men's sizing frame; subtle shoulder drop for movement"
 - **Sizing Note**: "For feminine frames, size S typically aligns with a U.S. women's medium"
-- **Care**: "Dry clean only"
+- **Care**: "Dry clean recommended"
 
 ### Navigation (All Product Pages)
 - **"return :: homepage"**
