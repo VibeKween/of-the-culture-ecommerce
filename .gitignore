@@ -3,6 +3,32 @@ CREATIVE-WORKFLOWS/
 TEMP-*.html
 TEMP-*.md
 
+# 🔐 SECURITY - Sensitive Files (NEVER COMMIT)
+.env
+.env.*
+.env.local
+.env.production
+.env.development
+.env.test
+config/secrets.yml
+config/credentials.yml
+*_backup_code.txt
+stripe_backup_code.txt
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+private/
+
+# API Keys & Credentials
+*api_key*
+*secret_key*
+*private_key*
+*access_token*
+*refresh_token*
+
 # OS Files
 .DS_Store
 .DS_Store?
@@ -23,3 +49,11 @@ Thumbs.db
 *.tmp
 *.temp
 *.log
+
+# 📋 Migration Documentation - Keep Local (Contains Business Data)
+docs/MIGRATION-PROGRESS-TRACKER.md
+docs/SHOPIFY-VERIFICATION.md
+docs/SESSION-HANDOFF-READY.md
+docs/QUICK-RESUME-GUIDE.md
+COMPLETE-RESTRUCTURING-AUDIT.md
+*PRIVATE*.md
