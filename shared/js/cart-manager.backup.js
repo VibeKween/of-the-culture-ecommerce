@@ -240,8 +240,8 @@ class CartManager {
         
         if (!bagIndicator) return; // Only applies to pages with conditional bag indicators
 
-        // Check if this is a non-product page (homepage, lookbook, shop)
-        const isNonProductPage = !currentPath.includes('/pages/product/');
+        // Check if this is a non-product page (homepage, lookbook, atelier root)
+        const isNonProductPage = !currentPath.includes('/atelier/') || currentPath.endsWith('/atelier/');
         
         if (isNonProductPage) {
             // Show bag indicator only after user has navigated OR if cart has items
@@ -481,15 +481,15 @@ class CartManager {
 
         // Navigate to checkout page based on current context
         const currentPath = window.location.pathname;
-        if (currentPath.includes('/pages/product/')) {
-            // From product page
+        if (currentPath.includes('/atelier/') && !currentPath.endsWith('/atelier/')) {
+            // From product page within atelier
             window.location.href = '../../checkout/';
-        } else if (currentPath.includes('/pages/')) {
-            // From other page folders (lookbook, shop)
+        } else if (currentPath.includes('/atelier/') || currentPath.includes('/lookbook/')) {
+            // From atelier or lookbook
             window.location.href = '../checkout/';
         } else {
             // From homepage
-            window.location.href = 'pages/checkout/';
+            window.location.href = 'checkout/';
         }
     }
 
@@ -503,18 +503,18 @@ class CartManager {
                 console.log('Setting Browse button');
                 checkoutBtn.onclick = (e) => {
                     e.preventDefault();
-                    console.log('Browse button clicked - navigating to shop');
-                    // Navigate to shop page based on current context
+                    console.log('Browse button clicked - navigating to atelier');
+                    // Navigate to atelier page based on current context
                     const currentPath = window.location.pathname;
-                    if (currentPath.includes('/pages/product/')) {
-                        // From product page
-                        window.location.href = '../../shop/';
-                    } else if (currentPath.includes('/pages/')) {
-                        // From other page folders (lookbook, shop)
-                        window.location.href = '../shop/';
+                    if (currentPath.includes('/atelier/') && !currentPath.endsWith('/atelier/')) {
+                        // From product page within atelier
+                        window.location.href = '../';
+                    } else if (currentPath.includes('/lookbook/')) {
+                        // From lookbook
+                        window.location.href = '../atelier/';
                     } else {
                         // From homepage
-                        window.location.href = 'pages/shop/';
+                        window.location.href = 'atelier/';
                     }
                 };
             } else {
@@ -640,30 +640,30 @@ class CartManager {
     getProductUrl(productId) {
         // Generate relative URL to product pages from cart context
         const currentPath = window.location.pathname;
-        const isInProductPage = currentPath.includes('/pages/product/');
-        
-        if (isInProductPage) {
+        const isInAtelierProduct = currentPath.includes('/atelier/') && !currentPath.endsWith('/atelier/');
+
+        if (isInAtelierProduct) {
             // From product page to product page (../productId/)
             return `../${productId}/`;
         } else {
-            // From other pages to product page  
-            return `pages/product/${productId}/`;
+            // From other pages to product page
+            return `atelier/${productId}/`;
         }
     }
 
     getProductImageUrl(productId) {
         // Generate relative URL to product-pages main images
         const currentPath = window.location.pathname;
-        
+
         // Map productId to the product-pages main image filename
         const imageFileName = this.getProductMainImageFileName(productId);
-        
-        if (currentPath.includes('/pages/product/')) {
+
+        if (currentPath.includes('/atelier/') && !currentPath.endsWith('/atelier/')) {
             // From product page to product-pages images
-            return `../../../images/products/product-pages/${imageFileName}`;
-        } else if (currentPath.includes('/pages/')) {
-            // From other page folders (lookbook, shop) to product-pages images
             return `../../images/products/product-pages/${imageFileName}`;
+        } else if (currentPath.includes('/atelier/') || currentPath.includes('/lookbook/')) {
+            // From atelier or lookbook to product-pages images
+            return `../images/products/product-pages/${imageFileName}`;
         } else {
             // From homepage to product-pages images
             return `images/products/product-pages/${imageFileName}`;
