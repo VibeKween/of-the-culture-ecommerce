@@ -131,6 +131,6 @@ With this image foundation in place, we're ready for:
 *This session showcases our commitment to craft over noise - taking time to do things right the first time, establishing systems that scale, and maintaining the minimal aesthetic while enhancing functionality.*
 
 **Live Site**: [OF THE CULTURE Ecommerce](https://vibekween.github.io/of-the-culture-ecommerce/)
-**Product Example**: [DTOM Crewneck](https://vibekween.github.io/of-the-culture-ecommerce/pages/product/dtom/)
+**Product Example**: [DTOM Crewneck](https://vibekween.github.io/of-the-culture-ecommerce/atelier/dtom/)
 
 #BuildingInPublic #Ecommerce #WebDevelopment #Photography #UserExperience
