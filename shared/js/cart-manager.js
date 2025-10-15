@@ -668,11 +668,12 @@ class CartManager {
     }
 
     getProductImageUrl(productId) {
-        // Generate relative URL to product-pages main images
+        // Generate relative URL to product-pages thumbnail images (60x75px optimized)
+        // Falls back to main images if thumbnails don't exist
         const currentPath = window.location.pathname;
 
-        // Map productId to the product-pages main image filename
-        const imageFileName = this.getProductMainImageFileName(productId);
+        // Map productId to the product-pages thumbnail filename
+        const imageFileName = this.getProductThumbnailFileName(productId);
 
         if (currentPath.includes('/atelier/') && !currentPath.endsWith('/atelier/')) {
             // From product page to product-pages images
@@ -686,8 +687,23 @@ class CartManager {
         }
     }
 
+    getProductThumbnailFileName(productId) {
+        // Map cart productId to optimized 60x75px thumbnail images
+        // These thumbnails provide sharp, clear cart visuals without scaling large images
+        const thumbnailMap = {
+            'nakamoto': 'nakamoto-thumb.jpg',
+            'weme': 'weme-thumb.jpg',
+            'dtom': 'dtom-thumb.jpg',
+            'openheart': 'openheart-thumb.jpg',
+            'nodes': 'nodes-thumb.jpg'
+        };
+
+        return thumbnailMap[productId] || `${productId}-thumb.jpg`;
+    }
+
     getProductMainImageFileName(productId) {
         // Map cart productId to product-pages main image naming convention
+        // Used as fallback if thumbnails are not available
         const imageMap = {
             'nakamoto': 'nakamoto-main.jpg',
             'weme': 'weme-main.jpg',
@@ -695,7 +711,7 @@ class CartManager {
             'openheart': 'openheart-main.jpg',
             'nodes': 'nodes-main.jpg'
         };
-        
+
         return imageMap[productId] || `${productId}-main.jpg`;
     }
 
