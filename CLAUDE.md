@@ -146,6 +146,8 @@ OF THE CULTURE comprehensive ecommerce site - extends 02-LANDING-PAGE foundation
 ## Commerce Technology Stack
 
 **Frontend:** Pure HTML/CSS/JavaScript optimized for scaling
+**Hosting:** Cloudflare Pages with automatic deployments from GitHub
+**Production URL:** https://oftheculture.co
 **Backend:** Shopify Basic with professional commerce infrastructure
 **Payments:** Traditional (Apple Pay, cards) + planned crypto integration
 **Analytics:** Google Analytics 4, Meta Pixel, custom web3 tracking
@@ -334,8 +336,9 @@ Before any modification, assess the change type:
 ### **Branch Management Strategy**
 
 **Source of Truth**: Main branch always reflects live site
-- `main` branch ←→ `vibekween.github.io/of-the-culture-ecommerce/`
+- `main` branch ←→ https://oftheculture.co (Cloudflare Pages deployment)
 - Main branch contains current production state
+- Legacy GitHub Pages URL: https://vibekween.github.io/of-the-culture-ecommerce/ (deprecated)
 
 **Development Workflow**:
 ```bash
