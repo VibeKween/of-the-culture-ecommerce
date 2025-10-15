@@ -53,19 +53,31 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 ### Folder Structure
 ```
 03-ECOMMERCE-OF-THE-CULTURE/
-├── pages/
-│   ├── homepage/         # Landing page with brand manifesto
-│   ├── lookbook/         # Visual product showcase
-│   ├── shop/             # Product grid/list
-│   ├── product/          # Individual product pages
-│   ├── cart/             # Shopping cart
-│   └── checkout/         # Purchase flow
-├── shared/
+├── index.html            # Homepage
+├── lookbook/             # Visual product showcase
+│   └── index.html
+├── atelier/              # Product catalogue
+│   ├── index.html        # Shop page
+│   ├── nakamoto/         # NAKAMOTO Cap
+│   │   └── index.html
+│   ├── openheart/        # OPENHEART Tee
+│   │   └── index.html
+│   ├── dtom/             # DTOM Crewneck
+│   │   └── index.html
+│   ├── weme/             # WE/ME Crewneck
+│   │   └── index.html
+│   └── nodes/            # NODES Hoodie
+│       └── index.html
+├── shared/               # Global resources
 │   ├── css/              # Global styles
 │   ├── js/               # Shared JavaScript
 │   └── components/       # Reusable elements
 ├── images/               # Brand assets and product images
 ├── docs/                 # Documentation and session archives
+├── testing/              # Test infrastructure
+│   ├── test-cart-migration.html
+│   ├── README.md
+│   └── HOW-TO-CREATE-TESTS.md
 ├── CREATIVE-WORKFLOWS/   # Creative processes (local only, not git tracked)
 │   ├── 01-PHOTOGRAPHY/   # Photo shoots and image processing
 │   ├── 02-BRAND-ASSETS/  # Design system and brand resources
@@ -110,15 +122,15 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 
 **Phase 2 - Complete Ecommerce Site**: ✅ Complete (Sessions #002-#007)
 - ✅ Visual lookbook with 2-column responsive gallery (5 products)
-- ✅ Shop/catalogue page with product grid and hover animations
-- ✅ 5 individual product pages with add-to-cart functionality and simplified URLs
+- ✅ Atelier/catalogue page with product grid and hover animations
+- ✅ 5 individual product pages with add-to-cart functionality
 - ✅ Typography standardization at 0.85rem across all pages
 - ✅ Product name consistency system (NAKAMOTO, WE/ME, DTOM, OPEN HEART, NODES)
 - ✅ Grey placeholder treatment matching lookbook aesthetic
 - ✅ Mobile-optimized responsive design across all pages
 - ✅ Complete SEO implementation with structured data on all pages
 - ✅ API integration placeholders for analytics and commerce backend
-- ✅ Simplified URL structure: /product/nakamoto/, /product/weme/, /product/dtom/, /product/openheart/, /product/nodes/
+- ✅ Clean URL structure: /atelier/, /atelier/nakamoto/, /atelier/weme/, /atelier/dtom/, /atelier/openheart/, /atelier/nodes/
 
 **Phase 3 - Advanced User Experience** (Sessions #008-#012):
 - ✅ Complete cart system with LocalStorage management and dynamic pricing  
@@ -147,17 +159,17 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 Initial launch with 5 core products:
 
 **Product Portfolio**:
-1. **NAKAMOTO** - Terminal Aesthetics Cap (`/product/nakamoto/`)
-2. **WE / ME** - Crypto Nomad Hoodie (`/product/weme/`)
-3. **DTOM** - Don't Tread on Memes Crewneck (`/product/dtom/`)
-4. **OPEN HEART** - Git Commit Tee (`/product/openheart/`)
-5. **NODES** - Infrastructure Hoodie (`/product/nodes/`)
+1. **NAKAMOTO** - Terminal Aesthetics Cap (`/atelier/nakamoto/`)
+2. **WE / ME** - Crypto Nomad Crewneck (`/atelier/weme/`)
+3. **DTOM** - Don't Tread on Memes Crewneck (`/atelier/dtom/`)
+4. **OPEN HEART** - Git Commit Tee (`/atelier/openheart/`)
+5. **NODES** - Infrastructure Hoodie (`/atelier/nodes/`)
 
 **Site Architecture**:
-1. Landing page (homepage)
-2. Lookbook (visual showcase)
-3. Shop/catalogue (product grid)
-4. Individual product pages
-5. Checkout process
+1. Homepage (`/`)
+2. Lookbook (`/lookbook/`)
+3. Atelier/catalogue (`/atelier/`)
+4. Individual product pages (`/atelier/[product]/`)
+5. Checkout process (Shopify integration)
 
 Each page maintains the "craft over noise" philosophy while introducing commerce functionality.

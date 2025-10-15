@@ -90,12 +90,12 @@ OF THE CULTURE comprehensive ecommerce site - extends 02-LANDING-PAGE foundation
 ## Architecture
 
 **Page Structure:**
-- `pages/homepage/` - Brand homepage with grosgrain label
-- `pages/lookbook/` - Visual product showcase
-- `pages/shop/` - Product catalog with lazy loading (40-60% performance gains)
-- `pages/product/` - Individual product pages with ATELIER NOTES + PRODUCTION NOTES accordions
-- `pages/cart/` - Shopping cart (future implementation)
-- `pages/checkout/` - Purchase flow (future implementation)
+- `/` - Homepage with grosgrain label brand ethos element
+- `/lookbook/` - Visual product showcase
+- `/atelier/` - Product catalogue with lazy loading (40-60% performance gains)
+- `/atelier/[product]/` - Individual product pages with ATELIER NOTES + PRODUCTION NOTES accordions
+- Cart system integrated via modal (LocalStorage-based)
+- Checkout via Shopify integration
 
 **Shared Resources:**
 - `shared/css/main.css` - Foundation design system
