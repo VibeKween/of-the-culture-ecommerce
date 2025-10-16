@@ -284,24 +284,34 @@
                     <img src="images/products/product-pages/nakamoto-thumb.jpg?v=current"
                          class="cart-thumb"
                          alt="NAKAMOTO Current">
-                    <p><strong>CURRENT CART THUMBNAIL</strong></p>
+                    <p><strong>CURRENT (2x)</strong></p>
                     <p>120x150px @ 100% quality</p>
-                    <p class="file-size">10KB - Optimized for 2x displays</p>
-                    <p class="verdict warning" id="verdict-current">Your device needs 180×225px</p>
+                    <p class="file-size">10KB - What you see in cart now</p>
+                    <p class="verdict warning" id="verdict-current">For 2x displays</p>
+                </div>
+
+                <div class="test-item">
+                    <img src="images/products/product-pages/nakamoto-thumb-3x.jpg?v=3x"
+                         class="cart-thumb"
+                         alt="NAKAMOTO 3x">
+                    <p><strong>NEW 3x VERSION</strong></p>
+                    <p>180x225px @ 100% quality</p>
+                    <p class="file-size">21KB - Optimized for iPhone 15 Pro</p>
+                    <p class="verdict good" id="verdict-3x">For 3x displays</p>
                 </div>
             </div>
 
-            <div style="background: #fff3e0; padding: 15px; margin-top: 20px; border-radius: 4px; font-size: 0.75rem;">
-                <p style="margin-bottom: 10px;"><strong>How to assess quality:</strong></p>
+            <div style="background: #e8ffe8; padding: 15px; margin-top: 20px; border-radius: 4px; border-left: 3px solid #2a7d2e; font-size: 0.75rem;">
+                <p style="margin-bottom: 10px; font-weight: 500;">🎯 CRITICAL TEST - Compare the two thumbnails above:</p>
                 <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li><strong>Compare to text:</strong> Does the thumbnail look softer/blurrier than the text on this page?</li>
-                    <li><strong>Pinch to zoom:</strong> When you zoom in, does the blur become more obvious?</li>
-                    <li><strong>Rate it:</strong> On a scale of 1-5 (5=perfectly sharp), what would you rate this thumbnail?</li>
+                    <li><strong>Side-by-side:</strong> Look at CURRENT vs NEW 3x side-by-side. Is there a visible difference in sharpness?</li>
+                    <li><strong>Pinch to zoom:</strong> Zoom in on both images. Does the 3x version stay sharper?</li>
+                    <li><strong>Details:</strong> Can you see fine details better in the 3x version (fabric texture, edges)?</li>
                 </ul>
             </div>
 
             <p style="font-size: 0.75rem; color: #666; margin-top: 15px;" id="verdict-explanation">
-                <strong>Why this matters:</strong> Your iPhone 15 Pro has a 3x pixel ratio, so it needs 180×225px images for perfect sharpness. Current 120×150px files are 33% under-resolved for your device.
+                <strong>Decision point:</strong> If the NEW 3x version looks noticeably sharper, we'll implement it in the cart. If they look the same, current files are fine and we save 73KB bandwidth.
             </p>
         </div>
 
