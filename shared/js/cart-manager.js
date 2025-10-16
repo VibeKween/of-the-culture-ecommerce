@@ -520,8 +520,11 @@ class CartManager {
                     // Navigate to atelier page based on current context
                     const currentPath = window.location.pathname;
                     if (currentPath.includes('/atelier/') && !currentPath.endsWith('/atelier/')) {
-                        // From product page within atelier
+                        // From product page within atelier - go up one level to atelier root
                         window.location.href = '../';
+                    } else if (currentPath.endsWith('/atelier/')) {
+                        // Already on atelier shop page - close cart modal and stay
+                        this.hideCart();
                     } else if (currentPath.includes('/lookbook/')) {
                         // From lookbook
                         window.location.href = '../atelier/';
