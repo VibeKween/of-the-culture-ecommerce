@@ -1,0 +1,6 @@
+# Cloudflare Pages Deployment Test
+# Testing private repo deployment capability
+# Created: 2025-11-14
+# Status: Baseline test before privacy change
+
+This file verifies Cloudflare Pages can deploy from private repositories.
