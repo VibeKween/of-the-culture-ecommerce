@@ -25,11 +25,11 @@
 
 ### Current Hosting Status
 
-**IMPORTANT**: Site is currently hosted on GitHub Pages, NOT on the configured domain yet.
+**Live Production Site**: Cloudflare Pages deployment with custom domain
 
-- **Current Live URL**: https://vibekween.github.io/of-the-culture-ecommerce/
-- **Configured Domain**: https://oftheculture.co (not live yet)
-- **Analytics Configuration**: Set up for oftheculture.co (will work for both)
+- **Production URL**: https://oftheculture.co
+- **Preview URL**: https://of-the-culture-ecommerce.pages.dev (Cloudflare Pages)
+- **Analytics Configuration**: Set up for oftheculture.co (production tracking active)
 
 ### Implementation Status
 
@@ -52,8 +52,8 @@
 
 ### Testing Instructions
 
-**For Current GitHub Pages Site:**
-1. Visit: https://vibekween.github.io/of-the-culture-ecommerce/
+**For Production Site:**
+1. Visit: https://oftheculture.co
 2. Open Google Analytics Real-time reports
 3. Navigate through pages and test cart functionality
 4. Verify events appear in GA4 real-time

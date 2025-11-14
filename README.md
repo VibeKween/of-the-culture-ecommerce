@@ -150,12 +150,24 @@ Ecommerce microsite for OF THE CULTURE, a small-batch clothing studio. Built on 
 - **Hosting**: Cloudflare Pages with automatic deployments from GitHub
 - **Production URL**: https://oftheculture.co (custom domain)
 - **Preview URL**: https://of-the-culture-ecommerce.pages.dev (Cloudflare Pages)
-- **Legacy URL**: https://vibekween.github.io/of-the-culture-ecommerce/ (GitHub Pages - deprecated)
+- **Repository**: Private repository (proprietary ecommerce configuration)
 - **Mobile optimization**: Responsive breakpoint at 768px with mobile-first design
 - **Font loading**: Google Fonts CDN (JetBrains Mono, Lekton) with preconnect optimization
 - **SEO Foundation**: JSON-LD structured data, Open Graph, Twitter Cards, semantic HTML
 - **Performance**: Sub-2 second load time target with optimized assets
 - **Accessibility**: WCAG compliant with visually hidden headings and proper alt text
+
+## Repository Information
+
+This is a **private repository** containing proprietary ecommerce configuration for OF THE CULTURE. The repository protects:
+- Business logic and commerce strategy
+- API configuration and integration patterns
+- Product catalog structure and pricing
+- Analytics and tracking implementation
+
+**Live Site**: https://oftheculture.co (public-facing production site)
+
+**Deployment**: Cloudflare Pages automatically deploys from the `main` branch via GitHub integration with private repository access.
 
 ## Launch Plan
 

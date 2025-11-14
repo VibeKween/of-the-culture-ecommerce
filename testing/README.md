@@ -63,7 +63,7 @@ Tests the JavaScript logic that determines page types based on URL paths.
 
 **Example Test:**
 ```javascript
-const testPath = '/of-the-culture-ecommerce/atelier/';
+const testPath = '/atelier/';
 const isNonProductPage = !testPath.includes('/atelier/') || testPath.endsWith('/atelier/');
 // Expected: true (atelier root is not a product page)
 ```
@@ -240,11 +240,10 @@ const navTest = addTest('nav-tests', 'Collection URLs use new format', async () 
 
 **Example:**
 ```javascript
-// OLD
-const testPath = '/of-the-culture-ecommerce/atelier/nakamoto/';
+// Current production path (oftheculture.co)
+const testPath = '/atelier/nakamoto/';
 
-// NEW (for custom domain)
-const testPath = '/shop/nakamoto/';
+// Note: No prefix needed for custom domain deployment
 ```
 
 ### For Cart System Tests

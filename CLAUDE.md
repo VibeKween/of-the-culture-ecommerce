@@ -338,7 +338,7 @@ Before any modification, assess the change type:
 **Source of Truth**: Main branch always reflects live site
 - `main` branch ←→ https://oftheculture.co (Cloudflare Pages deployment)
 - Main branch contains current production state
-- Legacy GitHub Pages URL: https://vibekween.github.io/of-the-culture-ecommerce/ (deprecated)
+- **Repository Status**: Private (protects proprietary ecommerce configuration)
 
 **Development Workflow**:
 ```bash

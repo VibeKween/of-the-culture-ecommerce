@@ -85,7 +85,7 @@ pages/
 - **Project Foundation**: Folder structure and development environment
 - **Homepage Implementation**: Brand manifesto with grosgrain label element
 - **Design System**: Base CSS framework and responsive patterns
-- **Deployment**: GitHub Pages live at https://vibekween.github.io/of-the-culture-ecommerce/
+- **Deployment**: Cloudflare Pages live at https://oftheculture.co
 - **Documentation**: Session tracking and development overview system
 
 ### 🎯 Next Phase (Session #002)
@@ -145,11 +145,11 @@ pages/
 ### 📖 Understanding the Project
 1. Read this Development Overview
 2. Review Session #001 archive in `/docs/sessions/`
-3. Examine the live site: https://vibekween.github.io/of-the-culture-ecommerce/
+3. Examine the live site: https://oftheculture.co
 4. Study the 02-LANDING-PAGE foundation for design context
 
 ### 🛠️ Development Setup
-1. Clone repository: `git clone git@github.com:VibeKween/of-the-culture-ecommerce.git`
+1. **Note**: Repository is private (requires authorized access)
 2. Open `index.html` in browser for immediate preview
 3. Edit files directly (no build process required)
 4. Test responsive design at 768px breakpoint
@@ -169,7 +169,7 @@ pages/
 
 ---
 
-**Last Updated**: August 22, 2025  
-**Repository**: https://github.com/VibeKween/of-the-culture-ecommerce  
-**Live Site**: https://vibekween.github.io/of-the-culture-ecommerce/  
+**Last Updated**: November 14, 2025
+**Repository**: Private (OF THE CULTURE proprietary ecommerce configuration)
+**Live Site**: https://oftheculture.co
 **Documentation**: `/docs/sessions/` for detailed development history

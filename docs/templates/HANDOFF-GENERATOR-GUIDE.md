@@ -45,8 +45,8 @@ For ongoing projects, consider creating project-specific templates that pre-fill
 **Example for OF THE CULTURE Ecommerce:**
 ```
 [PROJECT NAME] → "the OF THE CULTURE ecommerce microsite"
-[GITHUB REPOSITORY URL] → "https://github.com/VibeKween/of-the-culture-ecommerce"
-[LIVE SITE URL] → "https://vibekween.github.io/of-the-culture-ecommerce/"
+[GITHUB REPOSITORY] → "Private repository (OF THE CULTURE proprietary configuration)"
+[LIVE SITE URL] → "https://oftheculture.co"
 [LOCAL PROJECT PATH] → "/Users/falonbahal/Desktop/DEVELOPMENT/TUKU-GROUP/03-ECOMMERCE-OF-THE-CULTURE"
 ```
 

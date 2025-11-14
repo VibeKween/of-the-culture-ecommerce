@@ -183,6 +183,7 @@ docs/
 
 ---
 
-**Last Updated**: August 22, 2025  
-**Maintained By**: Development Team  
-**Repository**: https://github.com/VibeKween/of-the-culture-ecommerce
+**Last Updated**: November 14, 2025
+**Maintained By**: Development Team
+**Repository**: Private (OF THE CULTURE proprietary ecommerce configuration)
+**Live Site**: https://oftheculture.co

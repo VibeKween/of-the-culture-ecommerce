@@ -98,8 +98,8 @@
 
 *[Optional closing thought or philosophy tie-in that connects the session work to OF THE CULTURE brand values]*
 
-**Repository**: [github.com/VibeKween/of-the-culture-ecommerce](https://github.com/VibeKween/of-the-culture-ecommerce)  
-**Live Site**: [vibekween.github.io/of-the-culture-ecommerce](https://vibekween.github.io/of-the-culture-ecommerce/)
+**Repository**: Private (OF THE CULTURE proprietary ecommerce configuration)
+**Live Site**: [oftheculture.co](https://oftheculture.co)
 
 ---
 
